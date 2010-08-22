@@ -85,7 +85,7 @@ If you are interested in learning more about the basics of animation, the CS dep
 
 ### The Timeline and Keys
 
-![Maya Image](/images/animation/animation_general-ui.png)
+![Maya Image](/images/basic-animation/animation_general-ui.png)
 
 This is Maya's timeline.  Here you are able to set animation keys, scrub through the animation, and change the range of time in your animation. Notice the four boxes that comprise the Range Info. The two outer boxes (with values 1.00 and 48.00) are the start and end of your timeline. Think of these two numbers as representing the length of the whole timeline. The two inner boxes represent the start and end of the current section of the timeline. Many times, you will only want to edit keyframes on part of the timeline.
 
@@ -93,17 +93,17 @@ You should make sure not to have "Auto Key" on because anytime you move or chang
 
 ### Changing Your Settings
 
-![Maya Image](/images/animation/animation_pref-settings.png)
+![Maya Image](/images/basic-animation/animation_pref-settings.png)
 
 An important thing to before even starting to create your animations is to make sure your settings are correct in the options menu.  It is very important to decide these settings before you work in groups to avoid problems when trying to merge projects together later on.  We like to use **24fps** for this course.
 
-![Maya Image](/images/animation/animation_pref-time.png)
+![Maya Image](/images/basic-animation/animation_pref-time.png)
 
 It is also good to generally keep the playback speed at "Real Time" so you can see what your motion will look like in the end.
 
 ### Setting Keyframes
 
-![Maya Image](/images/animation/animation_basic-keys.png)
+![Maya Image](/images/basic-animation/animation_basic-keys.png)
 
 Keyframes define "start" and "end" positions for an object and the computer fills in the rest.  
 
@@ -115,7 +115,7 @@ Pressing S will set all the attributes of a particular object. If you would like
 
 When an object is selected, every frame that contains a Key information for that object will have a red bar in it.
 
-![Maya Image](/images/animation/animation_keys-moving.png)
+![Maya Image](/images/basic-animation/animation_keys-moving.png)
 
 For some quick and dirty editing of keyframes, you can select them in the timeline by holding shift and click-dragging the mouse across your desired area.  It will be highlighted in red.
 
@@ -127,7 +127,7 @@ A much better way to edit kets is through the graph editor.
 
 ### The Graph Editor
 
-![Maya Image](/images/animation/animation_basic-grapheditor.png)
+![Maya Image](/images/basic-animation/animation_basic-grapheditor.png)
 
 This is your graph editor.  It displays all information about the selected object in graph format.
 
@@ -148,7 +148,7 @@ We could easily go through each button and short cut, but it is probably best to
 
 Before beginning this exercise in Maya, it is best to look at a 2D drawing of what a ball actually looks like when it bounces.
 
-![Maya Image](/images/animation/animation_2dball.png) 
+![Maya Image](/images/basic-animation/animation_2dball.png) 
 
 Image from <http://www.evl.uic.edu/ralph/508S99/squash.html>
 
@@ -156,17 +156,17 @@ Take for example a bouncing ball. A rubber ball bounces higher and squashs more 
 
 First create a ball by creating a simply polygonal sphere.  If you do not remember how to do this, please refer back to the Introduction to Maya tutorial.
 
-![Maya Image](/images/animation/animation_ball-changeview.png)
+![Maya Image](/images/basic-animation/animation_ball-changeview.png)
 
 You can change the view of the top panel to "side" view for the purposes of the exercise by going to Panel > Orthographic > Side.
 
-![Maya Image](/images/animation/animation_ball-setkeys.png) 
+![Maya Image](/images/basic-animation/animation_ball-setkeys.png) 
 
 To set the ball bounce, you can set three keys: high, low, and high.  You position the ball where you want (either by moving with the move tool or by changing values in the channel editor) at the frame you would like (by selecting that frame on the timeline) and then hitting "S" to set key. For this exercise, it is best to place the keys over a span of about 100 frames to have the ball move more slowly for viewing purposes.
 
 Looking at the graph editor, we can see the curves made by the computer are incorrect! Balls do not slow as it approaches the place it hits.
 
-![Maya Image](/images/animation/animation_ball-changegraph.png)
+![Maya Image](/images/basic-animation/animation_ball-changegraph.png)
 
 This is better! Let's see how we get our graph to look like this.  As we see, the up and down movement of the ball is determined by the y-axis of the graph.  We can view just this by selecting "Translate Y" in the graph editor.
 
@@ -176,7 +176,7 @@ You can now try hitting the "Play" button on the timeline to see what your ball 
 
 We can take this one step further by adding a deformer to the ball to create the "squash and stretch" attribute a rubber ball has. To do this, select "Animation" from the menu drop down, go to Create Deformer > Nonlinear > Squash.  Right now, the deformer is not attached to the ball so if you try to change it's values it will not do exactly what we would like.  In order to attach the deformer to the ball, we must **first select the deformer** in the outliner, **command-click** the ball, then go to Edit > Parent in the menu bar.
 
-![Maya Image](/images/animation/animation_ball-parentdeformer.png)
+![Maya Image](/images/basic-animation/animation_ball-parentdeformer.png)
 
 Now that we parented the deformer, we can see in the channel editor that the "squash" input is now available by clicking "Squash".  If you select "Factor", you can play with the deformer in perspective view by moving the mouse while holding the middle-mouse-button.
 
@@ -184,11 +184,11 @@ In the first high position, we know that the ball will be (for the most part) a 
 
 Now go a few frames before the ball hits the low point and have the ball be taller.
 
-![Maya Image](/images/animation/animation_ball-stretch.png)
+![Maya Image](/images/basic-animation/animation_ball-stretch.png)
 
 Once the ball hits the bottom, it will be squashed.
 
-![Maya Image](/images/animation/animation_ball-squash.png)
+![Maya Image](/images/basic-animation/animation_ball-squash.png)
 
 You can repeat the steps for the following side, just in the opposite order.
 

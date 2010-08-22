@@ -1,9 +1,12 @@
 import markdown 
+import sys
 
-f = open("character-animation.md")
+f = open(sys.argv[1])
 
 for line in f:
-    print unicode(line)
+    for c in line:
+        print unicode(c),
+    print 
 
 text = markdown.markdown(f.read())
 

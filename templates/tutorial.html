@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<p>
+  You are here: <a href="/">Home</a> &rarr; <a href="{{ page.link }}">{{ page.title}}</a>
+</p>
+
+{{ markdown }}
+
+{% endblock %}

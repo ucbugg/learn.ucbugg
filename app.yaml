@@ -1,0 +1,18 @@
+api_version: 1
+application: learnucbugg
+handlers:
+- static_dir: static/ma
+  url: /ma
+- expiration: 90d
+  static_dir: static/css
+  url: /css
+- expiration: 90d
+  static_dir: static/images
+  url: /images
+- expiration: 90d
+  static_dir: static/js
+  url: /js
+- script: main.py
+  url: /.*
+runtime: python
+version: 1
