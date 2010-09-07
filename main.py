@@ -43,6 +43,7 @@ def render(filename, values):
     return template.render(path, values)
 
 CHAPTERS = [
+    "Getting Maya",
     "Introduction to Maya",
     "Basic Modeling",
     "Organic Modeling",

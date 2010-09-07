@@ -1,7 +1,7 @@
 import os
 
 #Stashboard version
-VERSION = "0.1.2"
+VERSION = "0.1.3"
 
 # Add utils and templates to the system path
 APP_ROOT_DIR = os.path.abspath(os.path.dirname(__file__))
