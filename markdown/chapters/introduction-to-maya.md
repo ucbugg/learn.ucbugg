@@ -8,7 +8,7 @@ If you are not using a Mac Pro in the CITRIUS lab, feel free to skip this sectio
 
 ### Setup Right-Click and Middle Mouse Button
 
-The contextual menu in Maya, opened via right-click, is a very important tool for the seasoned Maya user. However, the Mac Pros don't have right-click enabled by default. Open up System Preferences. Select Mouse and Keyboard. Select Mouse in the top menu. Set the right-click button to Secondary. Also set the Middle Mouse Button to actually be the middle mouse button, not the Dashboard.
+The contextual menu in Maya, opened via right-click, is a very important tool for the seasoned Maya user. However, the Mac Pros don't have right-click enabled by default. Open up System Preferences. Select Mouse and Keyboard. Select Mouse in the top menu. Set the right-click button to Secondary. Also set the Middle Mouse Button to Button 3, not the Dashboard.
 
 ![Maya Image](/images/introduction-to-maya/intro_to_maya_mouse.png)
 
@@ -18,7 +18,7 @@ The simplest way to launch Maya is to click the Spotlight icon in the upper righ
 
 ![Maya Image](/images/introduction-to-maya/intro_to_maya_openmaya.png)
 
-If spotlight isn't working, simple open up Finder, select Applications in the left bar, and Navigate to Autodesk &rarr; maya2010  &rarr; Maya. 
+If spotlight isn't working, simple open up Finder, select Applications in the left bar, and Navigate to Autodesk &rarr; maya2009  &rarr; Maya. 
 
 ## Interface
 
