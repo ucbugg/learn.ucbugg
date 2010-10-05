@@ -48,6 +48,7 @@ CHAPTERS = [
     "Basic Modeling",
     "Organic Modeling",
     "Basic Rigging",
+    "Skinning",
     "Basic Animation",
     "Character Animation",
     "Shading",

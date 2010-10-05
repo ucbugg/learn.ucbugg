@@ -94,6 +94,7 @@ ol {
   background: #ffffff;
 }
 #chapter td:first-child { font-weight: bold; }
+#chapter #blocking img { width: 300px; }
 .note {
   -moz-border-radius: 20px;
   -webkit-border-radius: 20px;
