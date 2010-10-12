@@ -46,7 +46,10 @@ body {
 }
 header, footer, section { display: block; }
 header { padding-top: 4px; }
-section { margin-top: 15px; }
+section {
+  margin-top: 15px;
+  padding: 10px;
+}
 h1 {
   font-size: 48px;
   line-height: 48px;

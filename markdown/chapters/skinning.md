@@ -8,11 +8,11 @@ Skinning involves connectng a skeleton to the geometry of a character. We will b
 
 ## Double Checking
 
-Before skinning, you always want to make sure that the skeleton is in the proper place, so be sure to double check that each individual joint is in the correct place. A common mistake that has come up in the past has to do with the placement of the shoulder joint - this will be farther out than you expect, and should basically follow the silhouette of the side of the body geometry. Also be sure to double check the wrist placement and ankle placement, as those are commonly misplaced. Making sure all your geometry and skeleton is finalized before skinning is very important, because if you have to make a change after the character is skinned, you will probably have to remove all skinning and start all over. (Trust me, you don't want to do that!)
+Before skinning, you always want to make sure that the skeleton is in the proper place, so be sure to double check that easch individual joint is in the correct place. A common mistake that has come up in the past has to do with the placement of the shoulder joint - this will be farther out than you expect, and should basically follow the silhouette of the side of the body geometry. Also be sure to double check the wrist placement and ankle placement, as those are commonly misplaced. Making sure all your geometry and skeleton is finalized before skinning is very important, because if you have to make a change after the character is skinned, you will probably have to remove all skinning and start all over. (Trust me, you don't want to do that!)
 
 ## Initial Skinning
 
-First we will skin the geometry to the skeleton by the rough estimation available through Maya. You want to select the whole skeleton by selecting the COG joint and then selecting all the children joints by clicking Edit>>Select Hierarchy.
+First we will skin the geometry to the skeleton by the rough estimation available through Maya. You want to select the whole skeleton by selecting the COG joint and then selecting all the children joints by clicking **Edit &rarr; Select Hierarchy**.
 
 Then open the Outliner, and expand out all the joints you've just selected so all the effectors and constraints are visible. Deselect any item that isn't a joint. Now that every joint is selected, additionally select your geometry.
 
@@ -125,9 +125,12 @@ When you move the COG control, it should look exactly like your result in (2), b
 
 ![What a great knee](/images/skinning/ucbugg_skinning-19.jpg)
 
+## Mirroring Skin Weights
 
+Continue on and finish the skinning on the left side, for the COG/spineA, l_knee/l_heel, and l_heel/l_ball junctions. Now we'll mirror by first selecting the geometry, then click **Skin &rarr; Edit Smooth Skin &rarr; Mirror Skin Weights &rarr; Option Box**, and make sure it has the following settings:
 
+![Mirror Skin Weights Options](/images/skinning/ucbugg_skinning-20.jpg)
 
-
+Click Mirror, and VOILA! You have a skinned lower body :) Test it out by moving things around and see what needs adjustments. The finished maya file is also on the ucbugg website.
 
 Originally written by Megan Marquardt
