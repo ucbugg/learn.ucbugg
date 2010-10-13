@@ -22,7 +22,7 @@ We will now bind the skeleton you've selected to the geometry. Make sure your to
 
 Set the options to the following
 
-![Smooth Bind Options](/images/skinning/ucbugg_skinning-2.jpg)
+![Smooth Bind Options](/images/skinning/ucbugg_skinning-2a.jpg)
 
 Then select **Bind Skin**
 
@@ -36,7 +36,7 @@ As you can see, automatic skinning rarley creates good skin weights. We will kno
 
 We should first investigate the tool that allows us to smooth out the influences at each joint. Change your shelf category to Animation and when the newly skinned geometry is already selected, click the icon that looks like a piece of geometry and a red circle. This tool is also accessible from **Skin &rarr; Edit Smooth Skin &rarr; Paint Skin Weights Tool &rarr; Option Box**. In your tool settings, be sure to have the following settings: (The radius boxes don't matter at this point, and Opacity should be equal to 1)
 
-![Paint Skin Weights option box](/images/skinning/ucbugg_skinning-4.jpg)
+![Paint Skin Weights option box](/images/skinning/ucbugg_skinning-4a.jpg)
 
 Influences range between 0 and 1, 0 influence appears black and 1 appears white. Any decimal between 0 and 1 will appear as a shade of grey accordingly.
 
