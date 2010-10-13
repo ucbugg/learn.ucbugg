@@ -24,13 +24,8 @@ from google.appengine.api import memcache
 
 import logging
 import os
-import settings
-import sys
+from ucbugg import settings
 import wsgiref.handlers
-
-# Update the system path
-sys.path.insert(0, settings.APP_ROOT_DIR)
-sys.path.insert(1, os.path.join(settings.APP_ROOT_DIR, 'utils'))
 
 import markdown
 
