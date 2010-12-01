@@ -4,7 +4,7 @@ We'll now turn your multiple image sequences into a finished animation. You shou
 
 ## Create Movie Files from Image Sequences
 
-We'll be using Quicktime Pro to turn image sequences into actual movie files. We create image sequences with [batch rendering](/rendering) If you don't have an image sequence to use, go ahead and download our [sample image sequence](/images/sample-sequence.zip).
+We'll be using Quicktime Pro to turn image sequences into actual movie files. We create image sequences with [batch rendering](/rendering) If you don't have an image sequence to use, go ahead and download our [sample image sequence](/images/editing/image-sequence.zip).
 
 ### Opening an Image Sequence
 
