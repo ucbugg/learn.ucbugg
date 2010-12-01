@@ -50,6 +50,8 @@ CHAPTERS = [
     "Shading",
     "Lighting",
     "Advanced Shading",
+    "Rendering",
+    "Editing",
 ]
 
 TUTORIALS = [

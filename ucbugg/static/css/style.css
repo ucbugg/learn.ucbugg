@@ -68,6 +68,7 @@ h4 {
   margin-bottom: 15px;
 }
 p { margin-bottom: 25px; }
+pre { margin-bottom: 25px; padding: 25px; background: #CCC;}
 ol, ul {
   list-style-type: decimal;
   margin-bottom: 25px;
