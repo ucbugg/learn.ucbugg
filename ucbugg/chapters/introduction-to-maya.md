@@ -4,7 +4,7 @@ Welcome to the first UCBUGG lab exercise. We will be covering the basics of Maya
 
 ## Configure OS X / Launch Maya
 
-If you are not using a Mac Pro in the CITRIUS lab, feel free to skip this section. 
+If you are not using a Mac Pro in the CITRUS lab, feel free to skip this section. 
 
 ### Setup Right-Click
 
