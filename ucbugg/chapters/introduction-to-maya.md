@@ -146,21 +146,6 @@ You may have noticed the numbers going from 1-24 near the bottom of the screen. 
 
 ### Script Editor
 
-There is a button on the bottom-right of the Maya window that looks like a window with two rectangles in it.  This button will open the __Script Editor__.  The Script Editor allows you to write code in eit
-
-
-## Extra for Experts
-
-In this section, we introduce several features of maya that you won't be using for a while, so feel free to skip it if you just want to learn the basics right now.  But make sure to continue reading as there is an assignment at the end of the lab!
-
-### Timeline
-
-You may have noticed the numbers going from 1-24 near the bottom of the screen.  This is called the __Timeline__, and is used for animating objects.  The numbers correspond to _frames_, with one frame being 1/24th of a second.
-
-![timeline](images/introduction-to-maya/img_015_timeline.png)
-
-### Script Editor
-
 There is a button on the bottom-right of the Maya window that looks like a window with two rectangles in it.  This button will open the __Script Editor__.  The Script Editor allows you to write code in either Python or Maya Embedded Language (MEL).  If you're technically inclined, you can do some really cool things using scripts. For the purposes of this class, knowing MEL or Python definately isn't necessary, but the option is there if you're interested.
 
 ![script editor](images/introduction-to-maya/img_016_scripteditor.png)
