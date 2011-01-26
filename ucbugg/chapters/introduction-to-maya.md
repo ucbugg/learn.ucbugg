@@ -172,7 +172,7 @@ Next, I'm going to create another cube, scale it, and move it underneath my head
 
 ### Quick Aside: The Outliner
 <div class='note'>
-Navigate to Window --> Outliner. This will open up a window called the **Outliner**.  You'll notice that there are several items in the list such as persp, top front, side, pCube1, and pCube2. If you click on pCube1, you'll notice that this is the cube you're using for the head of your robot.  Advanced models can have hundreds or even thousands of polygons, and if they were all named like this, modeling would be very confusing.  Double-click each of your cubes and rename them to head and torso.  As you build the rest of your robot, make an effort to rename each object to something more descriptive than pCube or pSphere.
+Navigate to Window --> Outliner. This will open up a window called the __Outliner__.  You'll notice that there are several items in the list such as persp, top front, side, pCube1, and pCube2. If you click on pCube1, you'll notice that this is the cube you're using for the head of your robot.  Advanced models can have hundreds or even thousands of polygons, and if they were all named like this, modeling would be very confusing.  Double-click each of your cubes and rename them to head and torso.  As you build the rest of your robot, make an effort to rename each object to something more descriptive than pCube or pSphere.
 </div>
 
 ### And Now Back to our Robot
