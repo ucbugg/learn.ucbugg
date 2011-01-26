@@ -11,6 +11,7 @@ First of all, we will review how to make a project and make a project for this w
 ### Create a New Project
 Go to _File->Project->New..._ to create a new project named UCBUGG Mini Project.
 We're gonna name the Scenes location _scenes_, and the Images location _images_ for this project and that is all we need to worry about.
+
 ![New Project Toolbox](/images/mini-project-1/Week1_002.png)
 
 Now if you try to open a file through _File->Open Scene..._, you will notice that on the left hand side that the Current Project is now set to UCBUGG Mini Project.
@@ -87,6 +88,7 @@ Here are some of the reasons references in Maya are useful:
 * If ever someone makes a change to a file, it will propagate up the hierarchy, automatically syncing everyone's work to the most recent one.
 
     e.g. If you had a scene, that referenced in a robot, and the robot file also referenced in a separate hat for the robot, and then you modify the hat file, this change will be shown in the robot file, and in the scene file as well.
+
 ![Referencing Diagram](/images/mini-project-1/Week1_010.png)
 
 * You can easily manage all this with the Reference Editor which I will introduce to you shortly.
