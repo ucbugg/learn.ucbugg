@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Mini Project Part 1.
 
 ## Overview
