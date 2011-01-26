@@ -6,11 +6,11 @@ Welcome to the first UCBUGG lab exercise. We will be covering the basics of Maya
 
 If you are not using a Mac Pro in the CITRUS lab, feel free to skip this section. 
 
-### Setup Right-Click
+### Setup the Mouse
 
-The contextual menu in Maya, opened via right-click, is a very important tool for the seasoned Maya user. However, the Mac Pros don't have right-click enabled by default. Open up System Preferences. Select Mouse and Keyboard. Select Mouse in the top menu. Set the right-click button to Secondary.
+The contextual menu in Maya, opened via right-click, is a very important tool for the seasoned Maya user. However, the Mac Pros don't have right-click or the middle mouse button enabled by default. Open up System Preferences. Select Mouse and Keyboard. Select Mouse in the top menu. Set the right-click button to Secondary. Also change the middle mouse button from "Off" to "Button 3". You may need to change this setting twice for it to stick.
 
-![Mouse Settings](/images/introduction-to-maya/intro_to_maya_mouse.png)
+![Mouse Settings](/images/introduction-to-maya/mouse.jpg)
 
 ### Launch Maya
 
@@ -19,6 +19,12 @@ The simplest way to launch Maya is to click the Spotlight icon in the upper righ
 ![Open Maya](/images/introduction-to-maya/intro_to_maya_openmaya.png)
 
 If spotlight isn't working, open up Finder, select Applications in the left bar, and Navigate to **Autodesk &rarr; maya2011 &rarr; Maya**. 
+
+## Enable Infinite Undo
+
+When learning Maya, you're going to make mistakes (no matter how good you are). Pressing **Z** will undo your last move in Maya. By default, Maya only lets you undo a certain number of moves. To enable infinite undo, Select **Windows &rarr; Settings/Preferences &rarr; Preferences**. Select the **Undo** menu from the side bar and change the Queue to Infinite. 
+
+![Open Maya](/images/introduction-to-maya/undo.jpg)
 
 ## Creating a Maya Project
 
