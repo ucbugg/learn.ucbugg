@@ -170,7 +170,7 @@ Next, I'm going to create another cube, scale it, and move it underneath my head
 
 ![robot](images/introduction-to-maya/img_018_robot1.png)
 
-Next, I create a cylinder, rotate it about 90 degrees (using the channel box, move it up, and duplicate it (using ? - D) and move the duplicate to the other side.
+Next, I create a cylinder, rotate it about 90 degrees (using the channel box, move it up, and duplicate it (using ⌘ - D) and move the duplicate to the other side.
 
 ![robot](images/introduction-to-maya/img_019_robot2.png)
 
