@@ -159,6 +159,49 @@ Now we have a very basic toilet-looking object (without a flusher or hinges or b
 
 ![Maya Image](/images/basic-modeling/toilet_035.png) 
 
-## Additional Resources
+## Extra for Experts
 
-* [Create a Reference Image](/tutorials/create-reference-image)
+Now you have a grey model. It is bland and boring and needs a spice of color. Here is a quick tutorial for coloring your models.
+
+Select your completed toilet. Hold **right click** and select **Assign New Material**.
+
+![Maya Image](/images/basic-modeling/toilet_036.png) 
+
+A window listing different materials should pop up. As you can see from this list, there are many different materials that can be assigned to your objects. We will go over two basic ones for now **Lambert** and **Phong**. More details will be provided in the Shading lab.
+
+![Maya Image](/images/basic-modeling/toilet_037.png) 
+
+### Lambert
+
+The lambert material type is used to simulate flat, dull materials like plastic or clay.
+
+### Phong
+
+The phong material type is used to simulate any sort of glossy surface because it is "shiny." Examples are metallic objects, or shinier plastics.
+
+Now that you know a little about lamberts and phongs. In the **Assign New Material** window click on either lambert or phong. The **Attribute Editor** should then appear. It is good practice to name your shaders and that can be done in the attribute editor. 
+
+![Maya Image](/images/basic-modeling/toilet_038.png) 
+
+To change the color of this shader, click on **Color** in the **Attribute Editor**. A color palette will appear, from there select the color that you want.
+
+![Maya Image](/images/basic-modeling/toilet_039.png) 
+
+Your toilet should now be in color! The toilet below is assigned to a red lambert. 
+
+![Maya Image](/images/basic-modeling/toilet_040.png) 
+
+If you chose lambert and decided phong would be a better shader for your toilet or vice versa, you can change the material type by clicking **Type** in the **Attribute Editor**. A drop down list should appear.
+
+![Maya Image](/images/basic-modeling/toilet_041.png) 
+
+And if you chose to color your toilet red instead of blue, we forgive you. Remember you can change the color by selecting **Color** in the **Attribute Editor**.
+
+The toilet is now assigned to a blue phong material. Much better!
+
+![Maya Image](/images/basic-modeling/toilet_042.png) 
+
+
+Go ahead and have fun putting color into your world!
+
+Once you're done, proceed to [Mini Project 2](http://learn.ucbugg.com/mini-project-2) which is due next week.
