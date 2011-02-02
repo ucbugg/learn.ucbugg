@@ -15,11 +15,13 @@ Now we'll proceed to rendering our very first maya image!
 
 ## Cameras
 
-Before we go any further. We need to set up a camera we can render through. Let's use a camera I have already set up for you named turntablecam.ma. Inside scenes/sets download the [turntablecam.ma](/ma/turntablecam.ma).
+Before we go any further, lets learn a bit about the cameras. Do you remember your outliner? Remember how it had four camera shaped icons named _persp_, _top_, _front_, and _side_? These are actually cameras that Maya creates by default. So you've been using cameras all this time without knowing! The very first view you get when you open Maya is the _persp_ camera, and when you open your four-views the cameras you get are those four cameras!
+
+However, we need to set up a separate camera we can render through. This is because we are going to be moving around in those four cameras and can't keep our camera locked which is most likely what you want when you find a nice composition. Let's use a camera I have already set up for you named turntablecam.ma. Download [turntablecam.ma](/ma/turntablecam.ma) to _scenes/sets_.
 
 ### Import
 
-During the last project we learnt how to reference in other Maya scenes into another Maya scene. This week, we'll be using a tool called Importing instead.
+During the last project we learned how to reference in other Maya scenes into another Maya scene. This week, we'll be using a tool called Importing instead.
 
 Simply speaking, importing brings in other Maya scene files directly into the current scene, instead of creating only a reference that continuously refers to the original file. It is significantly less powerful than referencing in terms of features, but what we'll be doing with the camera is only using it as a one time tool so it fits are purposes just fine. If you want to learn more about the differences between importing and referencing, please read the Extra for Experts section.
 
@@ -104,7 +106,7 @@ It looks so much better doesn't it? Great now from Render View you can save your
 __WARNING! WARNING!__
 Now comes a bit of a daunting part. If you hadn't noticed already, some of Maya's tools have a lot of option boxes everywhere. The Maya renderer is one of those tools. As there's too much to cover before I even start talking about the awesome features these options allow you to do, I will mostly zoom pass them. But, we will revisit animation and rendering again and again, which is much better than giving you all the information at once so don't worry! Just keep to the path and everything will be okay!
 
-Now you've learnt how to render out single images right? Well, turns out this is an animation class and we are more interested in many images played in succession. The way to do is using Batch Render.
+Now you've learned how to render out single images right? Well, turns out this is an animation class and we are more interested in many images played in succession. The way to do is using Batch Render.
 
 ### Rendering an Animation
 
@@ -115,7 +117,7 @@ If you look at the bottom of your maya window, you'll notice a bar that has mark
 
 ![Time line 1 and 26](/images/mini-project-2/Project2-012.png)
 
-First, lets start expanding our Time Line ot 72 frames so we have a little bit more time than a single second.
+First, lets start expanding our Time Line to 72 frames so we have a little bit more time than a single second.
 
 ![Time line settings](/images/mini-project-2/Project2-013.png)
 
@@ -196,11 +198,15 @@ Well, not literally extra credit, but now you guys know how to model objects, pu
 
 ### Import vs. Reference
 
+We've learned both Importing and Referencing as a way of bringing in separate scene files into a single Maya scene file. The main difference between importing and referencing is:
+
 * Importing still allows multiple people to work on multiple parts of the project at once.
 * However, it lacks the advantages of referencing that allow you to continue to make changes after files have been combined into a file.
 * There are certain situations when importing is useful than referencing though.
 
-* Imagine the lighting exercise you did for the mini project. If you had referenced the lights and then made changes to them to get just the perfect lighting you want, what would have happened if someone went and added another light in the reference or removed it? Suddenly you have to do all your work over again. Usually if it's a one time-use tool such as the lights in this mini project, importing might be the tool to use.
-* If, however we had three separate scenes that we wanted to keep the lighting consistent throughout, the lights are no longer a one time-use tool. They need to be the same across all the references with only minor adjustments per scene. In this case we want the light rig to be a reference.
+Imagine the lighting exercise you did for the mini project. If you had referenced the lights and then made changes to them to get just the perfect lighting you want, what would have happened if someone went and added another light in the reference or removed it? Suddenly you have to do all your work over again. Usually if it's a one time-use tool such as the lights in this mini project, importing might be the tool to use.
+
+If, however we had three separate scenes that we wanted to keep the lighting consistent throughout, the lights are no longer a one time-use tool. They need to be the same across all the references with only minor adjustments per scene. In this case we want the light rig to be a reference.
+
 
 In general, references are more powerful and except for some special situations, you are likely to find them more useful.
