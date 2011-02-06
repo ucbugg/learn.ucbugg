@@ -24,7 +24,7 @@ Inside the _scenes_ directory in your file system, make a directory named _chars
 
 Download this zip file [here](/ma/mini_props.zip) and put them under scenes/props.
 Also, download this zip file [here](/ma/mini_bots.zip) and put them under scenes/chars.
-Also, while we are at it lets put your finished robot into scenes/chars as well.
+Also, while we are at it lets __put your finished robot from the first lab into scenes/chars as well__. A project needs to be self-contained so we need to have all the files you're going to use in the same project at all times.
 
 Now our project is all set up to be used!
 
