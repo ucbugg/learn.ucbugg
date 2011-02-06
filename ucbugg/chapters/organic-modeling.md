@@ -4,6 +4,8 @@
 If you're familiar with Maya's modeling tools, you could probably get through this tutorial by just looking at the images. I've included text for extra clarification.
 </div>
 
+Hi
+
 **Remember to File->Project->Set your current project to your UCBUGG Lab project.**
 
 It's useful in the future to have a reference image inside your Maya file to model off of in the orthogonal views. 
