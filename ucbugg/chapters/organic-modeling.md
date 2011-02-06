@@ -4,7 +4,9 @@
 If you're familiar with Maya's modeling tools, you could probably get through this tutorial by just looking at the images. I've included text for extra clarification.
 </div>
 
-It's useful to have a reference image inside your Maya file to model off of in the orthogonal views. 
+**Remember to File->Project->Set your current project to your UCBUGG Lab project.**
+
+It's useful in the future to have a reference image inside your Maya file to model off of in the orthogonal views. 
 
 [Create a reference image][/tutorials/create-a-reference-image]
 
@@ -33,13 +35,13 @@ First, **create a cylinder**: Create &rarr; Polygon Primitives &rarr; Cylinder.
 
 ![Maya Image](/images/organic-modeling/frog_023.jpg)
 
-Change the cylinder options under INPUTS in the Channel Box. To show the channel box by using the right most button in the upper right: 
+Change the cylinder options under INPUTS in the Channel Box. To show the channel box, use the right most button in the upper right: 
 
-![Maya Image](/images/organic-modeling/frog_150.jpg)
+![Maya Image](/images/organic-modeling/frog_150.jpg) **(eileen)i am changing this image**
  
-You may have to "unfold" the polyCube# area by clicking on it. 
+You may have to "unfold" the polyCylinder# area underneath "inputs" by clicking on it. 
 
-Adjust the highlighted fields as shown so that the cylinder has **8 sides** and is **centered on the grid.**
+Adjust the highlighted fields as shown so that the cylinder has **8 sides, 1 height subdivision, and 1 cap subdivision*** and is **centered on the grid.**
 
 ![Maya Image](/images/organic-modeling/frog_001.jpg)   
 
@@ -62,6 +64,7 @@ Adjust the highlighted fields as shown so that the cylinder has **8 sides** and 
 ![Maya Image](/images/organic-modeling/frog_092.jpg)
 
 Note: There is a slight bend in the arm to give an indication of which direction the ik handle should work later on in rigging. 
+**(eileen) do we want them to create this bend as well?**
 
 When you're done with your arm, **name it "Arm1" in the Outliner.**
 
@@ -117,9 +120,8 @@ Change the INPUTS in the channel Box so that the cylinder has **10 sides** and i
 **Use Split Polygon Tool and draw in edges as shown:** Edit Mesh &rarr; Split Polygon Tool.
 
 ![Maya Image](/images/organic-modeling/frog_024.jpg)
-![Maya Image](/images/organic-modeling/frog_028.jpg
+![Maya Image](/images/organic-modeling/frog_028.jpg)
 ![Maya Image](/images/organic-modeling/frog_030.jpg)
-
 
 Now, **insert edge loops and scale them. Scale down the end vertices.**
 
