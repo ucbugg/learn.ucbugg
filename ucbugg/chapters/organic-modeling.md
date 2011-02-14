@@ -298,17 +298,23 @@ Look at the eye patches from the inside, and **duplicate the eye patch faces, an
 
 ![Maya Image](/images/organic-modeling/frog_110.jpg)
 
-Next, we are going to connect the eye patch to the head by merging vertices. To merge vertices, however, we must first **turn the eye patch and head into one object.** Shift+select the eye patch and head in object mode, Mesh &rarr; Combine.
+Next, we are going to connect the eye patch to the head by merging vertices. 
 
-![Maya Image](/images/organic-modeling/frog_084.jpg)
+![Maya Image](/images/organic-modeling/orgmodel_007.jpg)
+
+Now continue merging the rest of the vertices.
 
 ![Maya Image](/images/organic-modeling/frog_111.jpg)
 
+Before you go on, quickly go into smooth mode to make sure there are no extra weird deformations happening within your model. If there are, it may be because you have edges right on top of eachother or extra vertices.
+(If you are working in lab, feel free to ask for help! If you are working from home, send us an email or come to office hours!)
+
 **Here are a series of steps to continue adding faces to the head:**
+Remember, you can scale a group of vertices in towards each other to line them up straight.
 
 ![Maya Image](/images/organic-modeling/frog_112.jpg) 
 
-**To make the bottom lip and jaw, select these faces and duplicate face.** Mesh &rarr; Duplicate Face.
+**To make the bottom lip and jaw, select these faces and duplicate face.** Edit Mesh &rarr; Duplicate Face.
 
 ![Maya Image](/images/organic-modeling/frog_113.jpg)
 
@@ -317,6 +323,7 @@ Next, we are going to connect the eye patch to the head by merging vertices. To 
 ![Maya Image](/images/organic-modeling/frog_115.jpg)
 
 **Mirror the bottom lip. Delete the old lip. Adjust vertices.**
+Edit Mesh &rarr; Mirror Geometry Option Box.
 
 ![Maya Image](/images/organic-modeling/frog_117.jpg)
 
@@ -338,7 +345,9 @@ Next, we are going to connect the eye patch to the head by merging vertices. To 
 
 Now, we are going to make the inside of the mouth:
 
-![Maya Image](/images/organic-modeling/frog_125.jpg)
+Note: If you can't scale the edge loop correctly in the 3rd picture below, you can move those edges around manually.
+
+![Maya Image](/images/organic-modeling/orgmodel_008.jpg)
 
 *Note: You can merge multiple pairs of vertices at a time. Edit Mesh Merge Option Box. Make sure **Always merge for two vertices** is checked, and that you set the threshold to something low, like .05:
 
