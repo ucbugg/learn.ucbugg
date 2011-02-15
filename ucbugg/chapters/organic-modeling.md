@@ -298,17 +298,23 @@ Look at the eye patches from the inside, and **duplicate the eye patch faces, an
 
 ![Maya Image](/images/organic-modeling/frog_110.jpg)
 
-Next, we are going to connect the eye patch to the head by merging vertices. To merge vertices, however, we must first **turn the eye patch and head into one object.** Shift+select the eye patch and head in object mode, Mesh &rarr; Combine.
+Next, we are going to connect the eye patch to the head by merging vertices. 
 
-![Maya Image](/images/organic-modeling/frog_084.jpg)
+![Maya Image](/images/organic-modeling/orgmodel_007.jpg)
+
+Now continue merging the rest of the vertices.
 
 ![Maya Image](/images/organic-modeling/frog_111.jpg)
 
+Before you go on, quickly go into smooth mode to make sure there are no extra weird deformations happening within your model. If there are, it may be because you have edges right on top of eachother or extra vertices.
+(If you are working in lab, feel free to ask for help! If you are working from home, send us an email or come to office hours!)
+
 **Here are a series of steps to continue adding faces to the head:**
+Remember, you can scale a group of vertices in towards each other to line them up straight.
 
 ![Maya Image](/images/organic-modeling/frog_112.jpg) 
 
-**To make the bottom lip and jaw, select these faces and duplicate face.** Mesh &rarr; Duplicate Face.
+**To make the bottom lip and jaw, select these faces and duplicate face.** Edit Mesh &rarr; Duplicate Face.
 
 ![Maya Image](/images/organic-modeling/frog_113.jpg)
 
@@ -317,6 +323,7 @@ Next, we are going to connect the eye patch to the head by merging vertices. To 
 ![Maya Image](/images/organic-modeling/frog_115.jpg)
 
 **Mirror the bottom lip. Delete the old lip. Adjust vertices.**
+Edit Mesh &rarr; Mirror Geometry Option Box.
 
 ![Maya Image](/images/organic-modeling/frog_117.jpg)
 
@@ -338,7 +345,9 @@ Next, we are going to connect the eye patch to the head by merging vertices. To 
 
 Now, we are going to make the inside of the mouth:
 
-![Maya Image](/images/organic-modeling/frog_125.jpg)
+Note: If you can't scale the edge loop correctly in the 3rd picture below, you can move those edges around manually.
+
+![Maya Image](/images/organic-modeling/orgmodel_008.jpg)
 
 *Note: You can merge multiple pairs of vertices at a time. Edit Mesh Merge Option Box. Make sure **Always merge for two vertices** is checked, and that you set the threshold to something low, like .05:
 
@@ -354,7 +363,7 @@ Now we are going to revisit the arm and leg, and model a hand and foot.
 
 ![Maya Image](/images/organic-modeling/frog_127.jpg)
 
-![Maya Image](/images/organic-modeling/frog_128.jpg)
+![Maya Image](/images/organic-modeling/orgmodel_009.jpg)
 
 ![Maya Image](/images/organic-modeling/frog_129.jpg)
 
@@ -397,9 +406,24 @@ Now, create an instance, and merge the two halves.
 
 ![Maya Image](/images/organic-modeling/frog_144.jpg)
 
-Reference for Human Character Modeling
+<a href=http:ucbugg.berkeley.edu/learn/data/media/labs/Adv_Modeling/mo_latest.ma>Reference</a> for Human Character Modeling
 
-<http:ucbugg.berkeley.edu/learn/data/media/labs/Adv_Modeling/mo_latest.ma>
+## Extra for Experts:
+
+Now that you have a complete model, here's how to create a master controller so that you can perform transformations on your model easier while maintaining the separate body parts. You will be creating controllers quite often when you start rigging, so here's a quick introduction.
+
+Here I have a main group called "wholeobject" which is a group of 3 objects in my file, a hat, a group of legs, and a group for the eyelens.
+
+![Maya Image](/images/organic-modeling/orgmodel_010.jpg)
+
+First, I want to create a NURBS circle, so I go into *Create->Nurbs Primitives* and make sure *Interactive Creation* checkbox is turned *OFF.* Then I can create the actual circle by going to *Create->Nurbs Primitives->Circle.*
+I want to scale up this circle, place it at the base of my character, and rename it to "master_controller" like this.
+
+![Maya Image](/images/organic-modeling/orgmodel_011.jpg)
+
+Now to finish it, all I have to do is to middle-click and drag the "wholeobject" group into the "master_controller" label in the outliner.
+Now when I want to perform transformations on my object I can just click on the master_controller because it will select my entire object!
+Yay! That completes this tutorial!
 
 Originally by Christine Li
 
