@@ -6,9 +6,9 @@ If you're familiar with Maya's modeling tools, you could probably get through th
 
 **Remember to File->Project->Set your current project to your UCBUGG Lab project.**
 
-It's useful in the future to have a reference image inside your Maya file to model off of in the orthogonal views. 
+It's useful in the future to have a reference image inside your Maya file to model off of in the orthogonal views like this:
 
-[Create a reference image][/tutorials/create-a-reference-image]
+![Maya Image] (/images/organic-modeling/orgmodel_002.jpg)
 
 In this tutorial, however, we're going to model without reference planes. We are going to model the legs, arms, hands, feet, body, and head as separate pieces and then merge them later on. Keep in mind that there are many different approaches to character modeling. I chose to do it in this Frankenstein sort of way, because it is easier for me to work with smaller meshes, and then connect them later.
 
@@ -27,6 +27,8 @@ In this tutorial, however, we're going to model without reference planes. We are
 This awkward looking pose is intentional! It's important to model your characters in a neutral position that is ideal for rigging. Eyelids are generally modeled closed, so that they can be opened later in rigging.
 </div>
 
+Note: It's important that you try and follow this tutorial as closely as possible because as you go deeper into the tutorial, we will assume that most of your edges and vertices are in relatively the same position as ours. With that said, this could turn into a **very** long tutorial if you try to follow everything exactly. So just try to make good judgment decisions for yourself. And if you do happen to encounter a bug that can't be fixed, it is possible you may have to restart the tutorial (saving different versions of your file every once in a while can help). Don't be discouraged though, the more you model the better you get!
+
 ### Modeling the Arm
 
 Make sure your menu is set to 'Polygons'
@@ -37,7 +39,11 @@ First, **create a cylinder**: Create &rarr; Polygon Primitives &rarr; Cylinder.
 
 Change the cylinder options under INPUTS in the Channel Box. To show the channel box, use the right most button in the upper right: 
 
-![Maya Image](/images/organic-modeling/frog_150.jpg) **(eileen)i am changing this image**
+![Maya Image](/images/organic-modeling/frog_150.jpg)
+
+Note: In Maya 2011 the button in the upper right looks like this:
+
+![Maya Image](/images/organic-modeling/orgmodel_001.jpg)
  
 You may have to "unfold" the polyCylinder# area underneath "inputs" by clicking on it. 
 
@@ -64,7 +70,9 @@ Adjust the highlighted fields as shown so that the cylinder has **8 sides, 1 hei
 ![Maya Image](/images/organic-modeling/frog_092.jpg)
 
 Note: There is a slight bend in the arm to give an indication of which direction the ik handle should work later on in rigging. 
-**(eileen) do we want them to create this bend as well?**
+You can achieve this bend as well by selecting the top half of the edges, rotating, and then translating them.
+
+![Maya Image](/images/organic-modeling/orgmodel_003.jpg)
 
 When you're done with your arm, **name it "Arm1" in the Outliner.**
 
@@ -96,6 +104,7 @@ This is essentially the same as modeling the arms, but we're going to use a 10-s
 
 Change the INPUTS in the channel Box so that the cylinder has **10 sides** and is **centered on the grid.**
 Then, **add edge loops and scale edges/vertices** as you did before. Here is what the arm and leg should look like in relation to each other. (Press 3 to show your models in smooth preview.) 
+You can add the bend in the leg as well.
 
 ![Maya Image](/images/organic-modeling/frog_019.jpg)
 
@@ -205,6 +214,10 @@ Now we're at a point when we can just model half of the model and use Maya Insta
 
 **Go into Top View, and translate/scale the vertices so that you get the rough shape shown below.** It may be necessary for you to add more edge loops, or use the split polygon tool to get the deformation you want. (Remember, now you only have to modify half of your body, and the other half will automatically pick up the changes.) Aim for the shape and topology shown below.
 
+Note: If you are having trouble scaling a continuous edge loop, it may help if you shift-select the two halves of the body and go to Mesh->Combine. This will combine the meshes so that that you can select a group of edge loops or vertices and scale them all together at once. Remember to select the body and hit Mesh->Separate though once you are finished so that the mesh is back to its instanced state.
+
+At this point, you have to let your artistic self kick in and modify the shape of the body so that it looks like that of a frog. We can't really tell you what to do from here except to play around with edges/vertices and all the tools you've learned so far so whenever you feel that you have a body shape that you like, move on.
+
 ![Maya Image](/images/organic-modeling/frog_045.jpg)
 
 **Create a layer called BODY, add your mesh to the layer, and hide it.** 
@@ -218,6 +231,7 @@ There are many ways to model a head. Some people like to start from a cube, and 
 ![Maya Image](/images/organic-modeling/frog_005.jpg)
 
 You might have noticed that your pivot is no longer in the center of the donut. **Center your pivot** so that it's easier to work with. Select your donut, Modify &rarr; Center Pivot. 
+You can also move the pivot manually by holding down the "d" key.
 
 ![Maya Image](/images/organic-modeling/frog_081.jpg)
 
@@ -226,6 +240,12 @@ Now, **rotate your eye patches and place them at slight angles to each other** (
 
 ![Maya Image](/images/organic-modeling/frog_082.jpg)
 ![Maya Image](/images/organic-modeling/frog_083.jpg)
+
+Make sure that the two donuts are symmetric across whichever axis you choose. You can do this by going into the attribute editor and checking their transforms and rotations.
+Here are the values I used, but depending on how you positioned your eyes, they might not work for you.
+
+![Maya Image](/images/organic-modeling/orgmodel_004.jpg)
+![Maya Image](/images/organic-modeling/orgmodel_005.jpg)
 
 **Turn the eye patches into one object.** Shift-select one after the other, Mesh &rarr; Combine. 
 
@@ -248,6 +268,8 @@ Now we're at a point when we can use Maya Instancing to mirror what we're doing 
 ![Maya Image](/images/organic-modeling/frog_101.jpg)
 
 **Delete half the faces, and create an instance:** Edit &rarr; Duplicate Special &rarr; Option Box. Make sure the boxes **Instance** and **Parent** are checked. Depending on what orientation you modeled your body, you will have to play around with which how to Scale your instance. In my case, I made the x value -1 so that my body would be mirrored across the x axis. 
+
+![Maya Image](/images/organic-modeling/orgmodel_006.jpg)
 
 **Here are a series of 'extrude,''append to polygon,' and 'merge' steps.** 
 
