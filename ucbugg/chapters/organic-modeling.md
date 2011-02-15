@@ -363,7 +363,7 @@ Now we are going to revisit the arm and leg, and model a hand and foot.
 
 ![Maya Image](/images/organic-modeling/frog_127.jpg)
 
-![Maya Image](/images/organic-modeling/frog_128.jpg)
+![Maya Image](/images/organic-modeling/orgmodel_009.jpg)
 
 ![Maya Image](/images/organic-modeling/frog_129.jpg)
 
@@ -406,9 +406,24 @@ Now, create an instance, and merge the two halves.
 
 ![Maya Image](/images/organic-modeling/frog_144.jpg)
 
-Reference for Human Character Modeling
+<a href=http:ucbugg.berkeley.edu/learn/data/media/labs/Adv_Modeling/mo_latest.ma>Reference</a> for Human Character Modeling
 
-<http:ucbugg.berkeley.edu/learn/data/media/labs/Adv_Modeling/mo_latest.ma>
+## Extra for Experts:
+
+Now that you have a complete model, here's how to create a master controller so that you can perform transformations on your model easier while maintaining the separate body parts. You will be creating controllers quite often when you start rigging, so here's a quick introduction.
+
+Here I have a main group called "wholeobject" which is a group of 3 objects in my file, a hat, a group of legs, and a group for the eyelens.
+
+![Maya Image](/images/organic-modeling/orgmodel_010.jpg)
+
+First, I want to create a NURBS circle, so I go into *Create->Nurbs Primitives* and make sure *Interactive Creation* checkbox is turned *OFF.* Then I can create the actual circle by going to *Create->Nurbs Primitives->Circle.*
+I want to scale up this circle, place it at the base of my character, and rename it to "master_controller" like this.
+
+![Maya Image](/images/organic-modeling/orgmodel_011.jpg)
+
+Now to finish it, all I have to do is to middle-click and drag the "wholeobject" group into the "master_controller" label in the outliner.
+Now when I want to perform transformations on my object I can just click on the master_controller because it will select my entire object!
+Yay! That completes this tutorial!
 
 Originally by Christine Li
 
