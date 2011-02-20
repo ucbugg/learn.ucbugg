@@ -2,15 +2,51 @@
 
 ## Setup
 
-Today we are going to be rigging a lamp. Before getring started, download the [lamp model](/ma/lamp.ma) to the `scenes` directory in your current Maya project.
+Today we are going to be rigging a lamp. Before getring started, download the [lamp model](/ma/lamp.ma) to the `scenes` directory in your current Maya project (Mine is UCBUGG Lab).
+
+After you open Maya, make sure you set your project to the UCBUGG Lab project that you've been working on so far.
+
+![Set Project](/images/model-organization-0.png)
+
+## Model Organization
+
+Before we start rigging, I want to introduce the very simple but important concept of model organization.
+
+Especially as our scene gets complicated with many geo, cameras, shaders, and lights, it is very important to have good naming of your meshes. Before you start rigging, name all your models with intuitive, consistent names. It is up to you to come up with a naming scheme that works for you best.
+
+![Naming](/images/model-organization-1.png)
+
+
+Also, before you start modeling you want to __Freeze Transformations__ your model usually. This is to keep your numbers on the channel box clean and fixed to your current position and let your rig do all the moving. Select your mesh and then freeze transform it.
+
+The Freeze Transformations tool can be accessed from the Modify menu.
+
+![Freeze Transformations](/images/model-organization-3.png)
+
+You'll notice that your model position hasn't changed, but the values in your channel boxes have been zeroed out. Just another way of keeping your models clean.
+
+![Freeze Transformations](/images/model-organization-2.png)
+
+
+Lastly, because of all the extrudes and add edge loops you've done, your meshes probably have a lot of __History__ on them. This can be checked in your channel box if you go to your INPUTS.
+
+![HISTORY](/images/model-organization-5.png)
+
+To keep this clean, make sure you __Delete by Type->History__. This can be found under the Edit menu.
+
+![Delete by Type](/images/model-organization-4.png)
 
 <div class="note">
-If you already know how to rig, you can just follow the bolded instructions. The non-bold text explains how tools work and some theory behind certain rigging design choices.
+Once you start rigging, you _should not perform_ the above __Freeze transformation__ and __Delete by History__ as rigging and deformations depend on those transformations and history.
 </div>
+
 
 ## Importing the Lamp
 
-When first learning rigging, it's very easy to accidently mess up your model. To prevent losing your data, Maya can import a model from a scene file, preventing your changes from affecting the original mode. 
+When first learning rigging, it's very easy to accidently mess up your model. To prevent losing your data, let's actually create a separate copy for rigging. That way you can always go back to your clean model if you mess up. Which tools do you think would be best for this purpose, Importing, or Referencing? Once you think you've got the answer, read on.
+
+
+Actually, given just that you want to go back to your original model, both work! __Importing__ allows you to essentially make a copy of the lamp model so that your original maya scene file does not get touched, but __Referencing__ also keeps your original file from being modified as well. However, Referenced objects cannot be parented or grouped, both of which we will be using extensively in this lab. Therefore we will stick with importing for today's lab.
 
 Open up a new scene file and save it as **lampRigging.ma**. To import the lamp, go to **File -> Import**, select the downloaded **lamp.ma** file and press the **Import** button. A lamp should pop up in the center of your scene. Let's start rigging.
 
@@ -70,7 +106,7 @@ Also, go ahead and **move the HeadJnt into the the Lamp group**. We want to keep
 
 Right now, it seems like we made our chain backwards. The idea is we want to treat the lamp poles/base like a leg. Its hard to animate this leg right now though. If you want to place the base somewhere, you have to repeatedly rotate joints until it looks right. Fortunately, Maya can do this for you. Its called [Inverse Kinematics](http://en.wikipedia.org/wiki/Inverse_kinematics#Robotics_and_3D_Animation) and you tell it where you want the end of a joint chain to go, and it'll figure out how to rotate all the intermediate joints. 
 
-To create one, **go to __Skeleton->IK Handle Tool__. Click on the HeadJnt and then click on the BaseJnt** (we only want to solve to the base, the tip is purely to make it easier to see how the BaseJnt is rotated). Now you have an IK Handle at the base of the lamp. You can move it around and see how it works. **Name the handle and put it in the Lamp group**. 
+To create one, **go to __Skeleton->IK Handle Tool__. Click on the HeadJnt and then click on the BaseJnt. This order matters! ** (we only want to solve to the base, the tip is purely to make it easier to see how the BaseJnt is rotated). Now you have an IK Handle at the base of the lamp. You can move it around and see how it works. **Name the handle and put it in the Lamp group**. 
 
 Its a little easier to animate this now, but we still have a separated head, our base rotates when we might not want it to, and we still have to know what to move. Our job, as a rigger, involves hiding anything that isn't something we want to be controlled from the animator. This keeps problems/bugs/undesirable effects from happening if an animator keys some incorrect attributes. So we are going to add controllers to make this lamp even easier and hopefully funner to animate. 
 
@@ -78,9 +114,9 @@ Its a little easier to animate this now, but we still have a separated head, our
 
 ## Controllers
 
-A controller is any object that controls part of your rig. Most controllers use parenting or constraints to affect the rig. Lets make a controller for the base. A NURBS Circle will be perfect. **Before creating a circle, go to __Create->NURBS->Interactive Creation__ and make sure it is OFF** (this is important so that circles come oriented correctly by default).  
+A controller is any object that controls part of your rig. Most controllers use parenting or constraints to affect the rig. Lets make a controller for the base. A NURBS Circle will be perfect. **Before creating a circle, go to __Create->NURBS->Interactive Creation__ and make sure it is OFF** (this is important so that circles come oriented correctly by default). 
 
-To create a NURBS Circle, go to  __Create->NURBS->Circle__. **Scale up the circle and place it at the base of the Base. Give it a name and put it in the Lamp group.** We want it to control where the BaseIK handle is, so just **__middle-drag__ the BaseIK onto the Base controller (in the outliner)**. Now, when you move the Base controller around, the ik handle follows. We almost have what we want, but the base still rotates when we don't want it to. 
+To create a NURBS Circle, go to  __Create->NURBS->Circle__. **Scale up the circle and place it at the base of the Base. To keep true with Model Organization, make sure you give it a name(BaseController is good), and then *Freeze Transform* it. Give it a name and put it in the Lamp group.** We want it to control where the BaseIK handle is, so just **__middle-drag__ the BaseIK onto the Base controller (in the outliner)**. Now, when you move the Base controller around, the ik handle follows. We almost have what we want, but the base still rotates when we don't want it to. 
 
 ### Constraints
 
@@ -115,9 +151,3 @@ In reality, the model will be bound to the skeleton through skinning which would
 
 The reason I chose to have the Chain go from the head towards the base is because the IK solver will keep the joint chain attached to the base of the chain. This means that if we move the head higher than the length of the leg, the base moves up. Though it is not usually good animation practice to take advantage of this (because it can be implementation dependent), in this case, it can make animating this particular character much easier.
 
-
-## Additional Resources
-
-* [Creating your first skeleton]()
-* [Controlling your first skeleton]()
-* [Creating a character set]()
