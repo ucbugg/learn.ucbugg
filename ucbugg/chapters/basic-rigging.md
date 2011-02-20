@@ -6,7 +6,7 @@ Today we are going to be rigging a lamp. Before getring started, download the [l
 
 After you open Maya, make sure you set your project to the UCBUGG Lab project that you've been working on so far.
 
-![Set Project](/images/model-organization-0.png)
+![Set Project](/images/basic-rigging/model-organization-0.png)
 
 ## Model Organization
 
@@ -14,27 +14,27 @@ Before we start rigging, I want to introduce the very simple but important conce
 
 Especially as our scene gets complicated with many geo, cameras, shaders, and lights, it is very important to have good naming of your meshes. Before you start rigging, name all your models with intuitive, consistent names. It is up to you to come up with a naming scheme that works for you best.
 
-![Naming](/images/model-organization-1.png)
+![Naming](/images/basic-rigging/model-organization-1.png)
 
 
 Also, before you start modeling you want to __Freeze Transformations__ your model usually. This is to keep your numbers on the channel box clean and fixed to your current position and let your rig do all the moving. Select your mesh and then freeze transform it.
 
 The Freeze Transformations tool can be accessed from the Modify menu.
 
-![Freeze Transformations](/images/model-organization-3.png)
+![Freeze Transformations](/images/basic-rigging/model-organization-3.png)
 
 You'll notice that your model position hasn't changed, but the values in your channel boxes have been zeroed out. Just another way of keeping your models clean.
 
-![Freeze Transformations](/images/model-organization-2.png)
+![Freeze Transformations](/images/basic-rigging/model-organization-2.png)
 
 
 Lastly, because of all the extrudes and add edge loops you've done, your meshes probably have a lot of __History__ on them. This can be checked in your channel box if you go to your INPUTS.
 
-![HISTORY](/images/model-organization-5.png)
+![HISTORY](/images/basic-rigging/model-organization-5.png)
 
 To keep this clean, make sure you __Delete by Type->History__. This can be found under the Edit menu.
 
-![Delete by Type](/images/model-organization-4.png)
+![Delete by Type](/images/basic-rigging/model-organization-4.png)
 
 <div class="note">
 Once you start rigging, you _should not perform_ the above __Freeze transformation__ and __Delete by History__ as rigging and deformations depend on those transformations and history.
