@@ -97,11 +97,11 @@ The Joints are already arranged in a heirarchy so you can rotate the head joint 
 ### Orient Joints
 Before we go any further, let's clean up our joints a bit. If you were clumsy like me, and had to move the joints around to get them exactly to the hinges, your joint chain's orientation might be off by a little bit. That sounds complicated but in essence this is what it looks like.
 
-![Orient Joints](/images/updated_01orient.png)
+![Orient Joints](/images/basic-rigging/updated_01orient.png)
 
 You'll notice that the red line which is supposed to point down the hierarchy is off, and does not match with where the skeleton is pointing. This will create unexpected behavior in more complicated rigs so we need to fix it. Luckily, this is a one-click fix. To fix this, select all of your joints and go to **skeleton->orient joint tool**. Instead of directly clicking *orient joint*, Select the option box and it will give you some options. I personally like to uncheck the Orient child joints, because I've run into unexpected behavior in the past. 
 
-![Orient Joints tool](/images/updated_02orient.png)
+![Orient Joints tool](/images/basic-rigging/updated_02orient.png)
 
 Now select Orient and check that your joints have been oriented(the red line matches with the direction the skeleton points towards)
  
@@ -110,11 +110,11 @@ Now select Orient and check that your joints have been oriented(the red line mat
 
 Select the HeadJnt, then select the upperLeg, **(ORDER MATTERS FOR CONSTRAINTS! You always select the *driver*, which in our case is the joint, and then the *driven*, which is the upperLeg group.)** and click the option box of parent constraint. Make sure you have maintain offset checked, so that our rig is consistent with the current state of the joints and model.
 
-![Parent Constraint Options](/images/updtaed_03parent.png)
+![Parent Constraint Options](/images/basic-rigging/updated_03parent.png)
 
 Yay! We can move half of the lamp now. 
 
-![Parent Constraint Rotate](/images/updtaed_04parent.png)
+![Parent Constraint Rotate](/images/basic-rigging/updated_04parent.png)
 
 Now repeat for the ElbowJnt-lowerLeg, and BaseJnt-base. In effect, the parent constraint has given us a parent-like effect without us having to literally parent the objects.
 
@@ -125,6 +125,9 @@ Because we are, in effect, parenting, the pivot location of the children doesn't
 Also, go ahead and **move the HeadJnt into the the Lamp group**. We want to keep everything in the lamp group in case we reference this lamp in other scenes. Just another note on keeping your scene better organized.
 
 ![Maya Image](/images/basic-rigging/rig_8jntpar.png)
+
+
+Why do we use parent constraints instead of parenting? This is so that we keep the rig/controllers separate from the actual mesh. 
 
 
 ### IK Handle
@@ -145,7 +148,7 @@ To create a NURBS Circle, go to  __Create->NURBS->Circle__. **Scale up the circl
 
 Now give it a name and put it in the Lamp group.** We want it to control where the BaseIK handle is, so just **__middle-drag__ the BaseIK onto the Base controller (in the outliner)**. Now, when you move the Base controller around, the ik handle follows. We almost have what we want, but the base still rotates when we don't want it to. 
 
-![IK Done](/images/updated_05IK.png)
+![IK Done](/images/basic-rigging/updated_05IK.png)
 
 ### Orient Constraint
 
@@ -210,6 +213,8 @@ For example, if you currently move your HeadCtrl, you notice that your head move
 
 In order to do this, we would first select the attribute we want to lock and **Right-click->Lock Attribute**. This will grey out the attributes and they will no longer be editable.
 
-Just an extra bit in order to keep your animators from accidentally doing anything to break the rig.
+![Clean](/images/basic-rigging/updated_09locking.png)
+
+Just an extra bit of tip in order to keep your animators from accidentally doing anything to break the rig.
 
 
