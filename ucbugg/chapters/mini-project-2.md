@@ -97,7 +97,7 @@ Unfortunately, there is so much more to cover before I can start talking about l
 ### Rendering a Single Image
 Again lets try rendering from the Render View again.
 
-![Mental Ray Lit](/images/mini-project-2/Project2-011.png)
+![Mental Ray Lit](/images/mini-project-2/Project2_011.png)
 
 It looks so much better doesn't it? Great now from Render View you can save your image out as a jpg, gif, png, or any of your favorite image format! 
 
@@ -115,11 +115,11 @@ But we haven't taught you how to do that yet right? Well, remember the camera th
 
 If you look at the bottom of your maya window, you'll notice a bar that has markings up to 24. This is called the __Time Line__. This denotes what time we are currently in the scene by __frames__. If you don't know what this is don't worry too much. For now, you only need to know that there are 24 frames in one second so a single frame is 1/24 seconds.
 
-![Time line 1 and 26](/images/mini-project-2/Project2-012.png)
+![Time line 1 and 26](/images/mini-project-2/Project2_012.png)
 
 First, lets start expanding our Time Line to 72 frames so we have a little bit more time than a single second.
 
-![Time line settings](/images/mini-project-2/Project2-013.png)
+![Time line settings](/images/mini-project-2/Project2_013.png)
 
 If you click on your __Animation Preferences__ icon located at the very bottom right of Maya, it will open a new settings window. Make the __Playback__ start/end 72.00 and __Playback speed__ Real-time [24 fps].
 
@@ -136,8 +136,8 @@ Now it's time to render this animation out!
 
 First up, we need to make our render settings so that we now render 72 frames instead of only one. Open up the __Render Settings__ window that is located to the right of Render Current Frame.
 
-![Render Settings](/images/mini-project-2/Project2-014.png)
-![Render Settings](/images/mini-project-2/Project2-015.png)
+![Render Settings](/images/mini-project-2/Project2_014.png)
+![Render Settings](/images/mini-project-2/Project2_015.png)
 
 Maya floods you with options here but really there are only a few options we are going to be worried about today.
 
