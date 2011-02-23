@@ -126,6 +126,8 @@ Also, go ahead and **move the HeadJnt into the the Lamp group**. We want to keep
 
 ![Maya Image](/images/basic-rigging/rig_8jntpar.png)
 
+The above image uses parenting instead of parent joints so it's a bit off, but you understand the jist.
+
 
 Why do we use parent constraints instead of parenting? This is so that we keep the rig/controllers separate from the actual mesh. 
 
@@ -139,6 +141,9 @@ To create one, **go to __Skeleton->IK Handle Tool__. Click on the HeadJnt and th
 Its a little easier to animate this now, but we still have a separated head, our base rotates when we might not want it to, and we still have to know what to move. Our job, as a rigger, involves hiding anything that isn't something we want to be controlled from the animator. This keeps problems/bugs/undesirable effects from happening if an animator keys some incorrect attributes. So we are going to add controllers to make this lamp even easier and hopefully funner to animate. 
 
 ![Maya Image](/images/basic-rigging/rig_8.5ik.png)
+
+The above image uses parenting instead of parent joints so it's a bit off, but you understand the jist.
+
 
 ## Controllers
 
