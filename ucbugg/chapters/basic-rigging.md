@@ -124,12 +124,10 @@ Because we are, in effect, parenting, the pivot location of the children doesn't
 
 Also, go ahead and **move the HeadJnt into the the Lamp group**. We want to keep everything in the lamp group in case we reference this lamp in other scenes. Just another note on keeping your scene better organized.
 
-![Maya Image](/images/basic-rigging/rig_8jntpar.png)
-
-The above image uses parenting instead of parent joints so it's a bit off, but you understand the jist.
+![Maya Image](/images/basic-rigging/updatedrig_8.png)
 
 
-Why do we use parent constraints instead of parenting? This is so that we keep the rig/controllers separate from the actual mesh. 
+Why do we use parent constraints instead of parenting? This is so that we keep the rig/controllers separate from the actual mesh, so that the modeling pipeline is separated(abstracted) and we don't have to worry about it in the rigging and animation pipeline.
 
 
 ### IK Handle
@@ -140,9 +138,7 @@ To create one, **go to __Skeleton->IK Handle Tool__. Click on the HeadJnt and th
 
 Its a little easier to animate this now, but we still have a separated head, our base rotates when we might not want it to, and we still have to know what to move. Our job, as a rigger, involves hiding anything that isn't something we want to be controlled from the animator. This keeps problems/bugs/undesirable effects from happening if an animator keys some incorrect attributes. So we are going to add controllers to make this lamp even easier and hopefully funner to animate. 
 
-![Maya Image](/images/basic-rigging/rig_8.5ik.png)
-
-The above image uses parenting instead of parent joints so it's a bit off, but you understand the jist.
+![Maya Image](/images/basic-rigging/updatedrig_8.5.png)
 
 
 ## Controllers
@@ -171,15 +167,15 @@ Our Base is complete, all we have to do now, is the head. Create another NURBS c
 
 ![Maya Image](/images/basic-rigging/updated_06Head.png)
 
-The rig is pretty much complete. Except, there is usually a Root controller that controls the overall location of all the other controllers. Not every animator actually uses it, but its there for situations where it can be useful. 
+The rig is pretty much complete. Except, there is usually a Root controller that controls the overall location of all the other controllers. Not every animator actually uses it, but its there for situations where it can be useful.
 
-So, make another NURBS circle that is bigger than the Base controller and place it around the Base. Rename it and place it in the Lamp group. Parent the other controllers to this Root controller**, and now we have our fairly complete rig. 
+So, make another NURBS circle that is bigger than the Base controller and place it around the Base. Rename it as Root Controller and place it in the Lamp group. Parent the other controllers as well as the HeadJnt to this **Root Controller(Called the Master Controller sometimes)**, and now we have our fairly complete rig.
 
 At this point, we can **hide all the underlying rigging machinery** so that only the controllers are exposed for the animators to use. We do this by unchecking the __Joints__ and __IK Handles__ options in the 3d-view's __Show__ menu, or plain hiding the joints on the outliner. 
 
 ![Maya Image](/images/basic-rigging/rig_13hide.png)
 
-In reality, the model will be bound to the skeleton through skinning which would let us actually turn off the joint visibility and then lock it. Doing this prevents any accidental adjustments to rigging machinery that could screw up higher level controllers. 
+In reality, the model will be bound to the skeleton through skinning which would let us actually turn off the joint visibility and then lock it (If you're curious on how exactly to do this, head to the Extra for Experts section). Doing this prevents any accidental adjustments to rigging machinery that could screw up higher level controllers. 
 
 ![Maya Image](/images/basic-rigging/rig_14done.png)
 
@@ -196,7 +192,7 @@ The least we could do is hide all this detail and let the animator or the set dr
 
 ![Clean](/images/basic-rigging/updated_08clean.png)
 
-This is the exact same hierarchy, but just hidden. See how much nicer it is to understand? Now only when the rig is not behaving correctly or causing issues do we have to worry about expanding beyond this level of the hierarchy. Always simplify things for your user!
+This is the exact same hierarchy, but just hidden. See how much nicer it is to understand? Now only when the rig is not behaving correctly or causing issues do we have to worry about expanding beyond this level of the hierarchy. **Always simplify things for your user!**
 
 
 <div class="note">
@@ -212,7 +208,7 @@ The reason I chose to have the Chain go from the head towards the base is becaus
 
 ### Locking
 
-Again, to simplify things for our users, we can lock certain controls away from our user.
+Again, to simplify things for our users(the animators), we can lock certain controls away from our user.
 
 For example, if you currently move your HeadCtrl, you notice that your head moves with it. This is because we have a parent constraint on it. If we want to keep the user from ever touching unnecessary controls, we can lock the translation and scaling attributes of the controller.
 
@@ -220,6 +216,7 @@ In order to do this, we would first select the attribute we want to lock and **R
 
 ![Clean](/images/basic-rigging/updated_09locking.png)
 
-Just an extra bit of tip in order to keep your animators from accidentally doing anything to break the rig.
 
+You would usually want to only translate anything related to an IK handle, and rotate anything related or constraining a joint. So if we had more controllers on this lamp, we'd go and lock their transformations also.
+Just an extra bit of tip in order to keep your animators from accidentally doing anything to break the rig.
 
