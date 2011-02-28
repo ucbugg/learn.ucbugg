@@ -211,15 +211,20 @@ This is the last NURBS Circle we will create for this lab. Make it big enough on
 Doesn't it look all pretty and controllable now? Good job!
 
 
-Now, the next part of rigging, which isn't going to be explicitly covered in class is, is skinning. You can find our tutorial for skinning right here: [Skinning Lab](http://learn.ucbugg.com/skinning).
+Now you can repeat the standard hide joints and locking we saw last lab, and other various work to hide our messy work.
+
+
+The next part of rigging, which isn't going to be explicitly covered in class time, is skinning. You can find our tutorial for skinning right here: [Skinning Lab](http://learn.ucbugg.com/skinning).
 
 Skinning will fix issues such as the picture below where things don't deform the way you want them to.
 
 ![SkinningError](/images/advanced-rigging/017_skinning.png)
+
 An awkward knee you've got there!?
 
-
+If you're curious this is what I have at the end of the tutorial: [Rigged Blobber](/ma/blobberRig.ma)
 
 ## Extra for Experts
 
+### Spine Controllers
 Now you have a basic bipedal rig. One thing missing in our rig though is the spine control. Think about how you would rig the spine! It will be done with a mix of orient constraints between controllers and joints, and then parenting of thos controllers.

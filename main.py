@@ -43,6 +43,7 @@ CHAPTERS = [
     "Basic Modeling",
     "Organic Modeling",
     "Basic Rigging",
+    "Advanced Rigging",
     "Skinning",
     "Blend Shapes",
     "Basic Animation",
@@ -51,6 +52,7 @@ CHAPTERS = [
     "Lighting",
     "Advanced Shading",
     "Rendering",
+    "Dropbox Collaboration",
     "Editing",
 ]
 
