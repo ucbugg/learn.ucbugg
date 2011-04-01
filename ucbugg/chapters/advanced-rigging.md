@@ -37,7 +37,7 @@ You should end up with a view like this:
 ![Front by Side](/images/advanced-rigging/001_fbs.png)
 
 
-This is just a workflow tip and is not essential to rigging (also depends on your personal preference), but hey, you learnt something knew about Maya's User Interface today!
+This is just a workflow tip and is not essential to rigging (also depends on your personal preference), but hey, you learnt something new about Maya's User Interface today!
 
 
 ## Rigging the Legs
@@ -68,7 +68,7 @@ If you're thinking "Oh gosh I should name these.", I am so proud of you! Let's g
 ![Names](/images/advanced-rigging/005_naming.png)
 
 
-So we have one leg rigged... great. We could repeat this for the other leg, but that would be tideous right? Maya gives us a great tool called **Skeleton->Mirror Joints** that you can use. Select your *LHipJnt*(And just your *LHipJnt*), or your equivalent name. And select the option box for **Skeleton->Mirror Joints**. If you've named your joints consistently dpeending on which side of the body they're in, you can also make Maya rename your joints to the other side too!(*R->L* or *Right->Left* or vice-versa) Finally, make sure you select **Orientation** as the mirror function instead of Behavior. TODO Explain why?
+So we have one leg rigged... great. We could repeat this for the other leg, but that would be tideous right? Maya gives us a great tool called **Skeleton->Mirror Joints** that you can use. Select your *LHipJnt*(And just your *LHipJnt*), or your equivalent name. And select the option box for **Skeleton->Mirror Joints**. If you've named your joints consistently dpeending on which side of the body they're in, you can also make Maya rename your joints to the other side too!(*R->L* or *Right->Left* or vice-versa) Finally, make sure you select **Orientation** as the mirror function instead of **Behavior**.
 
 ![Mirror Joints](/images/advanced-rigging/006_mirror.png)
 
@@ -82,7 +82,7 @@ Lets get started without delay.
 
 ![Spine Joints](/images/advanced-rigging/007_spine.png)
 
-This is how I put my spine joints: 3 spine joints But again, try figuring out where you feel your spine has the biggest movements. Also think about what your spine actually looks like, as we're trying to emulate a human skeleton/muscle system.
+This is how I put my spine joints: 3 spine joints But again, try figuring out where you feel your spine has the biggest movements your character must have. Also think about what your spine actually looks like, as we're trying to emulate a human skeleton/muscle system.
 
 If you're wondering how you can continue to append newly created joint hierarchies, remember that joints are all in a parent child relationship! So just **MMB-Drag** your child joint into the parent joint and the connection will be automatically created! (e.g. Spine1 into Cog)
 
@@ -146,7 +146,7 @@ Play around with it and see it work.
 
 Now remember to control the joint at the same time, we also need to orient constraint the joint to the controller. So let's do that!
 
-* IMPORTANT: Bring your controller back to it's default position. If you remembered to Freeze Transform it, this is simple
+* IMPORTANT: Bring your controller back to it's default position. If you remembered to Freeze Transform it, this is simple as putting all your controllers attributes in the channel box to 0.
 * Select your controller. *LFootCtrl*
 * Select your joint. *LAnkleJnt*
 * Use **Constraints->Orient** (Make sure maintain offset is checked in the option box!
@@ -227,4 +227,4 @@ If you're curious this is what I have at the end of the tutorial: [Rigged Blobbe
 ## Extra for Experts
 
 ### Spine Controllers
-Now you have a basic bipedal rig. One thing missing in our rig though is the spine control. Think about how you would rig the spine! It will be done with a mix of orient constraints between controllers and joints, and then parenting of thos controllers.
+Now you have a basic bipedal rig. One thing missing in our rig though is the spine control. Think about how you would rig the spine! It will be done with a mix of orient constraints between controllers and joints, and then parenting of those controllers.
