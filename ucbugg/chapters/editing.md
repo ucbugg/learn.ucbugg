@@ -63,3 +63,23 @@ Before we starting editing, we need to change a setting in iMovie. Open up Termi
 and hit return.
 
 iMovie is now ready to be used.
+
+## Find Sound Effects and Music
+
+### ccMixter
+
+ccMixter is a community music site featuring remixes licensed under Creative Commons where you can listen to, sample, mash-up, or interact with music in whatever way you want.
+
+<http://ccmixter.org>
+
+### opSound
+
+Musicians and sound artists are invited to add their work to the Opsound pool using a copyleft license developed by Creative Commons. Listeners are invited to download, share, remix, and reimagine.
+
+<http://opsound.org>
+
+### The FreeSound Project
+
+The Freesound Project is a collaborative database of Creative Commons licensed sound effects
+
+<http://freesound.org>

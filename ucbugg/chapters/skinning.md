@@ -38,6 +38,10 @@ We should first investigate the tool that allows us to smooth out the influences
 
 ![Paint Skin Weights option box](/images/skinning/ucbugg_skinning-4a.jpg)
 
+
+Be sure to set the "Normalize Weights" option to Interactive mode. When in interactive mode, the weight value entered is used exactly and the total weights on all influences adds up to 1. Post mode does not normalize the weight values so in using post mode you might end up with values greater than 1. 
+
+
 Influences range between 0 and 1, 0 influence appears black and 1 appears white. Any decimal between 0 and 1 will appear as a shade of grey accordingly.
 
 The "Toggle Hold Weights on Selected" will lock/unlock selected joints. Any locked/held joints influences cannot be changed if painted over. It is important to always have just 2 joints unlocked at any time, so you only work at one junction at a time. Otherwise, you might accidentally paint on the torso when you're working on the knee, and you'll spend your time trying to find lost weights.

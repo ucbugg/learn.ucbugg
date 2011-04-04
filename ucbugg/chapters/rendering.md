@@ -2,7 +2,7 @@
 
 Now that you have finished lighting, shading, animation, rigging and modeling (whew) it's time to start the final stretch: turn those Maya files into beautiful movies. The first step is actually creating images from maya. You have already rendered some images in the Lighting and Shading portions, so there may be some review.
 
-## Maya's Rendeirng Engines
+## Maya's Rendering Engines
 
 Maya comes with three different engines for rendering images. Other's exist, such as RenderMan from Pixar, but aren't included in the default Maya installation.
 

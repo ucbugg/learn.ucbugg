@@ -1,17 +1,15 @@
 # Basic Modeling
 
-<div class="note tip">Make sure to set the menus to 'Polygons' ...or you might get very confused.</div>
-
-<div class="note">
-    If you already know how to model, you can just follow the bolded instructions. The non-bold text explains how to use the tools and the rationale behind their use.
-</div>
+<div class="note tip">Make sure to set the menu context to 'Polygons' ...or you might get very confused.</div>
 
 ## The Bowl
 First, create a cylinder: **Create &rarr; Polygon Primitives &rarr; Cylinder.**
 
 ![Maya Image](/images/basic-modeling/toilet_001.png)
 
-Change the cylinder options under **INPUTS** in the Channel Box. To show the channel box, click the right most button in the upper right.  
+Before we go any further. Let's get in the good habit of naming our objects. If you go open your outliner under **Window->Outliner**, you will see pCylinder1. If you double click the text pCylinder1, you can rename it. Let's name it bowl.
+
+Now change the cylinder options under **INPUTS** in the Channel Box. To show the channel box, click the right most button in the upper right.  
 
 ![Maya Image](/images/basic-modeling/toilet_cbox.png)
  
@@ -43,7 +41,7 @@ Go to  **Edit Mesh &rarr; Extrude**
 
 ![Maya Image](/images/basic-modeling/toilet_006.png)  
 
-This will give you a weird manipulator. This manipulator doesn't always behave in an intuitive way so many people switch immediately to another tool (in this case, move tool ****w****).  * Then move the automatically selected edges down.  
+This will give you a weird manipulator. This manipulator doesn't always behave in an intuitive way so many people switch immediately to another tool (in this case, move tool ****w****).  * Then move the automatically selected edges down. However, remember when you do extrude, to always move the edges or faces as if you forget to do so, you might have two faces on top of each other that are hard to differentiate between.
 
 ![Maya Image](/images/basic-modeling/toilet_007.png) 
 
@@ -123,7 +121,7 @@ To make it fit over the tank, **scale the lid up a little.** Also, **sharpen the
 
 ## Seat and Lid
 
-Onto the toilet seat and lid! We'll use the same duplicate/delete faces trick to **duplicate the top faces of the bowl's shape**.  **Duplicate the top shape again** for the lid.  
+Onto the toilet seat and lid! We'll use the same duplicate/delete faces trick to **duplicate the top faces of the bowl's shape**.  Then duplicate the top shape once more to make the lid. Make sure to name them __seat__ and __lid__ on the outliner!
 
 ![Maya Image](/images/basic-modeling/toilet_027.png) 
 
@@ -139,7 +137,7 @@ Now, select the lid (unhide it if its hidden) and enter edge mode. Then **select
 
 ![Maya Image](/images/basic-modeling/toilet_029.png)   
 
-You'll notice that it has filled the whole with a 10-sided face. Usually we avoid faces with this many sides because smoothing a face like this behaves unpredictably. So, let's **turn that face into 4 quads**. We'll use the Split Polygon tool for this **Edit Mesh &rarr; Split Polygon Tool**:  
+You'll notice that it has filled the whole with a 10-sided face. Usually we avoid faces with this many sides because smoothing a face like this behaves unpredictably. So, let's **turn that face into 4 quads**.(Quads meaning quadrilaterals.) We'll use the Split Polygon tool for this **Edit Mesh &rarr; Split Polygon Tool**:  
 
 ![Maya Image](/images/basic-modeling/toilet_030.png)
 
@@ -159,6 +157,49 @@ Now we have a very basic toilet-looking object (without a flusher or hinges or b
 
 ![Maya Image](/images/basic-modeling/toilet_035.png) 
 
-## Additional Resources
+## Extra for Experts
 
-* [Create a Reference Image](/tutorials/create-reference-image)
+Now you have a grey model. It is bland and boring and needs a spice of color. Here is a quick tutorial for coloring your models.
+
+Select your completed toilet. Hold **right click** and select **Assign New Material**.
+
+![Maya Image](/images/basic-modeling/toilet_036.png) 
+
+A window listing different materials should pop up. As you can see from this list, there are many different materials that can be assigned to your objects. We will go over two basic ones for now **Lambert** and **Phong**. More details will be provided in the Shading lab.
+
+![Maya Image](/images/basic-modeling/toilet_037.png) 
+
+### Lambert
+
+The lambert material type is used to simulate flat, dull materials like plastic or clay.
+
+### Phong
+
+The phong material type is used to simulate any sort of glossy surface because it is "shiny." Examples are metallic objects, or shinier plastics.
+
+Now that you know a little about lamberts and phongs. In the **Assign New Material** window click on either lambert or phong. The **Attribute Editor** should then appear. It is good practice to name your shaders and that can be done in the attribute editor. 
+
+![Maya Image](/images/basic-modeling/toilet_038.png) 
+
+To change the color of this shader, click on **Color** in the **Attribute Editor**. A color palette will appear, from there select the color that you want.
+
+![Maya Image](/images/basic-modeling/toilet_039.png) 
+
+Your toilet should now be in color! The toilet below is assigned to a red lambert. 
+
+![Maya Image](/images/basic-modeling/toilet_040.png) 
+
+If you chose lambert and decided phong would be a better shader for your toilet or vice versa, you can change the material type by clicking **Type** in the **Attribute Editor**. A drop down list should appear.
+
+![Maya Image](/images/basic-modeling/toilet_041.png) 
+
+And if you chose to color your toilet red instead of blue, we forgive you. Remember you can change the color by selecting **Color** in the **Attribute Editor**.
+
+The toilet is now assigned to a blue phong material. Much better!
+
+![Maya Image](/images/basic-modeling/toilet_042.png) 
+
+
+Go ahead and have fun putting color into your world!
+
+##Once you're done, proceed to [Mini Project 2](http://learn.ucbugg.com/mini-project-2) which is due next week.
