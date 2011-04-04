@@ -32,7 +32,7 @@ Make sure also to set time slider playback speed to **play every frame** by 1 fr
 
 First create an emitter. Remember to name your objects! Name the emitter 'rainEmitter' and name the particles 'rainParticles'
 
-![Maya Image](/images/effects/particleMenu)
+![Maya Image](/images/effects/particleMenu.jpg)
 
 Set timeline to go up to 300 frames. Scrub the slider to see particles flying out.
 
@@ -50,7 +50,7 @@ Change emitter type to be **volume**. if you scroll down in the emitter attribut
 
 Let's scale it more to a rectangular prism shape. Increase scale accordingly. Scrub the slider to check the particle movement. 
 
-<div class="note tip">A neat trick is that after you scale it up along y axis. you can scale the box outwards in the x and z axis together by holding control and click+dragging the y axis box. amazing!</div>
+<div class="note tip">A neat trick is that after you scale it up along y axis. You can scale the box outwards in the x and z axis together by holding control and click+dragging the y axis box. amazing! You can do the same with the other axes.</div>
 
 Also translate the emitter up, so that the particles will be coming from the sky.
 
@@ -105,10 +105,8 @@ So what we do is select our rainParticles and go to **Particles->'Particle Colli
 
 Simply select emit as the emit type and adjust the **Num Particles** to about 2 or 3 then just create the event by clicking the **'Create Event'** button.
 
-<div class="note tip">
-1. make sure new particles are affected by gravity
-2. make sure new particles collide with ground.
-</div>
+<div class="note tip">1. make sure new particles are affected by gravity</div>
+<div class="note tip">2. make sure new particles collide with ground.</div>
 
 ![Maya Image](/images/effects/createParticleEvent2.jpg)
 
