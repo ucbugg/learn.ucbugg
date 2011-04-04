@@ -49,6 +49,7 @@ CHAPTERS = [
     "Basic Animation",
     "Character Animation",
     "Shading",
+	"Effects",
     "Lighting",
     "Advanced Shading",
     "Rendering",
