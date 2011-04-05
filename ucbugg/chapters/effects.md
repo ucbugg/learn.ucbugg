@@ -88,7 +88,7 @@ If you play the scene now, we see that the particles bounce off the ground, mayb
 
 Select the 'ground' plane and we should see in the attribute editor a **geoConnector1** tab. If we select that and lower the **resilience** attribute, the ground will be less deflective of the particles. Adjust until the rainParticles don't bounce off the ground too much.
 
-![Maya Image](/imges/effects/setResilience.jpg)
+![Maya Image](/images/effects/setResilience.jpg)
 
 Our rain effect is almost complete. one last thing to do is add more fields to give particle movement more randomness. This part I will leave up to you to play around with. It's more fun that way. Make sure you select your rainParticle first before you create the field. If not and you've already created your field. you can select the particle object and the field you want affecting it and go to **Fields->'Affect Selected Object(s)'** and the field should now be affecting those particles.
 
