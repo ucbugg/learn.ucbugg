@@ -70,7 +70,7 @@ Click on rainParticleShape tab, scroll down to Render Attributes
 
 Change **Particle Render Type** to **Streak**, then click **Current Render Type** button right under it. Change attributes accordingly.
 
-![Maya Image](/images/effects/RenderParticleType.JPG)
+![Maya Image](/images/effects/renderParticleType.JPG)
 
 Now we're going to make the rain hit the ground. First **make plane polygon (rename it ground)**.
 
