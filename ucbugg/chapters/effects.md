@@ -28,7 +28,7 @@ Make sure the Linear units are set to **centimeters** as scale is very important
 
 ![Maya Image](/images/effects/setCentimeters.jpg)
 
-Make sure also to set time slider playback speed to **play every frame** by 1 frame at a time. Max speed at 24 fps. Why do we do this? It's because particles need to use every frame to calculate the next position it's supposed to be in. Basically, a particle takes the position it's in the previous frame, and calculates it's current position according to it's speed and any acceleration that is applied on it.
+Make sure also to set time slider playback speed to **play every frame** by 1 frame at a time. Max speed at 24 fps. Why do we do this? It's because particles need to use every frame to calculate the next position it's supposed to be in. Basically, a particle takes the position it's in the previous frame, and calculates it's current position according to it's speed and any acceleration that is applied on it. So **to reset your particle simulation, you'll have to start at frame 1**.
 
 First create an emitter. Remember to name your objects! Name the emitter 'rainEmitter' and name the particles 'rainParticles'
 
@@ -42,7 +42,7 @@ Make sure it is omni-directional (notice that it just spreads out). to do this, 
 
 ![Maya Image](/images/effects/emitType_Rate.jpg)
 
-Try increasing the **rate of particles** and see how that looks like.
+Try increasing the **rate of particles** and see what that looks like.
 
 Play with settings if you want. The best way to learn about particles is to experiment with the settings!
 
@@ -54,19 +54,19 @@ Let's scale it more to a rectangular prism shape. Increase scale accordingly. Sc
 
 Also translate the emitter up, so that the particles will be coming from the sky.
 
-Turn down **away from center** attribute.
+Decrease **away from center** attribute. This will make your particles not fly in different directions too much.
 
 Select rainParticle in outliner and click **Fields &rarr; Gravity**. This gravity field also has a lot of attributes to mess with. If the droplets are not falling fast enough for you, increase magnitude.
 
 ![Maya Image](/images/effects/fallingParticles.jpg)
 
-Scrub slider to see particles no longer fly outward, but are pulled down by the gravity field. You can turn up the magnitude in the attribute editor if you want the particles to fall faster.
+If you scrub the time slider, you'll see that the particles no longer fly outward, but are being pulled down by the gravity field. Amazing! You can also turn up the magnitude in the attribute editor if you want the particles to fall faster.
 
 Remember to reset the particles, start at frame 1.
 
-Change particle shape. click on rainParticle, switch to attribute editor **(ctrl+a)**.
+Change the particle shape. Point particles are easier on the computer hardware, but giving them actual shape makes a big difference in the look and feel of the particles. Click on rainParticle, switch to attribute editor **(ctrl+a)**.
 
-Click on rainParticleShape tab, scroll down to Render Attributes
+Click on rainParticleShape tab and scroll down to Render Attributes.
 
 Change **Particle Render Type** to **Streak**, then click **Current Render Type** button right under it. Change attributes accordingly.
 
@@ -91,6 +91,14 @@ Select the 'ground' plane and we should see in the attribute editor a **geoConne
 ![Maya Image](/images/effects/setResilience.jpg)
 
 Our rain effect is almost complete. one last thing to do is add more fields to give particle movement more randomness. This part I will leave up to you to play around with. It's more fun that way. Make sure you select your rainParticle first before you create the field. If not and you've already created your field. you can select the particle object and the field you want affecting it and go to **Fields &rarr; Affect Selected Object(s)** and the field should now be affecting those particles.
+
+### Other Common Fields:
+
+**Air Field** - Acts like a fan or wind. You can adjust the area it affects and direction of the air.
+
+**Turbulence Field** - This field adds randomness to the particle movement. Adjust the noise to change how random you want your particles to move.
+
+**Volume Axis** - This field is special because it does a lot of what other fields do but only when particles are within it's area of effect.
 
 ## Extra for Experts
 
@@ -123,7 +131,7 @@ Teapots galore!
 
 First create or import your object into the scene. It can be anything really. When you are ready, **select your particle object** and go to **Particles &rarr; Instancer.**
 
-This will create an instancer object attached to your particles. Now what you can do is **select your object that you want to instance** in place of your particles and **select your instancer second**.
+This will create an instancer object attached to your particles. Now what you can do is **select the object that you want to instance** in place of your particles and **select your instancer second**.
 
 There should be a **Add Selection** button in the attribute editor. Just click that and you're ready to go!
 
