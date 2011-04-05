@@ -24,7 +24,7 @@ In this lab, we'll be attempting to make a rain effect. Don't expect to match th
 
 Start by opening your outliner
 
-Make sure in **centimeters mode**. scale is very important in effects. (check **window->settings->preferences->Settings->Linear->centimeters**)
+Make sure the Linear units are set to **centimeters** as scale is very important in effects. This setting is found in **Window &rarr; Settings &rarr; Preferences &rarr; Settings**.
 
 ![Maya Image](/images/effects/setCentimeters.jpg)
 
@@ -48,19 +48,19 @@ Play with settings if you want. The best way to learn about particles is to expe
 
 Change emitter type to be **volume**. if you scroll down in the emitter attributes, you can change the volume emitter attributes. Let's make the volume shape a cube.
 
-Let's scale it more to a rectangular prism shape. Increase scale accordingly. Scrub the slider to check the particle movement. 
+Let's scale it more to a rectangular prism shape. Increase scale accordingly. Scrub the slider to check the particle movement.
 
-<div class="note tip">A neat trick is that after you scale it up along y axis. You can scale the box outwards in the x and z axis together by holding control and click+dragging the y axis box. amazing! You can do the same with the other axes.</div>
+<div class="note tip">You can scale the box outwards in the x and z axis together by holding control and click+dragging the y axis box. Amazing! You can do the same with the other axes.</div>
 
 Also translate the emitter up, so that the particles will be coming from the sky.
 
 Turn down **away from center** attribute.
 
-Select rainParticle in outliner and click **fields->Gravity**. This gravity field also has a lot of attributes to mess with. If the droplets are not falling fast enough for you, increase magnitude.
+Select rainParticle in outliner and click **Fields &rarr; Gravity**. This gravity field also has a lot of attributes to mess with. If the droplets are not falling fast enough for you, increase magnitude.
 
 ![Maya Image](/images/effects/fallingParticles.jpg)
 
-Scrub slider to see particles no longer fly outward, but are pulled down by the gravity field. amazing! you can turn up the magnitude in the attribute editor if you want the particles to fall faster.
+Scrub slider to see particles no longer fly outward, but are pulled down by the gravity field. You can turn up the magnitude in the attribute editor if you want the particles to fall faster.
 
 Remember to reset the particles, start at frame 1.
 
@@ -80,7 +80,7 @@ If you just press play now, the rain just goes through the plane.
 
 ![Maya Image](/images/effects/makeGround.jpg)
 
-However, if you **FIRST select the rainParticles then also select the 'ground' plane, then go to Particles->Make Collide**.
+However, if you **FIRST select the rainParticles** then also select the 'ground' plane, then go to **Particles &rarr; Make Collide**.
 
 ![Maya Image](/images/effects/makeCollide.jpg)
 
@@ -90,7 +90,7 @@ Select the 'ground' plane and we should see in the attribute editor a **geoConne
 
 ![Maya Image](/images/effects/setResilience.jpg)
 
-Our rain effect is almost complete. one last thing to do is add more fields to give particle movement more randomness. This part I will leave up to you to play around with. It's more fun that way. Make sure you select your rainParticle first before you create the field. If not and you've already created your field. you can select the particle object and the field you want affecting it and go to **Fields->'Affect Selected Object(s)'** and the field should now be affecting those particles.
+Our rain effect is almost complete. one last thing to do is add more fields to give particle movement more randomness. This part I will leave up to you to play around with. It's more fun that way. Make sure you select your rainParticle first before you create the field. If not and you've already created your field. you can select the particle object and the field you want affecting it and go to **Fields &rarr; Affect Selected Object(s)** and the field should now be affecting those particles.
 
 ## Extra for Experts
 
@@ -101,12 +101,12 @@ Take the rain scene for example. Rain usually splatters into a few more droplets
 
 ![Maya Image](/images/effects/createParticleEvent.jpg)
 
-So what we do is select our rainParticles and go to **Particles->'Particle Collision Event Editor'**.
+So what we do is select our rainParticles and go to **Particles &rarr; Particle Collision Event Editor**.
 
-Simply select emit as the emit type and adjust the **Num Particles** to about 2 or 3 then just create the event by clicking the **'Create Event'** button.
+Simply select emit as the emit type and adjust the **Num Particles** to about 2 or 3 then just create the event by clicking the **Create Event** button.
 
-<div class="note tip">1. make sure new particles are affected by gravity</div>
-<div class="note tip">2. make sure new particles collide with ground.</div>
+1. Make sure new particles are affected by gravity
+2. Make sure new particles collide with ground
 
 ![Maya Image](/images/effects/createParticleEvent2.jpg)
 
@@ -115,22 +115,22 @@ Play the scene and watch how your particles are affected.
 ### Instancing
 Another really neat thing particles can do is instance objects in their place. Maybe you happen to want to make it rain cat and dog models, or randomly shoot out a bunch of knives. The particle instancer is the way to go.
 
-Here I am instancing teapots on the raindrops. 
+Here I am instancing teapots on the raindrops.
 
 ![Maya Image](/images/effects/instancer.jpg)
 
 Teapots galore!
 
-First create or import your object into the scene. It can be anything really. When you are ready, **select your particle object** and go to **Particles->Instancer.**
+First create or import your object into the scene. It can be anything really. When you are ready, **select your particle object** and go to **Particles &rarr; Instancer.**
 
 This will create an instancer object attached to your particles. Now what you can do is **select your object that you want to instance** in place of your particles and **select your instancer second**.
 
-There should be a **'Add Selection'** button in the attribute editor. Just click that and you're ready to go!
+There should be a **Add Selection** button in the attribute editor. Just click that and you're ready to go!
 
 ### Caching Particles
 If you find yourself finalizing your particle movements and are annoyed of always reseting to frame 1 to see the animation at work, you can cache your particles.
 
-Simply be in your dynamics Maya environment and select your particle objects, and go to **solvers->'cache particle disk cache'**.
+Simply be in your dynamics Maya environment and select your particle objects, and go to **Solvers &rarr; Cache particle disk cache**.
 
 What this will do is output a file that basically saves how your particles move from the frames you tell it to. Thus, Maya will not have to solve for particle movement every frame and have to be reset at frame 1.
 
