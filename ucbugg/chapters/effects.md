@@ -135,6 +135,8 @@ This will create an instancer object attached to your particles. Now what you ca
 
 There should be a **Add Selection** button in the attribute editor. Just click that and you're ready to go!
 
+Here's the teapot object you can import in. [teapot.obj](/ma/teapot.obj)
+
 ### Caching Particles
 If you find yourself finalizing your particle movements and are annoyed of always reseting to frame 1 to see the animation at work, you can cache your particles.
 
