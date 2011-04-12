@@ -1,6 +1,6 @@
 # Lighting a scene
 
-Lighting is one of the most time-consuming processes in the pipeline one of the most gratifying. Images that come out of lighting are almost final (except for some minor color correction) and should be ready to be put into the movie. Once you're done lighting, you should be almost done with your movie!
+Lighting is one of the most time-consuming processes in the pipeline but also one of the most gratifying. Images that come out of lighting are almost final (except for some minor color correction) and should be ready to be put into the movie. Once you're done lighting, you should be almost done with your movie!
 
 This lab focuses on how to set up your lights so assets in the scene look interesting. For more information about the different Maya lights and their properties, check out the [lighting tutorial](http://learn.ucbugg.com/lighting).
 
@@ -20,15 +20,15 @@ This scene uses a lighting scheme known as "Three Point Lighting". This is almos
 
 ![Three Point Lighting](http://www.thedigitalstory.com/blog/img/photos/diy_studio_lighting.jpg)
 
-As the name implies, three point lighting uses three lights. The main light, called the "key" light, is the strongest light and is positioned above and in front of the subject off to the side of the camera. The key light usually represents the biggest light source in the scene (eg. the sun or a stage light) and is therefore has the highest intensity. Often, this is the only light that needs to cast shadows. Using the example above, here is the key light's contribution to the final image:
+As the name implies, three point lighting uses three lights. The main light, called the **"key" light**, is the strongest light and is positioned above and in front of the subject off to the side of the camera. The key light usually represents the biggest light source in the scene (eg. the sun or a stage light) and is therefore has the highest intensity. Often, this is the only light that needs to cast shadows. Using the example above, here is the key light's contribution to the final image:
 
 ![Key Light](/images/lighting-a-scene/FancySphereKey.jpg)
 
-The second light is called the "fill" light. This light fills in areas that are shadowed from the key light. It is usually placed in front of the subject, below the key light and on the opposite side of the camera. Below is the fill light's contribution in the sphere example:
+The second light is called the **"fill" light**. This light fills in areas that are shadowed from the key light. It is usually placed in front of the subject, below the key light and on the opposite side of the camera. Below is the fill light's contribution in the sphere example:
 
 ![Key Light](/images/lighting-a-scene/FancySphereFill.jpg)
 
-The third light is the back light. This light is often combined (sometimes unintentionally) with something called a "rim" light. As the name suggests, it lights the subject from behind, usually on the opposite side as the key light. If you use a back light as a rim light, one of its main purposes is to provide a rim that makes the subject stand out from objects behind it. This is especially noticeable on hair, grass, and objects that have similar color/brightness as the scene behind it.
+The third light is the **back light**. This light is often combined (sometimes unintentionally) with something called a **"rim" light**. As the name suggests, it lights the subject from behind, usually on the opposite side as the key light. If you use a back light as a rim light, one of its main purposes is to provide a rim that makes the subject stand out from objects behind it. This is especially noticeable on hair, grass, and objects that have similar color/brightness as the scene behind it.
 
 ![Back Light](/images/lighting-a-scene/FancySphereBack.jpg)
 
