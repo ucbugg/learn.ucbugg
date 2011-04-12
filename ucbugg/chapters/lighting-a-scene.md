@@ -48,7 +48,7 @@ In the sphere scene from before, the only shadows coming from my light were from
 
 ![Shadows](/images/lighting-a-scene/FancySphereGround.jpg)
 
-You'll notice that the ground directly below the sphere is brighter in the shadow image above than in the final image. That's due to a cool trick called Ambient Occlusion ("AO" for short). As far as render-intensive shadows go, this one takes the cake, but it looks everything look really good. It simulates a uniform light sphere around your objects and sees how much any given point is shadowed by other geometry in the scene. The end result is darkening near where objects and faces come together and soft shadows. The ambient occlusion render for the sphere scene is pretty boring, but this is actually a great way to show off your models on your demo reel!
+You'll notice that the ground directly below the sphere is brighter in the shadow image above than in the final image. That's due to a cool trick called Ambient Occlusion ("AO" for short). As far as render-intensive shadows go, this one takes the cake, but it makes everything look really good. It simulates a uniform light sphere around your objects and sees how much any given point is shadowed by other geometry in the scene. The end result is darkening near where objects and faces come together and soft shadows. The ambient occlusion render for the sphere scene is pretty boring, but this is actually a great way to show off your models on your demo reel!
 
 ![Ambient Occlusion](/images/lighting-a-scene/FancySphereAO.jpg)
 
