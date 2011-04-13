@@ -1,4 +1,4 @@
-# Lighting a scene
+# Lighting a Scene
 
 Lighting is one of the most time-consuming processes in the pipeline but also one of the most gratifying. Images that come out of lighting are almost final (except for some minor color correction) and should be ready to be put into the movie. Once you're done lighting, you should be almost done with your movie!
 
