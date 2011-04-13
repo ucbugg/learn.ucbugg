@@ -1,4 +1,4 @@
-# Lighting a scene
+# Lighting a Scene
 
 Lighting is one of the most time-consuming processes in the pipeline but also one of the most gratifying. Images that come out of lighting are almost final (except for some minor color correction) and should be ready to be put into the movie. Once you're done lighting, you should be almost done with your movie!
 
@@ -74,7 +74,7 @@ Ray traced shadows take longer to render and are less controllable but are faste
 
 ## Let's light something already!
 
-A common test of skill for lighters is their ability to light a bowl of fruit. Their organic shapes have plenty of little bumps for light to bounce off of and cast tiny reflections. Download your own [bowl of fruit](/ma/Fruitbowl.ma) and try it out for yourself! 
+A common test of skill for lighters is their ability to light a bowl of fruit. Their organic shapes have plenty of little bumps for light to bounce off of and cast tiny reflections. Download your own [bowl of fruit](/ma/Fruitbowl.tgz) and try it out for yourself! 
 
 ### Some hints:
 
