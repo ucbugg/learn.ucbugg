@@ -8,15 +8,15 @@ Maya comes with three different engines for rendering images. Other's exist, suc
 
 ### Maya Software
 
-Maya¡¯s software renderer, as described by Maya's online manual, is an advanced, multi-threaded renderer. It is based on a rendering technology that is built directly into Maya's dependency graph architecture.
+Maya's software renderer, as described by Maya's online manual, is an advanced, multi-threaded renderer. It is based on a rendering technology that is built directly into Maya's dependency graph architecture. Technical things aside, it is the default renderer that comes with Maya, but since Mental Ray was developed it's not been used too much.
 
 ### Maya Hardware
 
-Maya¡¯s hardware renderer presents a seamlessly integrated rendering solution that takes advantage of graphics cards to render frames.
+Maya's hardware renderer presents a seamlessly integrated rendering solution that takes advantage of graphics cards to render frames. It is very similar to Maya Software so again, we won't be using it as our main renderer of choice.
 
 ### Mental Ray
 
-It's the best Maya has, so you should use it. If you are unable to render using Mental Ray because it does not appear as an option, you must load Mayatomr through the **Plug-in Manager**. You can access the **Plug-in Manager** by going to Window &rarr; Settings/Preferences &rarr; Plug-in Manager.
+Mental Ray is the most feature-rich renderer that comes with Maya and is specialized in ray tracing, though it does support other rendering algorithms. This is the renderer we will be using in this class! If you are unable to render using Mental Ray because it does not appear as an option, you must load Mayatomr through the **Plug-in Manager**. You can access the **Plug-in Manager** by going to Window &rarr; Settings/Preferences &rarr; Plug-in Manager.
 
 ![Maya Image](/images/rendering/rendering_001.png) 
 
