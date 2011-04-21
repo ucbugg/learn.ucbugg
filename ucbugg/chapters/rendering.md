@@ -8,11 +8,11 @@ Maya comes with three different engines for rendering images. Other's exist, suc
 
 ### Maya Software
 
-Crappy, don't use it.
+Maya¡¯s software renderer, as described by Maya's online manual, is an advanced, multi-threaded renderer. It is based on a rendering technology that is built directly into Maya's dependency graph architecture.
 
 ### Maya Hardware
 
-Crappy, don't use it.
+Maya¡¯s hardware renderer presents a seamlessly integrated rendering solution that takes advantage of graphics cards to render frames.
 
 ### Mental Ray
 
@@ -25,6 +25,19 @@ In the Plug-in Manager, load Mayatomr.bundle for Macs or Mayatomr.mll for Window
 ![Maya Image](/images/rendering/rendering_002.png)
 
 You should now be able to use Mental Ray!
+
+
+<div class="note tip">
+## Tips
+
+If your renders are not what you expect, perhaps an object you thought would appear in the render is being cut off, changing **Camera Settings** to **Resoluion Gate** might be helpful.
+
+![Maya Image](/images/rendering/rendering_012.png)
+
+Now it is easy to see what object will appear when you render.
+
+![Maya Image](/images/rendering/rendering_013.png)
+</div>
 
 ## Render Settings
 
@@ -70,15 +83,23 @@ Now, sit back, relax and watch this great video tutorial on batch rendering.
 
 <object width="780" height="454"><param name="movie" value="http://www.youtube-nocookie.com/v/9fRz63ph0h4?fs=1&amp;hl=en_US&amp;hd=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube-nocookie.com/v/9fRz63ph0h4?fs=1&amp;hl=en_US&amp;hd=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="780" height="454"></embed></object>
 
-## Tips
+## Extra for Experts
 
-If your renders are not what you expect, perhaps an object you thought would appear in the render is being cut off, changing **Camera Settings** to **Resoluion Gate** might be helpful.
+In this section, you will learn how to set up an ambient occlusion layer.
 
-![Maya Image](/images/rendering/rendering_012.png)
+In the channel box under the **Render** tab, click on Layers &rarr; Create Empty Layer. Rename this layer to something like AO for ambient occlusion since we will be creating an ambient occlusion render layer.
 
-Now it is easy to see what object will appear when you render.
+![Maya Image](/images/rendering/rendering_014.png)
 
-![Maya Image](/images/rendering/rendering_013.png)
+Select the objects in your scene that you like to render in ambient occlusion. Then right click on the AO render layer and click on **Add Selected Objects**.
 
+![Maya Image](/images/rendering/rendering_015.png)
 
+Now you need to set the attributes of this render layer in order for it to render ambient occlusion. Right click on the AO render layer and click **Attributes**.
+
+![Maya Image](/images/rendering/rendering_016.png)
+
+The **Attribute Editor** should appear. Click on Presets &rarr; then choose Occlusion.
+
+![Maya Image](/images/rendering/rendering_017.png)
 
