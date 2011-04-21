@@ -103,5 +103,5 @@ The **Attribute Editor** should appear. Click on Presets &rarr; then choose Occl
 
 ![Maya Image](/images/rendering/rendering_017.png)
 
-Congratualtions you have just created a render layser! :)
+Congratulations you have just created a render layer! :)
 
