@@ -178,10 +178,10 @@ Next, I'm going to create another cube, scale it, and move it underneath my head
 
 ### Quick Aside: The Outliner
 
-Navigate to Window &rarr;Outliner. This will open up a window called the __Outliner__.  You'll notice that there are several items in the list such as persp, top front, side, pCube1, and pCube2. If you click on pCube1, you'll notice that this is the cube you're using for the head of your robot.  Advanced models can have hundreds or even thousands of polygons, and if they were all named like this, modeling would be very confusing.  Double-click each of your cubes and rename them to head and torso.  As you build the rest of your robot, make an effort to rename each object to something more descriptive than pCube or pSphere.
+Navigate to **Window &rarr; Outliner**. This will open up a window called the __Outliner__.  You'll notice that there are several items in the list such as persp, top front, side, pCube1, and pCube2. If you click on pCube1, you'll notice that this is the cube you're using for the head of your robot.  Advanced models can have hundreds or even thousands of polygons, and if they were all named like this, modeling would be very confusing.  Double-click each of your cubes and rename them to head and torso.  As you build the rest of your robot, make an effort to rename each object to something more descriptive than pCube or pSphere.
 
 ### And Now Back to our Robot
-Next, I create a cylinder, rotate it about 90 degrees (using the channel box, move it up, and duplicate it (using &#x2318; - D) and move the duplicate to the other side.
+Next, I create a cylinder, rotate it about 90 degrees (using the channel box, move it up, and duplicate it (using **&#x2318; - D**) and move the duplicate to the other side.
 
 ![robot](images/introduction-to-maya/img_019_robot2.png)
 
