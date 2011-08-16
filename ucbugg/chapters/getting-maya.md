@@ -1,4 +1,4 @@
-# Getting Maya 2011
+# Getting Maya 2012
 
 Welcome to UCBUGG! If you already have Maya installed on your computer, head over to the next section [Introduction to Maya](/introduction-to-maya).
 
@@ -30,6 +30,6 @@ Once you select your version, you will be taken to the download page. The downlo
 
 ## Installing Maya
 
-Once your download is complete, simply run the installer and follow the on screen instructions. The installer will ask for the serial number from the previous section. After you enter your serial number and product key, Maya will install. You are now the proud owner of Maya 2011.
+Once your download is complete, simply run the installer and follow the on screen instructions. The installer will ask for the serial number from the previous section. After you enter your serial number and product key, Maya will install. You are now the proud owner of Maya 2012.
 
 A warning: Maya's activation process can take quite a while. If you encounter any errors, simply try again with the same data. It should eventually work.
