@@ -37,7 +37,11 @@ To make sideways edits symmetrically, you can select both sides' verts and use t
 
 Use the right-click menu to go into 'Edge' mode.    Here we can double-click on one of the bottom horizontal edges to select the whole ring.   We want to **extrude the bottom ring downwards to make the bowl deeper**:  
 
-Go to  **Edit Mesh &rarr; Extrude**  
+Go to  **Edit Mesh &rarr; Extrude**. 
+
+<div class="note tip">
+If you want to undo an extrude, you must press undo twice.
+</div>
 
 ![Maya Image](/images/basic-modeling/toilet_006.png)  
 
