@@ -22,7 +22,7 @@ Make sure you are in the 'Animation' Menu.
 
 ![Maya Image](/images/character-animation/max_001.jpg)
 
-**Second, set your “Default Out Tangent” to “Stepped”.** Do this by again going in to your animation preferences in the bottom right corner, and clicking “animation” from the available menus on the left side. There you will be able to change your Default Out Tangent. The purpose of changing to stepped tangents will be explained a little later in the lab.
+**Second, set your "Default Out Tangent" to "Stepped".** Do this by again going in to your animation preferences in the bottom right corner, and clicking "animation" from the available menus on the left side. There you will be able to change your Default Out Tangent. The purpose of changing to stepped tangents will be explained a little later in the lab.
 
 ![Maya Image](/images/character-animation/goon_001.png)
 
@@ -34,41 +34,41 @@ Or, you can go to Window &rarr; Settings/Preferences &rarr; Preferences, and the
 
 To animate a jump, we need to be able to move to move several parts of the body, from head to toe.  
 
-Now that we have our rig referenced in and our animation preferences set-up correctly, let’s start posing! Now it’s usually good practice, when blocking in your animation, to set keys on every controller to that you have as much control when animating as possible. So, select all of Goon’s controls (just drag a selection box around him, all the controllers should turn white) and hit S to set a key at frame 1.
+Now that we have our rig referenced in and our animation preferences set-up correctly, let's start posing! Now it's usually good practice, when blocking in your animation, to set keys on every controller to that you have as much control when animating as possible. So, select all of Goon's controls (just drag a selection box around him, all the controllers should turn white) and hit S to set a key at frame 1.
 
-We’re going to have Goon jumping in place in a 32 frame cycle and I decided that I want the beginning of the cycle to be just when his feet touch back on the ground as he lands. So I’ve worked out a pose of what I want that to look like. He’s standing straight up, hands in the air.
+We're going to have Goon jumping in place in a 32 frame cycle and I decided that I want the beginning of the cycle to be just when his feet touch back on the ground as he lands. So I've worked out a pose of what I want that to look like. He's standing straight up, hands in the air.
 
 ![Maya Image](/images/character-animation/goon_003.png)
 
 Pose him similarly and make sure you are setting keys as you go.
 
-When first beginning blocking, it’s good to think about what your “golden poses” are. These poses are the absolute minimum poses that you need to tell the story of what’s happening in your animation. For us, that’s Goon jumping up and landing so I’ve done my basic blocking with only three poses, his crouch, the peak of his jump, and his landing. These are really the most important poses to communicate what’s happening in the scene, so these are the first and most important ones to think about.
+When first beginning blocking, it's good to think about what your "golden poses" are. These poses are the absolute minimum poses that you need to tell the story of what's happening in your animation. For us, that's Goon jumping up and landing so I've done my basic blocking with only three poses, his crouch, the peak of his jump, and his landing. These are really the most important poses to communicate what's happening in the scene, so these are the first and most important ones to think about.
 
-So, onto our second pose, his crouch! For this I wanted to have a big anticipation, so I have Goon crouch really low so that there’s a lot of power in his jump. I also decided that I like the time of his crouch being around frame 17. So, again select all of Goon’s controls, go to frame 17, set a key, and pose him into a nice crouch position from which he will spring up into the air. Here’s what mine looks like 
+So, onto our second pose, his crouch! For this I wanted to have a big anticipation, so I have Goon crouch really low so that there's a lot of power in his jump. I also decided that I like the time of his crouch being around frame 17. So, again select all of Goon's controls, go to frame 17, set a key, and pose him into a nice crouch position from which he will spring up into the air. Here's what mine looks like 
 
 ![Maya Image](/images/character-animation/goon_004.png)
 
-Notice that since we set our out tangents to “stepped” earlier in the lab, Goon just snaps to the next pose at frame 17 rather than interpolating evenly over the 17 frames. Animators use this type of curve so that they can concentrate solely on the timing and the readability of his or her poses, which are of the utmost if the audience is to understand what's going on. This way, the animator can just concentrate on getting the storytelling poses down perfect before he or she has to worry about making the stuff in between look good.
+Notice that since we set our out tangents to "stepped" earlier in the lab, Goon just snaps to the next pose at frame 17 rather than interpolating evenly over the 17 frames. Animators use this type of curve so that they can concentrate solely on the timing and the readability of his or her poses, which are of the utmost if the audience is to understand what's going on. This way, the animator can just concentrate on getting the storytelling poses down perfect before he or she has to worry about making the stuff in between look good.
  
 So now you should have Goon standing up straight at frame 1 and then snapping into a crouch pose at frame 17. 
 
-For our third pose, we’ll have Goon at the peak of his jump. I timed this pose out to be at frame 27. So now, set a key for Goon at frame 27 and put Goon into a nice jumping pose, similar to what I have here:
+For our third pose, we'll have Goon at the peak of his jump. I timed this pose out to be at frame 27. So now, set a key for Goon at frame 27 and put Goon into a nice jumping pose, similar to what I have here:
  
 ![Maya Image](/images/character-animation/goon_005.png)
  
 Note that in order to actually put Goon in the air, the best way is to grab his root controller (the yellow triangle controller around his middle) and translate that to where you want it, then select his feet controls and placing those appropriately. Do not use the master controller, it may cause problems when you change your curves later on.
  
-Ok we’re almost done with the rough blocking, the only thing left is to copy your first pose onto frame 33 so that when you play frames 1-32, your animation will loop correctly. To do this, select all the controls, then middle mouse drag from frame 1 to frame 33 and while you still have the middle mouse button pressed, hit S. This should copy and your should have a roughly blocked in jump! Your animation should look something like the following playblast. 
+Ok we're almost done with the rough blocking, the only thing left is to copy your first pose onto frame 33 so that when you play frames 1-32, your animation will loop correctly. To do this, select all the controls, then middle mouse drag from frame 1 to frame 33 and while you still have the middle mouse button pressed, hit S. This should copy and your should have a roughly blocked in jump! Your animation should look something like the following playblast. 
 
 [Rough Blocking](http://www.youtube.com/watch?v=ivKBFxyvkUk)
  
-He looks a bit silly right now with his arms up the air for so long, but he looks like he’s jumping, right? 
+He looks a bit silly right now with his arms up the air for so long, but he looks like he's jumping, right? 
 
-Now that we’ve blocked in our golden poses, it’s time to put in some breakdowns. These are poses that, while not essential to the storytelling of the action, they help communicate how exactly Goon is moving, how he is getting from one golden pose to the next. 
+Now that we've blocked in our golden poses, it's time to put in some breakdowns. These are poses that, while not essential to the storytelling of the action, they help communicate how exactly Goon is moving, how he is getting from one golden pose to the next. 
 
 I wanted Goon to do an anticipation before he actually crouches to make his jump, so I put a deeper crouch pose on frame 5, and then had him rise up a bit at frame 10 before he crouches down again at frame 17 where already posed him crouching. 
 
-Here’s frame 5:
+Here's frame 5:
  
 ![Maya Image](/images/character-animation/goon_006.png)
  
@@ -76,7 +76,7 @@ And frame 10:
  
 ![Maya Image](/images/character-animation/goon_007.png)
  
-Next I want to articulate how Goon begins to come up from his crouch and begin his jump so I put a key on frame 22 of Goon coming up out of the crouch and beginning to jump, though he is still on the ground. Here’s what I came up with:
+Next I want to articulate how Goon begins to come up from his crouch and begin his jump so I put a key on frame 22 of Goon coming up out of the crouch and beginning to jump, though he is still on the ground. Here's what I came up with:
  
 ![Maya Image](/images/character-animation/goon_008.png)
  
@@ -86,13 +86,13 @@ Since the jump is such a dynamic action, I want to put in one more breakdown pos
  
 ![Maya Image](/images/character-animation/goon_009.png)
  
-And with that, we’ve put in some solid breakdown poses that better show how exactly Goon is jumping up in the air. Your animation should look something like this now:
+And with that, we've put in some solid breakdown poses that better show how exactly Goon is jumping up in the air. Your animation should look something like this now:
  
 [Solid Breakdown Poses](http://www.youtube.com/watch?v=XLxHFddM2MA)
  
-Okay now you that you have your breakdowns in, it’s time to put in just a few more poses to finesse your blocking and really get things looking nice before you move out of stepped tangents. Add in more poses where you feel necessary, thinking about how Goon would be getting from one pose to the next and setting keys between your current poses to help show the audience how he is moving.
+Okay now you that you have your breakdowns in, it's time to put in just a few more poses to finesse your blocking and really get things looking nice before you move out of stepped tangents. Add in more poses where you feel necessary, thinking about how Goon would be getting from one pose to the next and setting keys between your current poses to help show the audience how he is moving.
  
-As a general rule it’s good to have a pose at least every four frames, that way you aren’t letting the computer do much inbetweening and having things look floaty. The following video is my final blocking pass before I changed my curves to splined.
+As a general rule it's good to have a pose at least every four frames, that way you aren't letting the computer do much inbetweening and having things look floaty. The following video is my final blocking pass before I changed my curves to splined.
  
 [Final Blocking Pass](http://www.youtube.com/watch?v=qV-GjtmhIig)
  
@@ -100,7 +100,7 @@ Once you get your animation to a place where you like it, go ahead and select al
  
 ![Maya Image](/images/character-animation/goon_010.png)
  
-But click the “plateau tangents” button, as illustrated above, and your tangents should look something like this:
+But click the "plateau tangents" button, as illustrated above, and your tangents should look something like this:
  
 ![Maya Image](/images/character-animation/goon_011.png)
 
@@ -118,7 +118,7 @@ It's somewhat similar to the perspective view you're used to, since scrolling th
 
 Also, using shift + the middle mouse button will constrain the movement horizontally or vertically depending on which way you move first. This is helpful when you want to change the value of a key without accidentally moving the key to a different frame, and vice versa). Additionally the move (W) and scale (R) tools still work in the graph editor and can be used to tweak tangents. If your cursor turns into a little circle when you are trying to edit, that just means that you have the select tool (Q) active and need to switch to the move or scale tool.
 
-With that, I leave to you keep refining your jump and continuing to animate until you think it looks good. Does Goon’s weight look right? Does the timing of him jumping and landing seem correct? And always make sure that the poses and keys at frames 1 and 33 are exactly the same so that you animation can loop properly.
+With that, I leave to you keep refining your jump and continuing to animate until you think it looks good. Does Goon's weight look right? Does the timing of him jumping and landing seem correct? And always make sure that the poses and keys at frames 1 and 33 are exactly the same so that you animation can loop properly.
 
 I also encourage you to show it someone and ask their opinion. Feedback is super helpful when you are stuck as to how to make your animation look better.
 
