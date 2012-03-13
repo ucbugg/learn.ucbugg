@@ -25,7 +25,7 @@ During the last project we learned how to reference in other Maya scenes into an
 
 Simply speaking, importing brings in other Maya scene files directly into the current scene, instead of creating only a reference that continuously refers to the original file. It is significantly less powerful than referencing in terms of features, but what we'll be doing with the camera is only using it as a one time tool so it fits are purposes just fine. If you want to learn more about the differences between importing and referencing, please read the Extra for Experts section.
 
-Enough with the long intro, lets actually import our camera.
+Enough with the long intro, let's actually import our camera.
 
 Remember to do this from your sets file!
 Go to __File->Import__ and select __scenes/sets/turntablecam.ma__ to import.
