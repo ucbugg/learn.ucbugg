@@ -4,7 +4,7 @@ Before starting make sure to grab a copy of the [Goon Rig](http://seanburgoon.co
 
 ## Familiarize Yourself with Goon Rig
 
-Open up a new Maya project, then create a reference by selecting File-> Create reference. Locate the the max rig that you saved, and create a reference. Once you've referenced the .ma file, start playing around with the controls. As you select them, you will see different attributes of those controls pop up in the channel box. 
+Open up a new Maya project, then create a reference by selecting File-> Create reference. Locate the the goon rig that you saved, and create a reference. Once you've referenced the .ma file, start playing around with the controls. As you select them, you will see different attributes of those controls pop up in the channel box. 
 
 To show the channel box, click the right most button in the upper right. 
 
