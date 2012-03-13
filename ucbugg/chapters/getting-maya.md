@@ -1,4 +1,4 @@
-# Getting Maya 2011
+# Getting Maya 2012
 
 Welcome to UCBUGG! If you already have Maya installed on your computer, head over to the next section [Introduction to Maya](/introduction-to-maya).
 
@@ -26,10 +26,10 @@ From the drop-down menu, select which version you want to download. If you are o
 
 ![Download Maya dialog](/images/getting-maya/getting_maya_download.jpg)
 
-Oncer you select your version, you will be taken to the download page. The download should start automatically, but if not, there is a link at the bottom of the page that will manually start the download. **Make sure to write down your serial number and product, as you will need them during installation**. Maya is a pretty big piece of software (1.2 GB) so make sure you have enough time to download the entire file. I suggest catching up on some reading while you wait. 
+Once you select your version, you will be taken to the download page. The download should start automatically, but if not, there is a link at the bottom of the page that will manually start the download. **Make sure to write down your serial number and product, as you will need them during installation**. Maya is a pretty big piece of software (1.2 GB) so make sure you have enough time to download the entire file. I suggest catching up on some reading while you wait. 
 
 ## Installing Maya
 
-Once your download is complete, simply run the installer and follow the on screen instructions. The installer will ask for the serial number from the previous section. After you enter your serial number and product key, Maya will install. You are now the proud owner of Maya 2011.
+Once your download is complete, simply run the installer and follow the on screen instructions. The installer will ask for the serial number from the previous section. After you enter your serial number and product key, Maya will install. You are now the proud owner of Maya 2012.
 
-A warning: Maya's activation process can take quite a while. If you encounter any errors, simply try again with the same data. It should eventaully work.
+A warning: Maya's activation process can take quite a while. If you encounter any errors, simply try again with the same data. It should eventually work.
