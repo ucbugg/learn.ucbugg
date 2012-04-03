@@ -4,7 +4,7 @@ Before starting make sure to grab a copy of the [Goon Rig](http://seanburgoon.co
 
 ## Familiarize Yourself with Goon Rig
 
-Open up a new Maya project, then create a reference by selecting File-> Create reference. Locate the the max rig that you saved, and create a reference. Once you've referenced the .ma file, start playing around with the controls. As you select them, you will see different attributes of those controls pop up in the channel box. 
+Open up a new Maya project, then create a reference by selecting File-> Create reference. Locate the the goon rig that you saved, and create a reference. Once you've referenced the .ma file, start playing around with the controls. As you select them, you will see different attributes of those controls pop up in the channel box. 
 
 To show the channel box, click the right most button in the upper right. 
 
@@ -60,8 +60,8 @@ Note that in order to actually put Goon in the air, the best way is to grab his 
  
 Ok we're almost done with the rough blocking, the only thing left is to copy your first pose onto frame 33 so that when you play frames 1-32, your animation will loop correctly. To do this, select all the controls, then middle mouse drag from frame 1 to frame 33 and while you still have the middle mouse button pressed, hit S. This should copy and your should have a roughly blocked in jump! Your animation should look something like the following playblast. 
 
-**Youtube Link:**
-<div class="note tip">[Rough Blocking](http://www.youtube.com/watch?v=ivKBFxyvkUk)</div>
+###Rough Blocking:
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ivKBFxyvkUk" frameborder="0" allowfullscreen></iframe>
  
 He looks a bit silly right now with his arms up the air for so long, but he looks like he's jumping, right? 
 
@@ -89,15 +89,15 @@ Since the jump is such a dynamic action, I want to put in one more breakdown pos
  
 And with that, we've put in some solid breakdown poses that better show how exactly Goon is jumping up in the air. Your animation should look something like this now:
  
-**Youtube Link:**
-<div class"note tip">[Solid Breakdown Poses](http://www.youtube.com/watch?v=XLxHFddM2MA)</div>
+###Solid Breakdown Poses
+<iframe width="560" height="315" src="https://www.youtube.com/embed/XLxHFddM2MA" frameborder="0" allowfullscreen></iframe> 
  
 Okay now you that you have your breakdowns in, it's time to put in just a few more poses to finesse your blocking and really get things looking nice before you move out of stepped tangents. Add in more poses where you feel necessary, thinking about how Goon would be getting from one pose to the next and setting keys between your current poses to help show the audience how he is moving.
  
 As a general rule it's good to have a pose at least every four frames, that way you aren't letting the computer do much inbetweening and having things look floaty. The following video is my final blocking pass before I changed my curves to splined.
 
-**Youtube Link:**
-<div class="note tip">[Final Blocking Pass](http://www.youtube.com/watch?v=qV-GjtmhIig)</div>
+###Final Blocking Pass
+<iframe width="560" height="315" src="https://www.youtube.com/embed/qV-GjtmhIig" frameborder="0" allowfullscreen align="center"></iframe>
  
 Once you get your animation to a place where you like it, go ahead and select all the controllers, go into the graph editor. Your editor should have all stepped tangents, looking something like this:
  
@@ -127,8 +127,8 @@ I also encourage you to show it someone and ask their opinion. Feedback is super
 
 The following video is what I came up with after a bit of fine-tuning, but even this could use a lot more fine-tuning! 
 
-**Youtube Link:**
-<div class="note tip">[Final Animation](http://www.youtube.com/watch?v=UHd4NJzwa2U)</div>
+###Final Animation
+<iframe width="560" height="315" src="https://www.youtube.com/embed/UHd4NJzwa2U" frameborder="0" allowfullscreen></iframe>
 
 So keep animating! Keep practicing! And have fun!
 
