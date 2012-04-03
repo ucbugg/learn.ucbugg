@@ -3,14 +3,15 @@
 Imagine having an entire building crumble or animating an entire snow storm. It seems quite tedious to keyframe every single little detail. This is where effects come into play. When you do visual effects, you usually have to do some sort of simulation where you allow the computer to do most of the "animating" work for you. In actuallity, objects you are simulating are put through several formulas, solving for their positions and other various attributes each frame.
 
 In this lab we'll be covering:
-<div class="note tip">
+
 -[Rigid Body Simulation](#rigid_body_simulation)
+
 -[Particle Simulation](#particle_simulation)
-</div>
 
 <div class="note tip">Effects are a lot of trial and error. Don't be surprised if you don't get the effect you want the first time.</div>
 
-# Rigid Body Simulation (#rigid_body_simulation)
+# Rigid Body Simulation
+
 
 ##Active Rigid Bodies
 **Active Rigid Bodies** are objects that are affected by fields (such as gravity) as time passes. You can go into their attributes to change their resilience as well their friction values. Active Rigid Bodies can collide with each other as well as Passive Rigid Bodies.
@@ -43,9 +44,7 @@ Awesome. Now when you press play, the blocks should interact with the ground and
 
 In this lab we'll be trying to simulate some domino blocks falling. I've already created a scene for you to work off of. Which can be found here:
 
-<div class="note tip">
 [Domino Scene](/ma/rigidBodyLab.ma)
-</div>
 
 First of all, make sure you set your project, of course, and then make sure you're on the dynamics menu set.
 
@@ -60,12 +59,12 @@ Select the first domino on the track and create an **Active Rigid Body**. This m
 Have your first domino selected and go to **Fields &rarr; Gravity**. 
 
 <div class="note tip">
-Note: You can also create the gravity field first and then select the objects you want affected by this field and go to **Fields &rarr; Affect Selected**.
+Note: You can also create the gravity field first and then select the objects you want affected by this field and go to <b>Fields &rarr; Affect Selected</b>.
 </div>
 
 Simulate again by hitting the play button. You'll see that the domino just falls straight through. Why isn't it colliding with the track?
 
-![Maya Image](/images/effects/applyGravity1.jpg)
+![Maya Image](/images/effects/applyGravityAgain.jpg)
 
 We have yet to tell the rigid body solver to have the active rigid bodies interact with the track as a passive rigid body. We know the track will act as the ground and not move from gravity so we can set that as a Passive Rigid Body. You can either go to **Rigid/Soft Body &rarr; Passive Rigid Body** or just click on the option in the pop out menu. Make sure you have the track selected first of course.
 
@@ -86,7 +85,7 @@ Once you find a simulation of your liking, bake it. Baking your simulation basic
 
 **Rigid Body Simulations** can be a very powerful tool if used correctly and efficiently.
 
-#Particle Simulation (#particle_simulation)
+#Particle Simulation
 
 ## Particles
 **Particles** can be a powerful tool in computer graphics. You can use them as dust, liquid, or even to instance bigger geometry for each particle. Particles are basically points in 3D space that can't really be seen when rendered unless given some sort of shape or object to be instanced at each point. They are usually used concurrently with emitters and fields. Just like objects, you can apply shaders to particles as well.
