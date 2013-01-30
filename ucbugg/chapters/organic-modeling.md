@@ -1,7 +1,7 @@
 # Organic Modeling
 
 <div class="note">
-If you're familiar with Maya's modeling tools, you could probably get through this tutorial by just looking at the images. I've included text for extra clarification.
+If you're familiar with Maya's modeling tools, you could probably get through this tutorial by just looking at the images. I've included text for extra clarification
 </div>
 
 **Remember to File->Project->Set your current project to your UCBUGG Lab project.**
