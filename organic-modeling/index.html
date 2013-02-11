@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>UCBUGG Open Course Ware</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <!--[if lt IE 9]>
+	<script>
+	  var e = ("abbr,article,aside,audio,canvas,datalist,details," +
+	  "figure,footer,header,hgroup,mark,menu,meter,nav,output," +
+	  "progress,section,time,video").split(',');
+	  for (var i = 0; i < e.length; i++) { document.createElement(e[i]);}
+	</script>
+    <![endif]-->
+  </head>
+  <body>
+    <div id="wrapper">
+
+      <header>
+	<img src="../images/logo.png" alt="UCBUGG" />
+      </header>
+
+      <section id="chapter">
+      
+
+<p>
+  You are here: <a href="../">Home</a> &rarr; <a href="../organic-modeling">Organic Modeling</a>
+</p>
+
+<h1 id="organic_modeling">Organic Modeling</h1>
+<div class="note">
+If you're familiar with Maya's modeling tools, you could probably get through this tutorial by just looking at the images. I've included text for extra clarification.
+</div>
+
+<p><strong>Remember to File-&gt;Project-&gt;Set your current project to your UCBUGG Lab project.</strong></p>
+<p>It's useful in the future to have a reference image inside your Maya file to model off of in the orthogonal views like this:</p>
+<p><img alt="Maya Image" src="../images/organic-modeling/orgmodel_002.jpg" /></p>
+<p>In this tutorial, however, we're going to model without reference planes. We are going to model the legs, arms, hands, feet, body, and head as separate pieces and then merge them later on. Keep in mind that there are many different approaches to character modeling. I chose to do it in this Frankenstein sort of way, because it is easier for me to work with smaller meshes, and then connect them later.</p>
+<h2 id="final_model">Final Model</h2>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_010.jpg" /></p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_002.jpg" />
+<img alt="Maya Image" src="../images/organic-modeling/frog_077.jpg" /></p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_080.jpg" />
+<img alt="Maya Image" src="../images/organic-modeling/frog_078.jpg" /></p>
+<div class="note">
+This awkward looking pose is intentional! It's important to model your characters in a neutral position that is ideal for rigging. Eyelids are generally modeled closed, so that they can be opened later in rigging.
+</div>
+
+<p>Note: It's important that you try and follow this tutorial as closely as possible because as you go deeper into the tutorial, we will assume that most of your edges and vertices are in relatively the same position as ours. With that said, this could turn into a <strong>very</strong> long tutorial if you try to follow everything exactly. So just try to make good judgment decisions for yourself. And if you do happen to encounter a bug that can't be fixed, it is possible you may have to restart the tutorial (saving different versions of your file every once in a while can help). Don't be discouraged though, the more you model the better you get!</p>
+<h3 id="modeling_the_arm">Modeling the Arm</h3>
+<p>Make sure your menu is set to 'Polygons'</p>
+<p>First, <strong>create a cylinder</strong>: Create &rarr; Polygon Primitives &rarr; Cylinder.</p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_023.jpg" /></p>
+<p>Change the cylinder options under INPUTS in the Channel Box. To show the channel box, use the right most button in the upper right: </p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_150.jpg" /></p>
+<p>Note: In Maya 2011 the button in the upper right looks like this:</p>
+<p><img alt="Maya Image" src="../images/organic-modeling/orgmodel_001.jpg" /></p>
+<p>You may have to "unfold" the polyCylinder# area underneath "inputs" by clicking on it. </p>
+<p>Adjust the highlighted fields as shown so that the cylinder has <strong>8 sides, 1 height subdivision, and 1 cap subdivision</strong>* and is <strong>centered on the grid.</strong></p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_001.jpg" /> <br />
+</p>
+<p><strong>Delete the caps.</strong> (Go into face mode, shift+select the faces, delete.) Then, <strong>scale your cylinder</strong> tube so that it is longer and skinnier. </p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_086.jpg" />
+<img alt="Maya Image" src="../images/organic-modeling/frog_087.jpg" /> <br />
+</p>
+<p><strong>Insert an edge loop:</strong> Edit Mesh &rarr; Insert Edge Loop Tool &rarr; Option Box. Make sure <strong>relative distance from edge</strong>, <strong>Auto complete</strong>, and <strong>Fix Quads</strong> are all checked. Click one of the vertical edges and Maya should automatically draw an edge loop and let you drag the loop up and down. Select the edge loop by double clicking on it and scale the edge loop down. </p>
+<p><strong>Add more edge loops and scale them</strong> to make an hour-glass arm shape. Your final leg should have edge loops that are pretty evenly spaced, with more spans where the "knee" is supposed to be. </p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_003.jpg" />
+<img alt="Maya Image" src="../images/organic-modeling/frog_004.jpg" /></p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_088.jpg" />
+<img alt="Maya Image" src="../images/organic-modeling/frog_089.jpg" />
+<img alt="Maya Image" src="../images/organic-modeling/frog_090.jpg" />
+<img alt="Maya Image" src="../images/organic-modeling/frog_094.jpg" />
+<img alt="Maya Image" src="../images/organic-modeling/frog_092.jpg" /></p>
+<p>Note: There is a slight bend in the arm to give an indication of which direction the ik handle should work later on in rigging. 
+You can achieve this bend as well by selecting the top half of the edges, rotating, and then translating them.</p>
+<p><img alt="Maya Image" src="../images/organic-modeling/orgmodel_003.jpg" /></p>
+<p>When you're done with your arm, <strong>name it "Arm1" in the Outliner.</strong></p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_013.jpg" /> </p>
+<div class="note">
+To maintain a clean workspace, we're going to create layers and store our models in them. That way, we can hide things when we're not working on them.
+</div>
+
+<p>Go to the channel box and <strong>create a layer:</strong> Right-click on "Layers" &rarr; Create Empty Layer.</p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_012.jpg" />
+<img alt="Maya Image" src="../images/organic-modeling/frog_015.jpg" /></p>
+<p><strong>Name layer1 "ARMS"</strong> by double clicking on it. </p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_016.jpg" /></p>
+<p><strong>Add Arm1 to ARMS:</strong> select Arm1 (in the view port or the outliner) &rarr; right click on ARMS &rarr; Add Selected Objects. 
+Then, <strong>Hide the layer</strong> by un-checking the "V" in the leftmost box. Now we can move on to modeling other parts of the body with a clean grid. </p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_018.jpg" /></p>
+<h2 id="modeling_the_leg">Modeling the Leg</h2>
+<p>This is essentially the same as modeling the arms, but we're going to use a 10-sided cylinder instead. </p>
+<p><strong>Create a cylinder:</strong> Create &rarr; Polygon Primitives &rarr; Cylinder.</p>
+<p>Change the INPUTS in the channel Box so that the cylinder has <strong>10 sides</strong> and is <strong>centered on the grid.</strong>
+Then, <strong>add edge loops and scale edges/vertices</strong> as you did before. Here is what the arm and leg should look like in relation to each other. (Press 3 to show your models in smooth preview.) 
+You can add the bend in the leg as well.</p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_019.jpg" /></p>
+<p>When you're done tweaking your leg, <strong>name it "Leg1" in the Outliner.</strong> 
+Once again, <strong>create a layer, name it "LEGS," add Leg1 to it, and hide the layer.</strong></p>
+<h2 id="modeling_the_body">Modeling the Body</h2>
+<p>For the body, we are going to create a torso with holes for the arms and legs we made. We'll go through step by step how to make this. We are aiming for something like this: </p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_020.jpg" /></p>
+<p><strong>Create a cylinder:</strong> Create &rarr; Polygon Primitives &rarr; Cylinder.</p>
+<p>Change the INPUTS in the channel Box so that the cylinder has <strong>10 sides</strong> and is <strong>centered on the grid.</strong> 
+<strong>Rotate it 90 degrees</strong> so that it is laying flat on the grid. Then, <strong>delete all the edges on the ends</strong> as shown:</p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_025.jpg" />
+<img alt="Maya Image" src="../images/organic-modeling/frog_027.jpg" /></p>
+<p><strong>Use Split Polygon Tool and draw in edges as shown:</strong> Edit Mesh &rarr; Split Polygon Tool.</p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_024.jpg" />
+<img alt="Maya Image" src="../images/organic-modeling/frog_028.jpg" />
+<img alt="Maya Image" src="../images/organic-modeling/frog_030.jpg" /></p>
+<p>Now, <strong>insert edge loops and scale them. Scale down the end vertices.</strong></p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_031.jpg" />
+<img alt="Maya Image" src="../images/organic-modeling/frog_032.jpg" /></p>
+<p><strong>Add a few more edge loops.</strong> Your body should look like this so far:</p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_034.jpg" /></p>
+<div class="note">You should periodically delete history when modeling. This will help prevent your file from randomly corrupting itself. (Edit &rarr; Delete All by Type &rarr; History.) Be careful not to delete history when rigging or animating, because it will delete all your work.</div>
+
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_035.jpg" /></p>
+<p>Next, <strong>insert another edge loop as shown below.</strong> (I temporarily hid the grid to better show where the edge loop should go.) </p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_053.jpg" />
+<img alt="Maya Image" src="../images/organic-modeling/frog_054.jpg" />
+<img alt="Maya Image" src="../images/organic-modeling/frog_055.jpg" /></p>
+<p>To make the holes for the legs, <strong>Select the following faces, and delete.</strong></p>
+<p>Now, we <strong>take the 8-sided and 10-sided holes, and move the vertices until they form round openings</strong> to match the size of the arms and legs we made before. To move the vertices, simply select them one by one and use the translate tool in the orthographic views. </p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_056.jpg" />
+<img alt="Maya Image" src="../images/organic-modeling/frog_060.jpg" /></p>
+<p>You will probably have to <strong>insert an edge loop</strong> to make the spans more even. </p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_062.jpg" />
+<img alt="Maya Image" src="../images/organic-modeling/frog_063.jpg" /></p>
+<p><strong>Tweak those vertices</strong> with the translate tool so that the body is smooth. You can view the different settings of the translate tool by clicking the tool settings icon in the upper right hand corner: </p>
+<p>Checking the <strong>Normal</strong> or <strong>Normals average</strong> box comes in handy when trying to adjust vertices on an organic object: </p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_000.jpg" /></p>
+<p>Your mesh should now look like this:</p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_067.jpg" />
+<img alt="Maya Image" src="../images/organic-modeling/frog_068.jpg" /></p>
+<p>To create another edge so that the topology of the hole is better contained, we can simply <strong>extrude and scale the edges inwards as shown below.</strong>   Edit Mesh &rarr; Extrude. Then, repeat with the arm hole. </p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_153.jpg" /> </p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_069.jpg" />
+<img alt="Maya Image" src="../images/organic-modeling/frog_070.jpg" />
+<img alt="Maya Image" src="../images/organic-modeling/frog_071.jpg" />
+<img alt="Maya Image" src="../images/organic-modeling/frog_072.jpg" /></p>
+<p><strong>Make sure your arms and legs are the right size in relation to your torso.</strong>  Make your ARMS and LEGS layers visible, and position your arm and leg in relation to the body as shown below. </p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_076.jpg" /></p>
+<p><strong>Make sure the vertices of your arms and legs line up correctly with your body.</strong>  Change the display to Wireframe on Shaded. Shading &rarr; Wireframe on Shaded. </p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_099.jpg" /></p>
+<p><strong>Hide the ARMS and LEGS layers again.</strong></p>
+<p>To make a hole for the head, <strong>go to Top View, Select the following faces, and delete.</strong></p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_074.jpg" /> </p>
+<p>Now we're at a point when we can just model half of the model and use Maya Instancing to mirror what we're doing. So, we're going to cut our model in half-first by inserting an edge loop, and then deleting all the faces on the right side.</p>
+<p><strong>Insert edge loop down the middle:</strong> Edit &rarr; Insert edge loop &rarr; Option Box. Make sure the boxes <strong>Multiple edge loops</strong> and <strong>Use equal multiplier</strong> are on. Also, make sure <strong>Number of edge loops</strong> is set to <strong>1</strong>. (You can experiment with checking different options to see how they work.)</p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_038.jpg" />
+<img alt="Maya Image" src="../images/organic-modeling/frog_041.jpg" /></p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_075.jpg" /></p>
+<p><strong>Create an instance:</strong> Edit &rarr; Duplicate Special &rarr; Option Box. Make sure the boxes <strong>Instance</strong> and <strong>Parent</strong> are checked. Depending on what orientation you modeled your body, you will have to play around with which how to Scale your instance. In my case, I made the x value -1 so that my body would be mirrored across the x axis. </p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_044.jpg" /></p>
+<p><strong>Go into Top View, and translate/scale the vertices so that you get the rough shape shown below.</strong> It may be necessary for you to add more edge loops, or use the split polygon tool to get the deformation you want. (Remember, now you only have to modify half of your body, and the other half will automatically pick up the changes.) Aim for the shape and topology shown below.</p>
+<p>Note: If you are having trouble scaling a continuous edge loop, it may help if you shift-select the two halves of the body and go to Mesh-&gt;Combine. This will combine the meshes so that that you can select a group of edge loops or vertices and scale them all together at once. Remember to select the body and hit Mesh-&gt;Separate though once you are finished so that the mesh is back to its instanced state.</p>
+<p>At this point, you have to let your artistic self kick in and modify the shape of the body so that it looks like that of a frog. We can't really tell you what to do from here except to play around with edges/vertices and all the tools you've learned so far so whenever you feel that you have a body shape that you like, move on.</p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_045.jpg" /></p>
+<p><strong>Create a layer called BODY, add your mesh to the layer, and hide it.</strong> </p>
+<h2 id="modeling_the_head">Modeling the Head</h2>
+<p>There are many ways to model a head. Some people like to start from a cube, and insert edge loops from there. In our case, we are going to start by modeling eye patches. </p>
+<p><strong>Create a cylinder:</strong> Create &rarr; Polygon Primitives &rarr; Cylinder. Go to the channel box and adjust the cylinder so that it has 8 sides and is centered on the grid. <strong>Delete caps of the cylinder, scale vertices and bring them up to make a donut as shown:</strong></p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_005.jpg" /></p>
+<p>You might have noticed that your pivot is no longer in the center of the donut. <strong>Center your pivot</strong> so that it's easier to work with. Select your donut, Modify &rarr; Center Pivot. 
+You can also move the pivot manually by holding down the "d" key.</p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_081.jpg" /></p>
+<p>Next, <strong>duplicate your donut.</strong> Select your donut, Edit &rarr; Duplicate.  Or, press Ctrl + d.
+Now, <strong>rotate your eye patches and place them at slight angles to each other</strong> (as shown in top view and perspective views below):</p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_082.jpg" />
+<img alt="Maya Image" src="../images/organic-modeling/frog_083.jpg" /></p>
+<p>Make sure that the two donuts are symmetric across whichever axis you choose. You can do this by going into the attribute editor and checking their transforms and rotations.
+Here are the values I used, but depending on how you positioned your eyes, they might not work for you.</p>
+<p><img alt="Maya Image" src="../images/organic-modeling/orgmodel_004.jpg" />
+<img alt="Maya Image" src="../images/organic-modeling/orgmodel_005.jpg" /></p>
+<p><strong>Turn the eye patches into one object.</strong> Shift-select one after the other, Mesh &rarr; Combine. </p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_084.jpg" /> </p>
+<p>Next, we're going to <strong>use the Append to Polygon tool to connect the two pieces.</strong> Select your eye patch mesh, Edit Mesh &rarr; Append to Polygon Tool.
+First click on one edge, and then click the edge you want to connect it to. Maya should draw a pink face for you. Press enter. </p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_096.jpg" /></p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_097.jpg" /></p>
+<p>Add one more face with the <strong>Append to Polygon Tool.</strong> Then, select the five bottom edges and <strong>extrude.</strong></p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_100.jpg" /></p>
+<p>Now we're at a point when we can use Maya Instancing to mirror what we're doing (like we did before). <strong>Insert edge loop down the middle:</strong> Edit &rarr; Insert edge loop &rarr; Option Box. Make sure the boxes <strong>Multiple edge loops</strong> and <strong>Use equal multiplier</strong> are on. Also, make sure <strong>Number of edge loops</strong> is set to <strong>1.</strong></p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_038.jpg" />
+<img alt="Maya Image" src="../images/organic-modeling/frog_101.jpg" /></p>
+<p><strong>Delete half the faces, and create an instance:</strong> Edit &rarr; Duplicate Special &rarr; Option Box. Make sure the boxes <strong>Instance</strong> and <strong>Parent</strong> are checked. Depending on what orientation you modeled your body, you will have to play around with which how to Scale your instance. In my case, I made the x value -1 so that my body would be mirrored across the x axis. </p>
+<p><img alt="Maya Image" src="../images/organic-modeling/orgmodel_006.jpg" /></p>
+<p><strong>Here are a series of 'extrude,''append to polygon,' and 'merge' steps.</strong> </p>
+<p>So far, we've used 'extrude' and 'append to polygon,' but not 'merge.' To merge vertices, shift+select them, Edit Mesh &rarr; Merge.</p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_154.jpg" /></p>
+<p>Remember, just work with one side, and Maya should automatically mirror everything you do. Make sure to work in perspective and orthogonal views. </p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_102.jpg" /></p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_103.jpg" /></p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_104.jpg" /></p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_105.jpg" /></p>
+<p>We are going to model the eyelids closed, so that they can be opened in rigging later. <strong>Add edge loops as shown below and select faces:</strong></p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_106.jpg" />
+<img alt="Maya Image" src="../images/organic-modeling/frog_107.jpg" /></p>
+<p>Look at the eye patches from the inside, and <strong>duplicate the eye patch faces, and offset them slightly.</strong> Select faces, Edit Mesh &rarr; Duplicate Face &rarr; Option Box. Make sure 'Separate duplicated faces' is unchecked. </p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_114.jpg" /></p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_110.jpg" /></p>
+<p>Next, we are going to connect the eye patch to the head by merging vertices. </p>
+<p><img alt="Maya Image" src="../images/organic-modeling/orgmodel_007.jpg" /></p>
+<p>Now continue merging the rest of the vertices.</p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_111.jpg" /></p>
+<p>Before you go on, quickly go into smooth mode to make sure there are no extra weird deformations happening within your model. If there are, it may be because you have edges right on top of eachother or extra vertices.
+(If you are working in lab, feel free to ask for help! If you are working from home, send us an email or come to office hours!)</p>
+<p><strong>Here are a series of steps to continue adding faces to the head:</strong>
+Remember, you can scale a group of vertices in towards each other to line them up straight.</p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_112.jpg" /> </p>
+<p><strong>To make the bottom lip and jaw, select these faces and duplicate face.</strong> Edit Mesh &rarr; Duplicate Face.</p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_113.jpg" /></p>
+<p><strong>Turn the bottom lip and head into separate meshes.</strong> Shift + select the bottom lip and head, Mesh &rarr; Separate. (*Note: your instance will disappear when you do this. Don't worry, you can simply create the instance again later.)</p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_115.jpg" /></p>
+<p><strong>Mirror the bottom lip. Delete the old lip. Adjust vertices.</strong>
+Edit Mesh &rarr; Mirror Geometry Option Box.</p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_117.jpg" /></p>
+<p><strong>Now turn the bottom lip and head back into one mesh.</strong> Shift + select the bottom lip and head, Mesh &rarr; Combine. </p>
+<p><strong>Continue building the head as follows:</strong></p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_126.jpg" />
+<img alt="Maya Image" src="../images/organic-modeling/frog_122.jpg" />
+<img alt="Maya Image" src="../images/organic-modeling/frog_123.jpg" /></p>
+<p><strong>Continue extruding edges and merging vertices until you get something like this:</strong></p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_121.jpg" /></p>
+<p><strong>Create a Maya instance again.</strong> Your head should look something like this now:</p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_124.jpg" /></p>
+<p>Now, we are going to make the inside of the mouth:</p>
+<p>Note: If you can't scale the edge loop correctly in the 3rd picture below, you can move those edges around manually.</p>
+<p><img alt="Maya Image" src="../images/organic-modeling/orgmodel_008.jpg" /></p>
+<p>*Note: You can merge multiple pairs of vertices at a time. Edit Mesh Merge Option Box. Make sure <strong>Always merge for two vertices</strong> is checked, and that you set the threshold to something low, like .05:</p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_151.jpg" /></p>
+<p><strong>Create a layer called HEAD, add your model to the layer, and hide the layer.</strong></p>
+<p>Now we are going to revisit the arm and leg, and model a hand and foot. </p>
+<h2 id="modeling_the_foot">Modeling the Foot</h2>
+<p><strong>Since you're probably familiar with the tools by now, just follow this visual guide, starting from a box:</strong></p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_127.jpg" /></p>
+<p><img alt="Maya Image" src="../images/organic-modeling/orgmodel_009.jpg" /></p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_129.jpg" /></p>
+<p><strong>Press 3, and your foot should look like this:</strong></p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_137.jpg" /></p>
+<h2 id="modeling_the_hands">Modeling the Hands</h2>
+<p><strong>This is similar to modeling the foot. Follow the visual guide:</strong></p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_130.jpg" /></p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_132.jpg" /></p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_134.jpg" /></p>
+<p>Press 3, and the should look like this: </p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_135.jpg" /></p>
+<h2 id="connecting_all_the_body_parts">Connecting All the Body Parts</h2>
+<p>Now that we have all the body parts, we simply have to make sure edge loops line up, and then start merging vertices!</p>
+<p>Un-hide all your layers, and place them like so:</p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_138.jpg" /></p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_139.jpg" /></p>
+<p>Now, adjust edge loops and vertices so that you can merge them. </p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_140.jpg" />
+<img alt="Maya Image" src="../images/organic-modeling/frog_141.jpg" /></p>
+<p>Now, create an instance, and merge the two halves. </p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_142.jpg" /></p>
+<p><img alt="Maya Image" src="../images/organic-modeling/frog_144.jpg" /></p>
+<p><a href=http:ucbugg.berkeley.edu/learn/data/media/labs/Adv_Modeling/mo_latest.ma>Reference</a> for Human Character Modeling</p>
+<h2 id="extra_for_experts">Extra for Experts:</h2>
+<p>Now that you have a complete model, here's how to create a master controller so that you can perform transformations on your model easier while maintaining the separate body parts. You will be creating controllers quite often when you start rigging, so here's a quick introduction.</p>
+<p>Here I have a main group called "wholeobject" which is a group of 3 objects in my file, a hat, a group of legs, and a group for the eyelens.</p>
+<p><img alt="Maya Image" src="../images/organic-modeling/orgmodel_010.jpg" /></p>
+<p>First, I want to create a NURBS circle, so I go into <em>Create-&gt;Nurbs Primitives</em> and make sure <em>Interactive Creation</em> checkbox is turned <em>OFF.</em> Then I can create the actual circle by going to <em>Create-&gt;Nurbs Primitives-&gt;Circle.</em>
+I want to scale up this circle, place it at the base of my character, and rename it to "master_controller" like this.</p>
+<p><img alt="Maya Image" src="../images/organic-modeling/orgmodel_011.jpg" /></p>
+<p>Now to finish it, all I have to do is to middle-click and drag the "wholeobject" group into the "master_controller" label in the outliner.
+Now when I want to perform transformations on my object I can just click on the master_controller because it will select my entire object!
+Yay! That completes this tutorial!</p>
+<p>Originally by Christine Li</p>
+
+
+      </section>
+
+      <footer>
+	<a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/88x31.png" /></a>
+      </footer>
+
+    </div>
+  </body>
+</html>
