@@ -30,7 +30,7 @@
 
 <h1 id="shading">Shading</h1>
 <p>In this lab you will learn the basic shading techniques to get color on your objects, apply basic textures, as well as a get basic overview of what the different types of materials are and what they do. Let's begin! :D</p>
-<p>First, download the <a href="../images/shading/table_with_fruit.ma">initial boring, grey scene</a></p>
+<p>First, download the <a href="/ma/table_with_fruit.ma">initial boring, grey scene</a></p>
 <h2 id="shaders">Shaders</h2>
 <p>Surfaces materials are mathematical models that represent the interaction between an object's surface and the incident light to calculate an the way the geometry looks when rendered.  Each shader is mathematically different, but for the purposes of this class you don't need to know about those differences. However, if you are interested, you can always look it up on google.</p>
 <h3 id="lambert">Lambert</h3>
