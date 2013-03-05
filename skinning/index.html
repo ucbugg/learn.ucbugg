@@ -47,7 +47,7 @@
   <br>
   4. Freeze transform and delete history on your mesh. You CANNOT do this later, because it will ruin your skinning.</p>
 <h2 id="initial_skinning">Initial Skinning</h2>
-<p>First, we'll let Maya try to skin the geometry. It will estimate the skin weights based on the distance between the joint and the skin. Select the Root joint of your skeleton, and select the geometry. Go to Skin --&gt; Bind Skin --&gt; Smooth Bind. Set the options to the following.<br>
+<p>First, we'll let Maya try to skin the geometry. It will estimate the skin weights based on the distance between the joint and the skin. Select the Root joint of your skeleton, and select the geometry. Go to Skin --&gt; Bind Skin --&gt; Smooth Bind. Set the options to the following. Make sure your settings for &quot;Normalize Weights&quot; are on Interactive.<br>
   Then select Bind Skin.</p>
 <p><img src="../images/skinning/1.jpg" width="546" height="372"></p>
 <p>The skeleton should show up as different colors--this indicates the skeleton is bound. (Maya isn't very good about indicating this, if you delete the skin bind the color will frequently stay there regardless...this isn't really an issue, just a matter of display!) Select the mesh and look in the channel box: one of the inputs should be skinCluster1. This indicates that the skeleton is now bound to the mesh. IF YOU DELETE HISTORY AT THIS STEP, IT WILL DELETE YOUR SKIN CLUSTER, AS WELL AS ALL THE WORK YOU'VE DONE SKINNING. So don't do that! </p>
