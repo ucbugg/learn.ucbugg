@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8" />
     <title>UCBUGG Open Course Ware</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css?dte=016" />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
     <!--[if lt IE 9]>
 	<script>
 	  var e = ("abbr,article,aside,audio,canvas,datalist,details," +
@@ -18,127 +18,96 @@
     <div id="wrapper">
 
       <header>
-	<img src="/images/logo.png?dte=016" alt="UCBUGG" />
+	<img src="../images/logo.png?dte=016" alt="UCBUGG" />
       </header>
 
       <section id="chapter">
       
 
 <p>
-  You are here: <a href="/">Home</a> &rarr; <a href="/basic-rigging">Basic Rigging</a>
+  You are here: <a href="../">Home</a> &rarr; <a href="../skinning">Skinning</a>
 </p>
 
-<h1 id="basic_rigging">Basic Rigging</h1>
-<h2 id="setup">Setup</h2>
-<p>Today we are going to be rigging a lamp. Before getring started, download the <a href="/ma/lamp.ma">lamp model</a> to the <code>scenes</code> directory in your current Maya project (Mine is UCBUGG Lab).</p>
-<p>After you open Maya, make sure you set your project to the UCBUGG Lab project that you've been working on so far.</p>
-<p><img alt="Set Project" src="/images/basic-rigging/model-organization-0.png" /></p>
-<h2 id="model_organization">Model Organization</h2>
-<p>Before we start rigging, I want to introduce the very simple but important concept of model organization.</p>
-<p>Especially as our scene gets complicated with many geo, cameras, shaders, and lights, it is very important to have good naming of your meshes. Before you start rigging, name all your models with intuitive, consistent names. It is up to you to come up with a naming scheme that works for you best.</p>
-<p><img alt="Naming" src="/images/basic-rigging/model-organization-1.png" /></p>
-<p>Also, before you start modeling you want to <strong>Freeze Transformations</strong> your model usually. This is to keep your numbers on the channel box clean and fixed to your current position and let your rig do all the moving. Select your mesh and then freeze transform it.</p>
-<p>The Freeze Transformations tool can be accessed from the Modify menu.</p>
-<p><img alt="Freeze Transformations" src="/images/basic-rigging/model-organization-3.png" /></p>
-<p>You'll notice that your model position hasn't changed, but the values in your channel boxes have been zeroed out. Just another way of keeping your models clean.</p>
-<p><img alt="Freeze Transformations" src="/images/basic-rigging/model-organization-2.png" /></p>
-<p>Lastly, because of all the extrudes and add edge loops you've done, your meshes probably have a lot of <strong>History</strong> on them. This can be checked in your channel box if you go to your INPUTS.</p>
-<p><img alt="HISTORY" src="/images/basic-rigging/model-organization-5.png" /></p>
-<p>To keep this clean, make sure you <strong>Delete by Type-&gt;History</strong>. This can be found under the Edit menu.</p>
-<p><img alt="Delete by Type" src="/images/basic-rigging/model-organization-4.png" /></p>
-<div class="note">
-Once you start rigging, you <b>should not perform</b> the above <strong>Freeze transformation</strong> and <strong>Delete by History</strong> as rigging and deformations depend on those transformations and history.
-</div>
-
-<h2 id="importing_the_lamp">Importing the Lamp</h2>
-<p>When first learning rigging, it's very easy to accidently mess up your model. To prevent losing your data, let's actually create a separate copy for rigging. That way you can always go back to your clean model if you mess up. Which tools do you think would be best for this purpose, Importing, or Referencing? Once you think you've got the answer, read on.</p>
-<p>Actually, given just that you want to go back to your original model, both work! <strong>Importing</strong> allows you to essentially make a copy of the lamp model so that your original maya scene file does not get touched, but <strong>Referencing</strong> also keeps your original file from being modified as well. However, Referenced objects cannot be parented or grouped, both of which we will be using extensively in this lab. Therefore we will stick with importing for today's lab.</p>
-<p>Open up a new scene file and save it as <strong>lampRigging.ma</strong>. To import the lamp, go to <strong>File -&gt; Import</strong>, select the downloaded <strong>lamp.ma</strong> file and press the <strong>Import</strong> button. A lamp should pop up in the center of your scene. Let's start rigging.</p>
-<h2 id="skeleton">Skeleton</h2>
-<p>Expand the Lamp node in the outliner to see what Lamp is made of. Lamp is a group (or a transform node) that has several parts as children. Clicking on a child will select it in the 3d view. Left dragging will select multiple items and a <strong>Ctrl+click</strong> will add to the selection.</p>
-<p>The first thing we want to do is <strong>group the separate pieces we will move</strong>. We will split the model into four groups for the base, lower leg, upper leg, and head. This helps us partition our rig into discrete sections. To create a group, select pieces you want to be together and go to <strong>Edit-&gt;Group</strong></p>
-<p><img alt="Maya Image" src="/images/basic-rigging/rig_2group.png" /></p>
-<p>Before continuing, <strong>partition the Lamp into the below groups</strong>. Once you are finished, the group hierarchy should match this hierarchy. </p>
-<p><img alt="Maya Image" src="/images/basic-rigging/rig_5checkpnt.png" /></p>
-<h3 id="base_group">Base Group</h3>
-<p>We'll start with the Base group. (double click on it in the outliner). Now, we can go to the outliner and click on Base to select that group. Whatever we do with the base, will affect the two pieces of the base.</p>
-<p><img alt="Maya Image" src="/images/basic-rigging/rig_3base.png" /></p>
-<h3 id="lowerleg_and_upperleg_group">LowerLeg and UpperLeg Group</h3>
-<p>Select the LowerLeg (in the outliner) and hit <strong>E</strong> for the rotate tool. When we try rotating, you'll notice that it isn't rotating around the right pivot (we want the pivot higher -- at the center of the base hinge). Show the pivot maniplator by holding <strong>D</strong> and then <strong>move the pivot to the center of the base hinge. Repeat for the Upper Leg except move the pivot to the knee</strong>. The head is one object already, so it doesn't need to be grouped. </p>
-<p>The first thing you'll notice is that when you rotate the lower leg, the upper leg and head stays where it is. We can do even fancier grouping to solve this. In the outliner, <strong>take the UpperLeg group and middle-drag it onto the LowerLeg group</strong>. This puts UpperLeg inside the LowerLeg group. Now, when you rotate LowerLeg, UpperLeg rotates too, but relative to LowerLeg. </p>
-<p>Using the heirarchy in Maya is an integral part of rigging. We could continue to create a heirarchy this way, but using a rig like this is a little tedious and we want things to be a little more automatic for the animators. So, <strong>undo the previous grouping</strong> (either <strong>ctrl+z</strong> or <strong>middle-drag</strong> UpperLeg out of LowerLeg). </p>
-<p><img alt="Maya Image" src="/images/basic-rigging/rig_5checkpnt.png" /></p>
-<h2 id="joints">Joints</h2>
-<p>Maya has a special type of Object called a Joint. These are much like normal object, except they are designed to be strung together in heirarchical chains and they have some special tools for rigging. The idea is to create a skeleton out of these joints, attach you're model to the joints, and then create controllers that provide high-level controls to move/animate the joints. First, <strong>make sure you're in the Animation Menus</strong>. </p>
-<p>Since joints are made to be strung together, the joint tool is set up to create a joint chain. <strong>Go to <em><em>Skeleton-&gt;Joint Tool</em></em></strong></p>
-<p><img alt="Maya Image" src="/images/basic-rigging/rig_6jnttl.png" /></p>
-<p>Before creating any joints, change to <strong>side view</strong>. If you do not, your joints will be placed in weird locations. To use the tool, <strong>Click on the hinge just below the lamp's head</strong>. This creates the base of the chain. Every subsequent click will create a new joint and parent it to the previous. <strong>Click on the elbow and then the base hinge, and finally somewhere straight below the base</strong>. Press <strong>Enter</strong> to finish. </p>
-<p>One property that joints have is they draw bones connecting them and their parents. In general, the last joint in a chain is not used (it can be though). Make sure to <strong>name the joints</strong> for organizational purposes. (You can fully expand a heirarchy by shift clicking the <strong><em><em>'+'</em></em></strong> in the outliner). </p>
-<p><img alt="Maya Image" src="/images/basic-rigging/rig_7joints.png" /></p>
-<p>The Joints are already arranged in a heirarchy so you can rotate the head joint and the children will follow. However, when we move the joints they don't move our lamp. Normally there is a fairly involved skinning process, but for a simple object like this, we can stick with parent constraints, which produces a very similar effect to parenting which we saw previously.</p>
-<h3 id="orient_joints">Orient Joints</h3>
-<p>Before we go any further, let's clean up our joints a bit. If you were clumsy like me, and had to move the joints around to get them exactly to the hinges, your joint chain's orientation might be off by a little bit. That sounds complicated but in essence this is what it looks like.</p>
-<p><img alt="Orient Joints" src="/images/basic-rigging/updated_01orient.png" /></p>
-<p>You'll notice that the red line which is supposed to point down the hierarchy is off, and does not match with where the skeleton is pointing. This will create unexpected behavior in more complicated rigs so we need to fix it. Luckily, this is a one-click fix. To fix this, select all of your joints and go to <strong>skeleton-&gt;orient joint tool</strong>. Instead of directly clicking <em>orient joint</em>, Select the option box and it will give you some options. I personally like to uncheck the Orient child joints, because I've run into unexpected behavior in the past. </p>
-<p><img alt="Orient Joints tool" src="/images/basic-rigging/updated_02orient.png" /></p>
-<p>Now select Orient and check that your joints have been oriented(the red line matches with the direction the skeleton points towards)</p>
-<h3 id="parent_constraints">Parent Constraints!</h3>
-<p>Select the HeadJnt, then select the upperLeg, <strong>(ORDER MATTERS FOR CONSTRAINTS! You always select the <em>driver</em>, which in our case is the joint, and then the <em>driven</em>, which is the upperLeg group.)</strong> and click the option box of parent constraint. Make sure you have maintain offset checked, so that our rig is consistent with the current state of the joints and model.</p>
-<p><img alt="Parent Constraint Options" src="/images/basic-rigging/updated_03parent.png" /></p>
-<p>Yay! We can move half of the lamp now. </p>
-<p><img alt="Parent Constraint Rotate" src="/images/basic-rigging/updated_04parent.png" /></p>
-<p>Now repeat for the ElbowJnt-lowerLeg, and BaseJnt-base. In effect, the parent constraint has given us a parent-like effect without us having to literally parent the objects.</p>
-<p>Because we are, in effect, parenting, the pivot location of the children doesn't matter and the joints are inherently at their pivot. Therefore, you don't need to worry about placing the pivots of your groups at their hinge. Now, when you rotate the joints, they should move the lamp.</p>
-<p>Also, go ahead and <strong>move the HeadJnt into the the Lamp group</strong>. We want to keep everything in the lamp group in case we reference this lamp in other scenes. Just another note on keeping your scene better organized.</p>
-<p><img alt="Maya Image" src="/images/basic-rigging/updatedrig_8.png" /></p>
-<p>Why do we use parent constraints instead of parenting? This is so that we keep the rig/controllers separate from the actual mesh, so that the modeling pipeline is separated(abstracted) and we don't have to worry about it in the rigging and animation pipeline.</p>
-<h3 id="ik_handle">IK Handle</h3>
-<p>Right now, it seems like we made our chain backwards. The idea is we want to treat the lamp poles/base like a leg. Its hard to animate this leg right now though. If you want to place the base somewhere, you have to repeatedly rotate joints until it looks right. Fortunately, Maya can do this for you. Its called <a href="http://en.wikipedia.org/wiki/Inverse_kinematics#Robotics_and_3D_Animation">Inverse Kinematics</a> and you tell it where you want the end of a joint chain to go, and it'll figure out how to rotate all the intermediate joints. </p>
-<p>To create one, <strong>go to <em><em>Skeleton-&gt;IK Handle Tool</em></em>. Click on the HeadJnt and then click on the BaseJnt. </strong> (we only want to solve to the base, the tip is purely to make it easier to see how the BaseJnt is rotated). Now you have an IK Handle at the base of the lamp. You can move it around and see how it works. <strong>Name the handle and put it in the Lamp group</strong>. </p>
-<p>Its a little easier to animate this now, but we still have a separated head, our base rotates when we might not want it to, and we still have to know what to move. Our job, as a rigger, involves hiding anything that isn't something we want to be controlled from the animator. This keeps problems/bugs/undesirable effects from happening if an animator keys some incorrect attributes. So we are going to add controllers to make this lamp even easier and hopefully funner to animate. </p>
-<p><img alt="Maya Image" src="/images/basic-rigging/updatedrig_8.5.png" /></p>
-<h2 id="controllers">Controllers</h2>
-<p>A controller is any object that controls part of your rig. Most controllers use parenting or constraints to affect the rig. Lets make a controller for the base. A NURBS Circle will be perfect. <strong>Before creating a circle, go to <em><em>Create-&gt;NURBS-&gt;Interactive Creation</em></em> and make sure it is OFF</strong> (this is important so that circles come oriented correctly by default). </p>
-<p>To create a NURBS Circle, go to  <strong>Create-&gt;NURBS-&gt;Circle</strong>. <em><em>Scale up the circle and place it at the base of the Base. To keep true with Model Organization, make sure you give it a name(BaseController is good), and then </em>Freeze Transform</em> it. This is so that when you have your controller's transformes <em>zeroed out</em>, it is exactly at the default head position, not at the origin.</p>
-<p>Now give it a name and put it in the Lamp group.<strong> We want it to control where the BaseIK handle is, so just </strong><strong>middle-drag</strong> the BaseIK onto the Base controller (in the outliner)**. Now, when you move the Base controller around, the ik handle follows. We almost have what we want, but the base still rotates when we don't want it to. </p>
-<p><img alt="IK Done" src="/images/basic-rigging/updated_05IK.png" /></p>
-<h3 id="orient_constraint">Orient Constraint</h3>
-<p>To fix this, we will use an Orient constraint to constrain the orientation of BaseJnt to the orientation of the Base controller. This is just like the parent constraint, except that it only controlls the orientation. Remember, all constraints work like this: Select the constrainer first, then select the object you want to constrain. In this case, <strong>select the Base controller first, then select the BaseJnt</strong> (<strong>ctrl+click</strong> (<strong>command+click</strong> on apple) in outliner). <strong>Go to <em><em>Constrain-&gt;Orient[optionbox]</em></em> and turn on Maintain Offset</strong> (again, otherwise weird things usually happen). </p>
-<p><img alt="Maya Image" src="/images/basic-rigging/rig_9orient.png" />
-<img alt="Maya Image" src="/images/basic-rigging/rig_10offset.png" /></p>
-<p>Then <strong>click 'Add'</strong>. Now you should be able to control the rotation of the base with the controller. </p>
-<h3 id="head_and_root">Head and Root</h3>
-<p>Our Base is complete, all we have to do now, is the head. Create another NURBS circle and place it around the head. <strong>Adjust the pivot</strong> to the base of the head (where HeadJnt is), rename it, and put it in the Lamp group. Then like we did before, use a <strong>parent constraint</strong> to constraint the Head to the HeadCtrl controller. Now the head should be pretty fully controllable with HeadCtrl. </p>
-<p><img alt="Maya Image" src="/images/basic-rigging/updated_06Head.png" /></p>
-<p>The rig is pretty much complete. Except, there is usually a Root controller that controls the overall location of all the other controllers. Not every animator actually uses it, but its there for situations where it can be useful.</p>
-<p>So, make another NURBS circle that is bigger than the Base controller and place it around the Base. Rename it as Root Controller and place it in the Lamp group. Parent the other controllers as well as the HeadJnt to this <strong>Root Controller(Called the Master Controller sometimes)</strong>, and now we have our fairly complete rig.</p>
-<p>At this point, we can <strong>hide all the underlying rigging machinery</strong> so that only the controllers are exposed for the animators to use. We do this by unchecking the <strong>Joints</strong> and <strong>IK Handles</strong> options in the 3d-view's <strong>Show</strong> menu, or plain hiding the joints on the outliner. </p>
-<p><img alt="Maya Image" src="/images/basic-rigging/rig_13hide.png" /></p>
-<p>In reality, the model will be bound to the skeleton through skinning which would let us actually turn off the joint visibility and then lock it (If you're curious on how exactly to do this, head to the Extra for Experts section). Doing this prevents any accidental adjustments to rigging machinery that could screw up higher level controllers. </p>
-<p><img alt="Maya Image" src="/images/basic-rigging/rig_14done.png" /></p>
-<h2 id="clean_up">Clean up</h2>
-<p>Now, it's cleanup time again!</p>
-<p>If you look at the number of objects in your model, you will notice that even for a simple rig like the lamp, you have many objects. This gets crazier in, for example, a set file which will have multiple characters like this interacting with many many other objects.</p>
-<p><img alt="Messy" src="/images/basic-rigging/updated_07messy.png" /></p>
-<p>The least we could do is hide all this detail and let the animator or the set dresser not worry about all this. This is why we would hide the joints and IK so that they don't show up on the screen, and only expose the controller and model.</p>
-<p><img alt="Clean" src="/images/basic-rigging/updated_08clean.png" /></p>
-<p>This is the exact same hierarchy, but just hidden. See how much nicer it is to understand? Now only when the rig is not behaving correctly or causing issues do we have to worry about expanding beyond this level of the hierarchy. <strong>Always simplify things for your user!</strong></p>
-<div class="note">
-Almost always you would have a controller for every joint for fine control of your character, but to simiplify things we will only have the head, base, and master controller for today. Feel free to add more controllers for the elbow joint though!
-</div>
-
-<h2 id="postmortem">Postmortem</h2>
-<p>The reason I chose to have the Chain go from the head towards the base is because the IK solver will keep the joint chain attached to the base of the chain. This means that if we move the head higher than the length of the leg, the base moves up.(Try it yourself!) Though it is not usually good animation practice to take advantage of this (because it can be implementation dependent), in this case, it can make animating this particular character much easier.</p>
-<h2 id="extra_for_experts">Extra for Experts</h2>
-<h3 id="locking">Locking</h3>
-<p>Again, to simplify things for our users(the animators), we can lock certain controls away from our user.</p>
-<p>For example, if you currently move your HeadCtrl, you notice that your head moves with it. This is because we have a parent constraint on it. If we want to keep the user from ever touching unnecessary controls, we can lock the translation and scaling attributes of the controller.</p>
-<p>In order to do this, we would first select the attribute we want to lock and <strong>Right-click-&gt;Lock Attribute</strong>. This will grey out the attributes and they will no longer be editable.</p>
-<p><img alt="Clean" src="/images/basic-rigging/updated_09locking.png" /></p>
-<p>You would usually want to only translate anything related to an IK handle, and rotate anything related or constraining a joint. So if we had more controllers on this lamp, we'd go and lock their transformations also.
-Just an extra bit of tip in order to keep your animators from accidentally doing anything to break the rig.</p>
-
-
+<h1 id="skinning_in_maya">Skinning in Maya</h1>
+<p>Today we are going to be skinning a leg. Before getting started, download the <a href="../ma/skinningtut.ma">leg rig</a> to the <code>scenes</code> directory in your current Maya project.</p>
+<h2 id="what_is_skinning">What is skinning?</h2>
+<p>There are two ways to bind geometry to a rig.<br>
+  Constraints allow you to connect separate pieces of geometry to individual joint(s) in a rig. This is good for robots, mannequins, machines, or things that are made up of different moving parts. Your geometry itself will not bend or change shape. Think of your geometry as pieces of wood joined by hinges.</p>
+<p>Skinning allows you to connect one large piece of geometry to a skeleton and designate how much influence each joint has over each vertex in that mesh. Think of your geometry like a rubber outer &quot;skin&quot; that follows the movement of the joints. This is good for organic models like people and animals. The joints &quot;influence&quot; or put &quot;weight&quot; onto a vertex and vertices and by altering the values, you can create naturalistic organic deformations.</p>
+<p><img src="../images/skinning/0.gif" width="704" height="414"></p>
+<p>Influence on a vertex is designated on a scale of 0-1 for every joint. 0 means that that vertex will not follow the joint at all, 1 means that the vertex will follow the joint completely. So if there are two joints in a skeleton, and a vertex is receiving 0.6 influence from joint 1, then that vertex must also be receiving 0.4 influence from joint two. The process of skinning is assigning or &quot;painting&quot; influence values onto sections of geometry.</p>
+<h2 id="double_checking">Before You Start</h2>
+<p>Double check that a skeleton is in the proper place. Properly placed joints are important to make sure your character (if you are skinning something, it will likely be an organic character) moves realistically. Two common mistakes:<br>
+  <br>
+  1. Shoulder joint isn't placed far out enough. Feel your shoulder joint as you move your arm up and down. See how the joint is located pretty much straight up from your elbow? If you put it where your collarbone is, your characters shoulders will cave in.<br>
+  <br>
+  2. Not enough vertexes. Because skinning depends on influencing vertices, not having enough vertices means you have less control over how the mesh deforms with movement. Be sure you have at least three edge loops around wherever you have a joint (elbows, wrists, knees, hips.) Spines are less worrisome when it comes to edge loops because you don't bend the waist the same way you bend at your knee or elbow, so you probably just need one loop.<br>
+  <br>
+  3. Be sure to name everything. It's very easy to lose track of your skin weights because Maya will automatically set combinations of weights to equal one. You will have a very unpleasant time if you don't name everything.<br>
+  <br>
+  4. Freeze transform and delete history on your mesh. You CANNOT do this later, because it will ruin your skinning.</p>
+<h2 id="initial_skinning">Initial Skinning</h2>
+<p>First, we'll let Maya try to skin the geometry. It will estimate the skin weights based on the distance between the joint and the skin. Select the Root joint of your skeleton, and select the geometry. Go to Skin --&gt; Bind Skin --&gt; Smooth Bind. Set the options to the following. Make sure your settings for &quot;Normalize Weights&quot; are on Interactive.<br>
+  Then select Bind Skin.</p>
+<p><img src="../images/skinning/1.jpg" width="546" height="372"></p>
+<p>The skeleton should show up as different colors--this indicates the skeleton is bound. (Maya isn't very good about indicating this, if you delete the skin bind the color will frequently stay there regardless...this isn't really an issue, just a matter of display!) Select the mesh and look in the channel box: one of the inputs should be skinCluster1. This indicates that the skeleton is now bound to the mesh. IF YOU DELETE HISTORY AT THIS STEP, IT WILL DELETE YOUR SKIN CLUSTER, AS WELL AS ALL THE WORK YOU'VE DONE SKINNING. So don't do that! </p>
+<p><img src="../images/skinning/2.png" width="412" height="455"></p>
+<p>Move the legs around with the controls. See how weird this looks? </p>
+<p><img src="../images/skinning/5.png" width="286" height="434"></p>
+<p>Moving the left leg skeleton pulls at the skin on the right leg, and vice versa. So now, we'll start painting skin weights correctly to fix this.</p>
+<p>&nbsp;</p>
+<h2 id="painting_skin_weights">Painting Skin Weights</h2>
+<p>Make sure your shelf category is on animation. Select your skinned geometry and go to <strong>Skin &rarr; Edit Smooth Skin &rarr; Paint Skin Weights Tool &rarr; Option Box</strong><br>
+  Check out the tools in the option box. Make sure &quot;Normalize Weights&quot; is set to Interactive. This designates the way Maya calculates the influence of each joint on a vertex as a percentage of the total influence on that vertex, also known as &quot;normalizing&quot; the weights. (don't worry about this, you'll never really need to change this option.) Make sure you have the other options set correctly, as shown below. </p>
+<p><img src="../images/skinning/3.jpg" width="408" height="634"></p>
+<p>Look at your model. It should have different shades of gray on it. This indicates how much influence that vertex has from the selected joint. Black means 0, or no influence, white means 1 or full influence, Scroll down to Gradient and check the option to &quot;Use Color Ramp.&quot; This is easier way of displaying the weights: Black is still 0, white is still 1, but you get a rainbow range for in between that is easier to look at then a range of grays.</p>
+<p>You have options to change the shape and softness of the brush, and different ways you can paint weights: Replace, Add, Scale, and Smooth.</p>
+<p>You can see all your joints in the box in the toolbox under the label &quot;influences.&quot; Think of all your joints as sources of influence that put &quot;weight&quot; on the vertices. Start by locking all the joints in the list. Select the first joint, then shift-select the last joint, and click the little yellow lock icon at the bottom. Locking a joint prevents you from adding or removing weight values from the joint. Because adding influence from one joint means subtracting influence from another joint, make sure that you only have two joints unlocked at any moment. Otherwise you might end up with one vertex with 0.1 influence from ten joints. This gets very confusing.</p>
+<p>There are four methods to paint weights:</p>
+<h4 id="replace">Replace</h4>
+<p>When in the <strong>"Replace"</strong> mode, any weight you paint will be the weight that is specified by Value. It takes the influence from other unlocked joints. This is why it's important to only unlock 2 joints at a time. So if you paint with a value of 0.4, the other unlocked joint will receive a value of 0.6.</p>
+<h4 id="add">Add</h4>
+<p>When in the <strong>"Add"</strong> mode, any weight you paint will be added to the current influence. Any amount added will be subtracted from the other unlocked joints.</p>
+<h4 id="scale">Scale</h4>
+<p>When in the <strong>"Scale"</strong> mode, the current weight will be multiplied by the Value. So setting Value=1 will have no effect, Value=0 will replace the influence with 0, and Value=0.5 will divide the weight by two, so 0.8 will become 0.4 and .6 will become .3, etc, etc. Very useful for when we want smooth connections between 2 joints and another joint, as well as between those two joints. </p>
+<h4 id="smooth">Smooth</h4>
+<p>When in the <strong>"Smooth"</strong> mode, the weights across several vertices will be smoothed out, as well as the unlocked joints. This is very useful!</p>
+<h4 id="flood">Flood</h4>
+<p>The <strong>"Flood"</strong> button basically applies whatever settings you have set to the all vertices. It will only affect the unlocked joints. So if you want to move all the influences from joint 1 to joint 2, you would unlock only those two joints, and with joint 1 selected, with operation set to Replace and Value set to 0, and then click "Flood". Now all influences from joint 1 are transferred to joint 2.</p>
+<h3 id="blocking">Block Skinning</h3>
+<p>This method basically erases all of the weights assigned by automatic skinning, and relocates all the influence so your entire mesh is only affected by one joint (usually the root). Then, you remove weights from the root onto each joint, one by one. This is the easiest way to skin something because its easy to keep track of where you are subtracting all of your weights from, as you add weights to joints.</p>
+<p><strong>REMOVE EXISTING WEIGHTS</strong><br>
+  1. On the legs, unlock Root and LHip. <br>
+  2. On LHip, set the paint mode to Replace, the value to 0, and the brush opacity to 1. Click flood. LHip is now has no influence on the mesh whatsoever. <br>
+  3. Click back to root. It should appear as if Root has all the influence that LHip used to have. <br>
+  4. Lock LHip again. Keep Root unlocked.<br>
+  5. Unlock LKnee. Keep the same paint mode, click flood again. Now LKnee has no influence on the mesh either. Click back to root. It should look like the Root has also gained those weights. Now lock LKnee again.<br>
+  6. Repeat with all the joints, unlocking, flooding, and locking them again.<br>
+  7. Once you're done, select Root. The entire mesh should be white. The root joint has all the influence over the entire mesh. If you move the leg controllers, the leg geometry will not move with the skeleton, because those joints are not affecting the geometry at all.</p>
+<p><img src="../images/skinning/s1.png" width="669" height="528"></p>
+<p>&nbsp;</p>
+<p><strong>PAINT NEW WEIGHTS</strong><br>
+  8. Now unlock LHip again. Set the paint mode to Replace and the value to 1. Paint the upper leg white (doesn't have to be perfect). Lock it again afterwards. Click Root. See how what you just painted on LHip is now black?</p>
+<p><img src="../images/skinning/s2.png" width="670" height="521"><img src="../images/skinning/s3.png" width="674" height="524"><br>
+  9. Repeat with LKnee, LAnkle, LBall, LToe, the way they are in the pictures. Be sure to keep ONLY the joint you are skinning and the Root joint unlocked at any given time. </p>
+<p><img src="../images/skinning/s4.png" width="681" height="530"><img src="../images/skinning/s5.png" width="687" height="542"><img src="../images/skinning/s6.png" width="708" height="574"><img src="../images/skinning/s7.png" width="710" height="527"><br>
+  10. After you are done with the left leg, click on the Root Joint to make sure you haven't missed any spots. There should be no white spots anywhere on the left leg on the Root Joint. If there is, that means the Root still has influence on that vertex, and it will make your leg move weirdly. Unlock the joint that should be influencing that vertex, and fix that spot.<br>
+  11. Select the skin and go to Skin --&gt; Edit Smooth Skin --&gt; Mirror Skin Weights --&gt; Option Box, and make sure you have the correct settings (most likely, your model is symmetrical across the YZ axis, and you painted the left side, so you mirror positive to negative). Click MIrror.</p>
+<p><img src="../images/skinning/4.jpg" width="525" height="350"><br>
+  12. Go back to the paint skin weights tool and scroll through all the joints in the tool box. You'll see that mirror weights put all the weights on the left side on the right side as well. Move your controllers around. The leg meshes should move independently now. But, you'll notice that move the leg too high, and the knee will intersect with itself. This is because we have very rough, block skins. We need to smooth out the weights.</p>
+<p>&nbsp;</p>
+<h2 id="refined_skinning">Refined Skinning</h2>
+<p>13. Go to the Paint Skin Weights Tool. Unlock the Root and the LHip. Click on either joint. Using the Smooth paint mode, paint over the edges of the white area. This creates some falloff in your weight values, so that mesh that is very close to the Root joint has an weight of 1, but mesh farther away from the root joint might have an influence of 0.5. It doesn't matter what joint you click on, because the smooth values will occur in the same place on the other joint as well. If you paint a vertex that is between the Root and Lhip to have 0.5 influence from the Root, it will also have 0.5 influence from the hip.</p>
+<p><img src="../images/skinning/s8.png" width="695" height="573"><br>
+  14. Do this for the entire left leg, unlocking only two joints every time and smooth the area between them.<br>
+  15. Mirror your weights again to move them to the other side.<br>
+  16. Tadaa! You have a pair of skinned legs that move realistically! Play with and tweak the skinning in places that might still intersect. You can use skinning to mimic the way the back of your knee deforms when you bend it. </p>
+<h2 id="mirroring_skin_weights">Random Pro-Tips</h2>
+<p>- Unlocking all your joints, and flooding the Root with 1 is a quick way of zeroing out everything else. Just be sure you lock everything back up after.<br>
+  - Sometimes Maya is stupid and won't let you paint something to zero, even when you have only two joints unlocked. After skinning a joint its a good idea to go back to it and make sure the weights were actually successfully painted on. If a joint won't let you paint out its influences, go to your other unlocked joint and paint on a value of 1. It will make the other one 0.<br>
+  - I actually rarely use block skinning. I usually use Maya's Smooth Bind, and remove the incorrect weights by unlocking the correct joints. However, if you don't keep track of which joints you have unlocked, Maya will randomly displace your weights onto multiple joints and you'll have a terrible time trying to figure out where all your influences are. I ALWAYS block skin finger joints, because I can't keep track of twenty joints on each hand.<br>
+  - If you need to adjust your mesh or joints after you've skinned, first, save your file and duplicate it. In the copy, go to Skin--&gt;Detach Skin--&gt;Option Box. Select Keep History from the Drop Down menu, and click Detach. Do NOT delete your history...it will delete all your skin weights! Duplicating the file first is a good idea because 9 out of 10 times this method will work....but you don't want to risk that one time it doesn't and you have to reskin everything. With the mesh detached, you can adjust joints, and geometry, but if you add new joints or vertices you will have to tweak the skin when you reattach it. If you already have your UV maps completed, you can export your skin weights as image files, and import them again later. This method ensures that you will not lose your skin weights, but you will have to UV map your models first.</p>
+<p>Good luck! :)</p>
       </section>
 
       <footer>
