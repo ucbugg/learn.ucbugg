@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8" />
     <title>UCBUGG Open Course Ware</title>
-    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/style.css?dte=016" />
     <!--[if lt IE 9]>
 	<script>
 	  var e = ("abbr,article,aside,audio,canvas,datalist,details," +
@@ -25,89 +25,130 @@
       
 
 <p>
-  You are here: <a href="../">Home</a> &rarr; <a href="../skinning">Skinning</a>
+  You are here: <a href="/">Home</a> &rarr; <a href="../basic-animation">Basic Animation</a>
 </p>
 
-<h1 id="skinning_in_maya">Animation in Maya</h1>
-<p>Today we are going to be skinning a leg. Before getting started, download the <a href="../ma/skinningtut.ma">leg rig</a> to the <code>scenes</code> directory in your current Maya project.</p>
-<h2 id="what_is_skinning">What is skinning?</h2>
-<p>There are two ways to bind geometry to a rig.<br>
-  Constraints allow you to connect separate pieces of geometry to individual joint(s) in a rig. This is good for robots, mannequins, machines, or things that are made up of different moving parts. Your geometry itself will not bend or change shape. Think of your geometry as pieces of wood joined by hinges.</p>
-<p>Skinning allows you to connect one large piece of geometry to a skeleton and designate how much influence each joint has over each vertex in that mesh. Think of your geometry like a rubber outer &quot;skin&quot; that follows the movement of the joints. This is good for organic models like people and animals. The joints &quot;influence&quot; or put &quot;weight&quot; onto a vertex and vertices and by altering the values, you can create naturalistic organic deformations.</p>
-<p><img src="../images/skinning/0.gif" width="704" height="414"></p>
-<p>Influence on a vertex is designated on a scale of 0-1 for every joint. 0 means that that vertex will not follow the joint at all, 1 means that the vertex will follow the joint completely. So if there are two joints in a skeleton, and a vertex is receiving 0.6 influence from joint 1, then that vertex must also be receiving 0.4 influence from joint two. The process of skinning is assigning or &quot;painting&quot; influence values onto sections of geometry.</p>
-<h2 id="double_checking">Before You Start</h2>
-<p>Double check that a skeleton is in the proper place. Properly placed joints are important to make sure your character (if you are skinning something, it will likely be an organic character) moves realistically. Two common mistakes:<br>
-  <br>
-  1. Shoulder joint isn't placed far out enough. Feel your shoulder joint as you move your arm up and down. See how the joint is located pretty much straight up from your elbow? If you put it where your collarbone is, your characters shoulders will cave in.<br>
-  <br>
-  2. Not enough vertexes. Because skinning depends on influencing vertices, not having enough vertices means you have less control over how the mesh deforms with movement. Be sure you have at least three edge loops around wherever you have a joint (elbows, wrists, knees, hips.) Spines are less worrisome when it comes to edge loops because you don't bend the waist the same way you bend at your knee or elbow, so you probably just need one loop.<br>
-  <br>
-  3. Be sure to name everything. It's very easy to lose track of your skin weights because Maya will automatically set combinations of weights to equal one. You will have a very unpleasant time if you don't name everything.<br>
-  <br>
-  4. Freeze transform and delete history on your mesh. You CANNOT do this later, because it will ruin your skinning.</p>
-<h2 id="initial_skinning">Initial Skinning</h2>
-<p>First, we'll let Maya try to skin the geometry. It will estimate the skin weights based on the distance between the joint and the skin. Select the Root joint of your skeleton, and select the geometry. Go to Skin --&gt; Bind Skin --&gt; Smooth Bind. Set the options to the following. Make sure your settings for &quot;Normalize Weights&quot; are on Interactive.<br>
-  Then select Bind Skin.</p>
-<p><img src="../images/skinning/1.jpg" width="546" height="372"></p>
-<p>The skeleton should show up as different colors--this indicates the skeleton is bound. (Maya isn't very good about indicating this, if you delete the skin bind the color will frequently stay there regardless...this isn't really an issue, just a matter of display!) Select the mesh and look in the channel box: one of the inputs should be skinCluster1. This indicates that the skeleton is now bound to the mesh. IF YOU DELETE HISTORY AT THIS STEP, IT WILL DELETE YOUR SKIN CLUSTER, AS WELL AS ALL THE WORK YOU'VE DONE SKINNING. So don't do that! </p>
-<p><img src="../images/skinning/2.png" width="412" height="455"></p>
-<p>Move the legs around with the controls. See how weird this looks? </p>
-<p><img src="../images/skinning/5.png" width="286" height="434"></p>
-<p>Moving the left leg skeleton pulls at the skin on the right leg, and vice versa. So now, we'll start painting skin weights correctly to fix this.</p>
-<p>&nbsp;</p>
-<h2 id="painting_skin_weights">Painting Skin Weights</h2>
-<p>Make sure your shelf category is on animation. Select your skinned geometry and go to <strong>Skin &rarr; Edit Smooth Skin &rarr; Paint Skin Weights Tool &rarr; Option Box</strong><br>
-  Check out the tools in the option box. Make sure &quot;Normalize Weights&quot; is set to Interactive. This designates the way Maya calculates the influence of each joint on a vertex as a percentage of the total influence on that vertex, also known as &quot;normalizing&quot; the weights. (don't worry about this, you'll never really need to change this option.) Make sure you have the other options set correctly, as shown below. </p>
-<p><img src="../images/skinning/3.jpg" width="408" height="634"></p>
-<p>Look at your model. It should have different shades of gray on it. This indicates how much influence that vertex has from the selected joint. Black means 0, or no influence, white means 1 or full influence, Scroll down to Gradient and check the option to &quot;Use Color Ramp.&quot; This is easier way of displaying the weights: Black is still 0, white is still 1, but you get a rainbow range for in between that is easier to look at then a range of grays.</p>
-<p>You have options to change the shape and softness of the brush, and different ways you can paint weights: Replace, Add, Scale, and Smooth.</p>
-<p>You can see all your joints in the box in the toolbox under the label &quot;influences.&quot; Think of all your joints as sources of influence that put &quot;weight&quot; on the vertices. Start by locking all the joints in the list. Select the first joint, then shift-select the last joint, and click the little yellow lock icon at the bottom. Locking a joint prevents you from adding or removing weight values from the joint. Because adding influence from one joint means subtracting influence from another joint, make sure that you only have two joints unlocked at any moment. Otherwise you might end up with one vertex with 0.1 influence from ten joints. This gets very confusing.</p>
-<p>There are four methods to paint weights:</p>
-<h4 id="replace">Replace</h4>
-<p>When in the <strong>"Replace"</strong> mode, any weight you paint will be the weight that is specified by Value. It takes the influence from other unlocked joints. This is why it's important to only unlock 2 joints at a time. So if you paint with a value of 0.4, the other unlocked joint will receive a value of 0.6.</p>
-<h4 id="add">Add</h4>
-<p>When in the <strong>"Add"</strong> mode, any weight you paint will be added to the current influence. Any amount added will be subtracted from the other unlocked joints.</p>
-<h4 id="scale">Scale</h4>
-<p>When in the <strong>"Scale"</strong> mode, the current weight will be multiplied by the Value. So setting Value=1 will have no effect, Value=0 will replace the influence with 0, and Value=0.5 will divide the weight by two, so 0.8 will become 0.4 and .6 will become .3, etc, etc. Very useful for when we want smooth connections between 2 joints and another joint, as well as between those two joints. </p>
-<h4 id="smooth">Smooth</h4>
-<p>When in the <strong>"Smooth"</strong> mode, the weights across several vertices will be smoothed out, as well as the unlocked joints. This is very useful!</p>
-<h4 id="flood">Flood</h4>
-<p>The <strong>"Flood"</strong> button basically applies whatever settings you have set to the all vertices. It will only affect the unlocked joints. So if you want to move all the influences from joint 1 to joint 2, you would unlock only those two joints, and with joint 1 selected, with operation set to Replace and Value set to 0, and then click "Flood". Now all influences from joint 1 are transferred to joint 2.</p>
-<h3 id="blocking">Block Skinning</h3>
-<p>This method basically erases all of the weights assigned by automatic skinning, and relocates all the influence so your entire mesh is only affected by one joint (usually the root). Then, you remove weights from the root onto each joint, one by one. This is the easiest way to skin something because its easy to keep track of where you are subtracting all of your weights from, as you add weights to joints.</p>
-<p><strong>REMOVE EXISTING WEIGHTS</strong><br>
-  1. On the legs, unlock Root and LHip. <br>
-  2. On LHip, set the paint mode to Replace, the value to 0, and the brush opacity to 1. Click flood. LHip is now has no influence on the mesh whatsoever. <br>
-  3. Click back to root. It should appear as if Root has all the influence that LHip used to have. <br>
-  4. Lock LHip again. Keep Root unlocked.<br>
-  5. Unlock LKnee. Keep the same paint mode, click flood again. Now LKnee has no influence on the mesh either. Click back to root. It should look like the Root has also gained those weights. Now lock LKnee again.<br>
-  6. Repeat with all the joints, unlocking, flooding, and locking them again.<br>
-  7. Once you're done, select Root. The entire mesh should be white. The root joint has all the influence over the entire mesh. If you move the leg controllers, the leg geometry will not move with the skeleton, because those joints are not affecting the geometry at all.</p>
-<p><img src="../images/skinning/s1.png" width="669" height="528"></p>
-<p>&nbsp;</p>
-<p><strong>PAINT NEW WEIGHTS</strong><br>
-  8. Now unlock LHip again. Set the paint mode to Replace and the value to 1. Paint the upper leg white (doesn't have to be perfect). Lock it again afterwards. Click Root. See how what you just painted on LHip is now black?</p>
-<p><img src="../images/skinning/s2.png" width="670" height="521"><img src="../images/skinning/s3.png" width="674" height="524"><br>
-  9. Repeat with LKnee, LAnkle, LBall, LToe, the way they are in the pictures. Be sure to keep ONLY the joint you are skinning and the Root joint unlocked at any given time. </p>
-<p><img src="../images/skinning/s4.png" width="681" height="530"><img src="../images/skinning/s5.png" width="687" height="542"><img src="../images/skinning/s6.png" width="708" height="574"><img src="../images/skinning/s7.png" width="710" height="527"><br>
-  10. After you are done with the left leg, click on the Root Joint to make sure you haven't missed any spots. There should be no white spots anywhere on the left leg on the Root Joint. If there is, that means the Root still has influence on that vertex, and it will make your leg move weirdly. Unlock the joint that should be influencing that vertex, and fix that spot.<br>
-  11. Select the skin and go to Skin --&gt; Edit Smooth Skin --&gt; Mirror Skin Weights --&gt; Option Box, and make sure you have the correct settings (most likely, your model is symmetrical across the YZ axis, and you painted the left side, so you mirror positive to negative). Click MIrror.</p>
-<p><img src="../images/skinning/4.jpg" width="525" height="350"><br>
-  12. Go back to the paint skin weights tool and scroll through all the joints in the tool box. You'll see that mirror weights put all the weights on the left side on the right side as well. Move your controllers around. The leg meshes should move independently now. But, you'll notice that move the leg too high, and the knee will intersect with itself. This is because we have very rough, block skins. We need to smooth out the weights.</p>
-<p>&nbsp;</p>
-<h2 id="refined_skinning">Refined Skinning</h2>
-<p>13. Go to the Paint Skin Weights Tool. Unlock the Root and the LHip. Click on either joint. Using the Smooth paint mode, paint over the edges of the white area. This creates some falloff in your weight values, so that mesh that is very close to the Root joint has an weight of 1, but mesh farther away from the root joint might have an influence of 0.5. It doesn't matter what joint you click on, because the smooth values will occur in the same place on the other joint as well. If you paint a vertex that is between the Root and Lhip to have 0.5 influence from the Root, it will also have 0.5 influence from the hip.</p>
-<p><img src="../images/skinning/s8.png" width="695" height="573"><br>
-  14. Do this for the entire left leg, unlocking only two joints every time and smooth the area between them.<br>
-  15. Mirror your weights again to move them to the other side.<br>
-  16. Tadaa! You have a pair of skinned legs that move realistically! Play with and tweak the skinning in places that might still intersect. You can use skinning to mimic the way the back of your knee deforms when you bend it. </p>
-<h2 id="mirroring_skin_weights">Random Pro-Tips</h2>
-<p>- Unlocking all your joints, and flooding the Root with 1 is a quick way of zeroing out everything else. Just be sure you lock everything back up after.<br>
-  - Sometimes Maya is stupid and won't let you paint something to zero, even when you have only two joints unlocked. After skinning a joint its a good idea to go back to it and make sure the weights were actually successfully painted on. If a joint won't let you paint out its influences, go to your other unlocked joint and paint on a value of 1. It will make the other one 0.<br>
-  - I actually rarely use block skinning. I usually use Maya's Smooth Bind, and remove the incorrect weights by unlocking the correct joints. However, if you don't keep track of which joints you have unlocked, Maya will randomly displace your weights onto multiple joints and you'll have a terrible time trying to figure out where all your influences are. I ALWAYS block skin finger joints, because I can't keep track of twenty joints on each hand.<br>
-  - If you need to adjust your mesh or joints after you've skinned, first, save your file and duplicate it. In the copy, go to Skin--&gt;Detach Skin--&gt;Option Box. Select Keep History from the Drop Down menu, and click Detach. Do NOT delete your history...it will delete all your skin weights! Duplicating the file first is a good idea because 9 out of 10 times this method will work....but you don't want to risk that one time it doesn't and you have to reskin everything. With the mesh detached, you can adjust joints, and geometry, but if you add new joints or vertices you will have to tweak the skin when you reattach it. If you already have your UV maps completed, you can export your skin weights as image files, and import them again later. This method ensures that you will not lose your skin weights, but you will have to UV map your models first.</p>
-<p>Good luck! :)</p>
+<h1 id="basic_animation">Basic Animation</h1>
+<p>Welcome to the animation lab! We will be going over animation on a 2D level, as well as create our first 3D animation.</p>
+<h2 id="hotkeys_for_this_lesson">Hotkeys for This Lesson</h2>
+<ul>
+<li>S = keys a selected object</li>
+</ul>
+<h2 id="basics_of_2d_animation">Basics of 2D Animation</h2>
+<p>Before we jump into the wonderful world of 3D animation, you should have an understanding of the principles behind 2D animation  .  There are 12 "basic principles" that adds the "illusion of life" to animation; without these, you might end up with creepy animations that glide across the screen in an eerie manner.</p>
+<ol>
+<li><a href="#squash_and_stretch">Squash and stretch</a></li>
+<li><a href="#anticipation">Anticipation</a></li>
+<li><a href="#staging">Staging</a></li>
+<li><a href="#pose_to_pose">Pose to Pose versus Straight Ahead Action</a></li>
+<li><a href="#follow_through_action">Follow Through and Overlapping Action</a></li>
+<li><a href="#slow_in_and_slow_out">Slow In and Slow Out</a></li>
+<li><a href="#arcs">Arcs</a></li>
+<li><a href="#secondary_action">Secondary Action</a></li>
+<li><a href="#timing">Timing</a></li>
+<li><a href="#exaggeration">Exaggeration</a></li>
+<li><a href="#solid_drawing">Solid Drawing</a></li>
+<li><a href="#appeal">Appeal</a></li>
+</ol>
+<h3 id="squash_and_stretch">Squash and Stretch</h3>
+<p>This is probably one of the most important principle to take home from this lecture.  Squashing and stretching an object gives it a sense of weight and volume.  It is very important to keep in mind that <strong>the volume of the object does not change</strong> when it is squashed or stretched.  For example, in the bouncing ball example, which you will soon see, when we lengthen the ball horizontally, we also shorten it vertically correspondingly.</p>
+<h3 id="anticipation">Anticipation</h3>
+<p>Anticipation is simply any action in your animation that prepares the audience for the main action to come.  A classic example would be a character winding its arms and front leg back before dashing off in sprint.</p>
+<h3 id="staging">Staging</h3>
+<p>This simply describes setting up your scene to focus the audience's attention to the most important aspects of the scene.  For example, a close-up shot of a character's face would highlight the character's immediate emotion whereas a long shot of say, a desert, might highlight the vast emptiness of the setting to provoke a feeling of loneliness. In the wise words of Wikipedia: "The essence of this principle is keeping focus on what is relevant, and avoiding unnecessary detail." You don't want to overwhelm the audience with too much information or actions at once.</p>
+<h3 id="pose_to_pose">Pose to Pose versus Straight Ahead Action</h3>
+<p>These are two different approaches to 2D animation.  In "straight ahead action" approach, the artist draws out a scene frame by frame from beginning to end, while in "pose to pose," the artist starts by drawing a few key frames, and filling in the intervals later.  The latter approach describes what we do in Maya; we set "key frames" and Maya fills in the in-betweens for us.  However, as you will soon discover, Maya's in-between frames can be unpredictable and not what we want, so we must specify what we want using various tools and tricks, which you will learn about later.</p>
+<h3 id="follow_through_action">Follow Through and Overlapping Action</h3>
+<p>Follow through is the motion of separate parts of the character that continues after the character has stopped. For example, when a character throws a ball, the hand continues to move after releasing the ball.<br />
+</p>
+<p>Overlapping means to start a second action before the first action has completely finished. This keeps the interest of the viewer, since there is no dead time between actions.</p>
+<h3 id="slow_in_and_slow_out">Slow In and Slow Out</h3>
+<p>Movements in real life are rarely, if ever, instantaneous; they require time to accelerate and slow down.  Thus, an animation looks more realistic if it has more frames near the beginning and end of a movement, and fewer in the middle.</p>
+<p>A great example resides over on the <a href="http://www.siggraph.org/education/materials/HyperGraph/animation/character_animation/principles/bouncing_ball_example_of_slow_in_out.htm">Siggraph servers</a></p>
+<h3 id="arcs">Arcs</h3>
+<p>Most human and animal actions occur along an arched trajectory, and animation should reproduce these movements for greater realism. This can apply to a limb moving by rotating a joint, or a thrown object moving along a parabolic trajectory. The exception is mechanical movement, which typically moves in straight lines.</p>
+<h3 id="secondary_action">Secondary Action</h3>
+<p>This refers to action that directly results from another action.  For example, a person's arms swinging back and forth would be secondary action caused by the person's act of walking.  The important thing about secondary actions is that they emphasize, rather than take attention away from the main action.</p>
+<h3 id="timing">Timing</h3>
+<p>Timing in animation refers to the speed of the action.  Timing is what gives animation physical and emotional meaning.  In the physical sense, the speed of the movement allows the viewer to perceive the mass of the object, since heavier objects will move slower than lighter objects.  In the emotional sense, different timings of the same action can indicate completely different emotions.</p>
+<h3 id="exaggeration">Exaggeration</h3>
+<p>Exaggeration does not mean just distorting the actions or objects arbitrarily, but the animator must carefully choose which properties to exaggerate. If only one thing is exaggerated then it may stand out too much. If everything is exaggerated, then the entire scene may appear too unrealistic.</p>
+<h3 id="solid_drawing">Solid Drawing</h3>
+<p>The principle of solid - or good - drawing, really means that the same principles apply to an animator as to an academic artist. The drawer has to understand the basics of anatomy, composition, weight, balance, light and shadow etc. Of course, modern-day computer animators in theory do not need to draw at all, but can still benefit greatly from such understanding.</p>
+<h3 id="appeal">Appeal</h3>
+<p>Appeal means something that the audience will want to see. This is equivalent to charisma in a live actor. A scene or character should not be too simple (boring!) or too complex (can't understand it). One principle to achieve this is to avoid mirror symmetry. Asymmetry tends to be more interesting and appealing.</p>
+<h5 id="references">References</h5>
+<ul>
+<li><a href="http://www.siggraph.org/education/materials/HyperGraph/animation/character_animation/principles/prin_trad_anim.htm">Principles of Traditional Animation Applied to 3D Computer Animation</a></li>
+<li><a href="http://en.wikipedia.org/wiki/12_basic_principles_of_animation#Follow_through_and_overlapping_action">"12 Basic Principles of Animation" on Wikipedia</a></li>
+</ul>
+<p>If you are interested in learning more about the basics of animation, the CS department offers a great 2D animation course taught by Brian Barsky.  The course number is CS194-7 and is generally offered every semester.</p>
+<h2 id="animation_in_maya">Animation in Maya</h2>
+<h3 id="the_timeline_and_keys">The Timeline and Keys</h3>
+<p><img alt="Maya Image" src="../images/basic-animation/animation_general-ui.png" /></p>
+<p>This is Maya's timeline.  Here you are able to set animation keys, scrub through the animation, and change the range of time in your animation. Notice the four boxes that comprise the Range Info. The two outer boxes (with values 1.00 and 48.00) are the start and end of your timeline. Think of these two numbers as representing the length of the whole timeline. The two inner boxes represent the start and end of the current section of the timeline. Many times, you will only want to edit keyframes on part of the timeline.</p>
+<p>You should make sure not to have "Auto Key" on because anytime you move or change something, it will automatically key it for you, which can be very annoying if you are not trying to make an actual key.</p>
+<h3 id="changing_your_settings">Changing Your Settings</h3>
+<p><img alt="Maya Image" src="../images/basic-animation/animation_pref-settings.png" /></p>
+<p>An important thing to before even starting to create your animations is to make sure your settings are correct in the options menu.  It is very important to decide these settings before you work in groups to avoid problems when trying to merge projects together later on.  We like to use <strong>24fps</strong> for this course.</p>
+<p><img alt="Maya Image" src="../images/basic-animation/animation_pref-time.png" /></p>
+<p>It is also good to generally keep the playback speed at "Real Time" so you can see what your motion will look like in the end.</p>
+<h3 id="setting_keyframes">Setting Keyframes</h3>
+<p><img alt="Maya Image" src="../images/basic-animation/animation_basic-keys.png" /></p>
+<p>Keyframes define "start" and "end" positions for an object and the computer fills in the rest.<br />
+</p>
+<div class="note tip">
+A quick way to key an object is to select it and press S.
+</div>
+
+<p>Pressing S will set all the attributes of a particular object. If you would like to set an individual key, right click the property in the channel box and select "Key Selected".</p>
+<p>When an object is selected, every frame that contains a Key information for that object will have a red bar in it.</p>
+<p><img alt="Maya Image" src="../images/basic-animation/animation_keys-moving.png" /></p>
+<p>For some quick and dirty editing of keyframes, you can select them in the timeline by holding shift and click-dragging the mouse across your desired area.  It will be highlighted in red.</p>
+<p>At this point, you can move and scale the keys with the arrows. There are also options such as "Delete Key" when you right click on the red area.</p>
+<p>Beware of scaling keys this way. If a key is scaled and lands between frames, your animation will not be very precise since it rounds your keys to integer values.</p>
+<p>A much better way to edit kets is through the graph editor.</p>
+<h3 id="the_graph_editor">The Graph Editor</h3>
+<p><img alt="Maya Image" src="../images/basic-animation/animation_basic-grapheditor.png" /></p>
+<p>This is your graph editor.  It displays all information about the selected object in graph format.</p>
+<p>You define the "end points" of the movement, but how does the computer fill in the blanks?  Answer: curves.  Because there are curves, you can edit their curving behavior.</p>
+<p>Here you can move keys, scale them, edit the curve tangents, etc.</p>
+<p>You can break tangents to make sharp changes in direction (i.e. a ball hitting the ground).</p>
+<p>To move around in the graph editor, you use the same controls as in the perspective view, which are listed below just in case you have forgotten
+  * <strong>Zoom</strong>: Scroll the middle-mouse button
+  * <strong>Pan</strong>: Command+Middle-mouse button
+  * <strong>F</strong>: Focus in on the currently selected keyframes</p>
+<h2 id="creating_a_bouncing_ball">Creating a Bouncing Ball</h2>
+<p>We could easily go through each button and short cut, but it is probably best to explain how to do things using an example.</p>
+<p>Before beginning this exercise in Maya, it is best to look at a 2D drawing of what a ball actually looks like when it bounces.</p>
+<p><img alt="Maya Image" src="../images/basic-animation/animation_2dball.png" /> </p>
+<p>Image from <a href="http://www.evl.uic.edu/ralph/508S99/squash.html">http://www.evl.uic.edu/ralph/508S99/squash.html</a></p>
+<p>Take for example a bouncing ball. A rubber ball bounces higher and squashs more upon impact than a hard league ball. The ease with which an object squashs and stretches defines the rigidity of the material making up an object.  We will be imitating a rubber ball.</p>
+<p>First create a ball by creating a simply polygonal sphere.  If you do not remember how to do this, please refer back to the Introduction to Maya tutorial.</p>
+<p><img alt="Maya Image" src="../images/basic-animation/animation_ball-changeview.png" /></p>
+<p>You can change the view of the top panel to "side" view for the purposes of the exercise by going to Panel &gt; Orthographic &gt; Side.</p>
+<p><img alt="Maya Image" src="../images/basic-animation/animation_ball-setkeys.png" /> </p>
+<p>To set the ball bounce, you can set three keys: high, low, and high.  You position the ball where you want (either by moving with the move tool or by changing values in the channel editor) at the frame you would like (by selecting that frame on the timeline) and then hitting "S" to set key. For this exercise, it is best to place the keys over a span of about 100 frames to have the ball move more slowly for viewing purposes.</p>
+<p>Looking at the graph editor, we can see the curves made by the computer are incorrect! Balls do not slow as it approaches the place it hits.</p>
+<p><img alt="Maya Image" src="../images/basic-animation/animation_ball-changegraph.png" /></p>
+<p>This is better! Let's see how we get our graph to look like this.  As we see, the up and down movement of the ball is determined by the y-axis of the graph.  We can view just this by selecting "Translate Y" in the graph editor.</p>
+<p>We now must change the tangent angle of the low position.  You do this by left-clicking the bottom point and selecting the "Break Tangent" button.  This will separate the tangent line in two so the two sides are independently controlled.  Select the end point of one side of the tangents, hit the <strong>W</strong> key(for the move tool) and use the <strong>middle-mouse-button</strong> to change the steepness of that angle. Do this for the opposite whisker.  You can leave the two high points as they are, or adjust the angle <strong>without</strong> breaking the tangent of those as well.</p>
+<p>You can now try hitting the "Play" button on the timeline to see what your ball looks like. Woohoo! Pretty neat, huh?</p>
+<p>We can take this one step further by adding a deformer to the ball to create the "squash and stretch" attribute a rubber ball has. To do this, select "Animation" from the menu drop down, go to Create Deformer &gt; Nonlinear &gt; Squash.  Right now, the deformer is not attached to the ball so if you try to change it's values it will not do exactly what we would like.  In order to attach the deformer to the ball, we must <strong>first select the deformer</strong> in the outliner, <strong>command-click</strong> the ball, then go to Edit &gt; Parent in the menu bar.</p>
+<p><img alt="Maya Image" src="../images/basic-animation/animation_ball-parentdeformer.png" /></p>
+<p>Now that we parented the deformer, we can see in the channel editor that the "squash" input is now available by clicking "Squash".  If you select "Factor", you can play with the deformer in perspective view by moving the mouse while holding the middle-mouse-button.</p>
+<p>In the first high position, we know that the ball will be (for the most part) a perfect sphere.  At the initial frame position, we should right-click "Factor" and click "Key Selected".</p>
+<p>Now go a few frames before the ball hits the low point and have the ball be taller.</p>
+<p><img alt="Maya Image" src="../images/basic-animation/animation_ball-stretch.png" /></p>
+<p>Once the ball hits the bottom, it will be squashed.</p>
+<p><img alt="Maya Image" src="../images/basic-animation/animation_ball-squash.png" /></p>
+<p>You can repeat the steps for the following side, just in the opposite order.</p>
+<p>You may notice that because of the squash, our ball no longer touches the ground! We easily fix this by going into our graph editor, left clicking the point, hitting W, and then using middle mouse button to move the point down.</p>
+<p>Congratulations! You have now done your first basic animation!  Hit the play button in your timeline. Your ball bounce should now look something like <a href="http://www.youtube.com/watch?v=9xaQjPYQZmM">this</a></p>
+<p>We can now do even cooler things with the ball bounce.  <a href="http://ucbugg.berkeley.edu/files/lab/ballandstairs.ma">Download the Maya file</a> for this lab, and do what you've learned here to have the ball bounce down some stairs.</p>
+<p>If you feel stuck on how to make the ball bounce down stairs, you can also view <a href="http://www.youtube.com/watch?v=x-58sf8hD5U">Evan's Bouncing Ball Video Tutorial</a> which shows you how to chain the bounces together.</p>
+
+
       </section>
 
       <footer>
