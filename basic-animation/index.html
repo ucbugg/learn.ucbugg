@@ -30,10 +30,6 @@
 
 <h1 id="basic_animation">Basic Animation</h1>
 <p>Welcome to the animation lab! We will be going over animation on a 2D level, as well as create our first 3D animation.</p>
-<h2 id="hotkeys_for_this_lesson">Hotkeys for This Lesson</h2>
-<ul>
-<li>S = keys a selected object</li>
-</ul>
 <h2 id="basics_of_2d_animation">Basics of 2D Animation</h2>
 <p>Before we jump into the wonderful world of 3D animation, you should have an understanding of the principles behind 2D animation  .  There are 12 "basic principles" that adds the "illusion of life" to animation; without these, you might end up with creepy animations that glide across the screen in an eerie manner.</p>
 <ol>
@@ -82,74 +78,69 @@
 <li><a href="http://www.siggraph.org/education/materials/HyperGraph/animation/character_animation/principles/prin_trad_anim.htm">Principles of Traditional Animation Applied to 3D Computer Animation</a></li>
 <li><a href="http://en.wikipedia.org/wiki/12_basic_principles_of_animation#Follow_through_and_overlapping_action">"12 Basic Principles of Animation" on Wikipedia</a></li>
 </ul>
-<p>If you are interested in learning more about the basics of animation, the CS department offers a great 2D animation course taught by Brian Barsky.  The course number is CS194-7 and is generally offered every semester.</p>
-<h2 id="animation_in_maya">Animation in Maya</h2>
-<h3 id="the_timeline_and_keys">The Timeline and Keys</h3>
-<p><img alt="Maya Image" src="../images/basic-animation/animation_general-ui.png" /></p>
-<p>This is Maya's timeline.  Here you are able to set animation keys, scrub through the animation, and change the range of time in your animation. Notice the four boxes that comprise the Range Info. The two outer boxes (with values 1.00 and 48.00) are the start and end of your timeline. Think of these two numbers as representing the length of the whole timeline. The two inner boxes represent the start and end of the current section of the timeline. Many times, you will only want to edit keyframes on part of the timeline.</p>
-<p>You should make sure not to have "Auto Key" on because anytime you move or change something, it will automatically key it for you, which can be very annoying if you are not trying to make an actual key.</p>
-<h3 id="changing_your_settings">Changing Your Settings</h3>
-<p><img alt="Maya Image" src="../images/basic-animation/animation_pref-settings.png" /></p>
-<p>An important thing to before even starting to create your animations is to make sure your settings are correct in the options menu.  It is very important to decide these settings before you work in groups to avoid problems when trying to merge projects together later on.  We like to use <strong>24fps</strong> for this course.</p>
-<p><img alt="Maya Image" src="../images/basic-animation/animation_pref-time.png" /></p>
-<p>It is also good to generally keep the playback speed at "Real Time" so you can see what your motion will look like in the end.</p>
-<h3 id="setting_keyframes">Setting Keyframes</h3>
-<p><img alt="Maya Image" src="../images/basic-animation/animation_basic-keys.png" /></p>
-<p>Keyframes define "start" and "end" positions for an object and the computer fills in the rest.<br />
-</p>
-<div class="note tip">
-A quick way to key an object is to select it and press S.
-</div>
-
-<p>Pressing S will set all the attributes of a particular object. If you would like to set an individual key, right click the property in the channel box and select "Key Selected".</p>
-<p>When an object is selected, every frame that contains a Key information for that object will have a red bar in it.</p>
-<p><img alt="Maya Image" src="../images/basic-animation/animation_keys-moving.png" /></p>
-<p>For some quick and dirty editing of keyframes, you can select them in the timeline by holding shift and click-dragging the mouse across your desired area.  It will be highlighted in red.</p>
-<p>At this point, you can move and scale the keys with the arrows. There are also options such as "Delete Key" when you right click on the red area.</p>
-<p>Beware of scaling keys this way. If a key is scaled and lands between frames, your animation will not be very precise since it rounds your keys to integer values.</p>
-<p>A much better way to edit kets is through the graph editor.</p>
-<h3 id="the_graph_editor">The Graph Editor</h3>
-<p><img alt="Maya Image" src="../images/basic-animation/animation_basic-grapheditor.png" /></p>
-<p>This is your graph editor.  It displays all information about the selected object in graph format.</p>
-<p>You define the "end points" of the movement, but how does the computer fill in the blanks?  Answer: curves.  Because there are curves, you can edit their curving behavior.</p>
-<p>Here you can move keys, scale them, edit the curve tangents, etc.</p>
-<p>You can break tangents to make sharp changes in direction (i.e. a ball hitting the ground).</p>
-<p>To move around in the graph editor, you use the same controls as in the perspective view, which are listed below just in case you have forgotten
-  * <strong>Zoom</strong>: Scroll the middle-mouse button
-  * <strong>Pan</strong>: Command+Middle-mouse button
-  * <strong>F</strong>: Focus in on the currently selected keyframes</p>
-<h2 id="creating_a_bouncing_ball">Creating a Bouncing Ball</h2>
-<p>We could easily go through each button and short cut, but it is probably best to explain how to do things using an example.</p>
-<p>Before beginning this exercise in Maya, it is best to look at a 2D drawing of what a ball actually looks like when it bounces.</p>
-<p><img alt="Maya Image" src="../images/basic-animation/animation_2dball.png" /> </p>
-<p>Image from <a href="http://www.evl.uic.edu/ralph/508S99/squash.html">http://www.evl.uic.edu/ralph/508S99/squash.html</a></p>
-<p>Take for example a bouncing ball. A rubber ball bounces higher and squashs more upon impact than a hard league ball. The ease with which an object squashs and stretches defines the rigidity of the material making up an object.  We will be imitating a rubber ball.</p>
-<p>First create a ball by creating a simply polygonal sphere.  If you do not remember how to do this, please refer back to the Introduction to Maya tutorial.</p>
-<p><img alt="Maya Image" src="../images/basic-animation/animation_ball-changeview.png" /></p>
-<p>You can change the view of the top panel to "side" view for the purposes of the exercise by going to Panel &gt; Orthographic &gt; Side.</p>
-<p><img alt="Maya Image" src="../images/basic-animation/animation_ball-setkeys.png" /> </p>
-<p>To set the ball bounce, you can set three keys: high, low, and high.  You position the ball where you want (either by moving with the move tool or by changing values in the channel editor) at the frame you would like (by selecting that frame on the timeline) and then hitting "S" to set key. For this exercise, it is best to place the keys over a span of about 100 frames to have the ball move more slowly for viewing purposes.</p>
-<p>Looking at the graph editor, we can see the curves made by the computer are incorrect! Balls do not slow as it approaches the place it hits.</p>
-<p><img alt="Maya Image" src="../images/basic-animation/animation_ball-changegraph.png" /></p>
-<p>This is better! Let's see how we get our graph to look like this.  As we see, the up and down movement of the ball is determined by the y-axis of the graph.  We can view just this by selecting "Translate Y" in the graph editor.</p>
-<p>We now must change the tangent angle of the low position.  You do this by left-clicking the bottom point and selecting the "Break Tangent" button.  This will separate the tangent line in two so the two sides are independently controlled.  Select the end point of one side of the tangents, hit the <strong>W</strong> key(for the move tool) and use the <strong>middle-mouse-button</strong> to change the steepness of that angle. Do this for the opposite whisker.  You can leave the two high points as they are, or adjust the angle <strong>without</strong> breaking the tangent of those as well.</p>
-<p>You can now try hitting the "Play" button on the timeline to see what your ball looks like. Woohoo! Pretty neat, huh?</p>
-<p>We can take this one step further by adding a deformer to the ball to create the "squash and stretch" attribute a rubber ball has. To do this, select "Animation" from the menu drop down, go to Create Deformer &gt; Nonlinear &gt; Squash.  Right now, the deformer is not attached to the ball so if you try to change it's values it will not do exactly what we would like.  In order to attach the deformer to the ball, we must <strong>first select the deformer</strong> in the outliner, <strong>command-click</strong> the ball, then go to Edit &gt; Parent in the menu bar.</p>
-<p><img alt="Maya Image" src="../images/basic-animation/animation_ball-parentdeformer.png" /></p>
-<p>Now that we parented the deformer, we can see in the channel editor that the "squash" input is now available by clicking "Squash".  If you select "Factor", you can play with the deformer in perspective view by moving the mouse while holding the middle-mouse-button.</p>
-<p>In the first high position, we know that the ball will be (for the most part) a perfect sphere.  At the initial frame position, we should right-click "Factor" and click "Key Selected".</p>
-<p>Now go a few frames before the ball hits the low point and have the ball be taller.</p>
-<p><img alt="Maya Image" src="../images/basic-animation/animation_ball-stretch.png" /></p>
-<p>Once the ball hits the bottom, it will be squashed.</p>
-<p><img alt="Maya Image" src="../images/basic-animation/animation_ball-squash.png" /></p>
-<p>You can repeat the steps for the following side, just in the opposite order.</p>
-<p>You may notice that because of the squash, our ball no longer touches the ground! We easily fix this by going into our graph editor, left clicking the point, hitting W, and then using middle mouse button to move the point down.</p>
-<p>Congratulations! You have now done your first basic animation!  Hit the play button in your timeline. Your ball bounce should now look something like <a href="http://www.youtube.com/watch?v=9xaQjPYQZmM">this</a></p>
-<p>We can now do even cooler things with the ball bounce.  <a href="http://ucbugg.berkeley.edu/files/lab/ballandstairs.ma">Download the Maya file</a> for this lab, and do what you've learned here to have the ball bounce down some stairs.</p>
-<p>If you feel stuck on how to make the ball bounce down stairs, you can also view <a href="http://www.youtube.com/watch?v=x-58sf8hD5U">Evan's Bouncing Ball Video Tutorial</a> which shows you how to chain the bounces together.</p>
-
-
-      </section>
+<p>If you are interested in learning more about the basics of animation, the CS department offers a great 2D animation course taught by Brian Barsky.  The course number is CS194-7, but its not offered every semester. There is also UCBUGG's sister DeCal, Principles of Animation, where you can learn specifically how to animate!</p>
+<p>&nbsp;</p>
+<h2>Getting Familiar with Animating in Maya</h2>
+<h3><strong>Animation Interface in Maya</strong></h3>
+<p>We should only be using controllers to animate, so let&rsquo;s turn off all selectables except nurbs curves and locators. Make sure the squiggly line (nurbs curves) and locators (question mark) are selected. The rigger should have set up the controllers so that nobody needs to touch the geometry or rig in order to animate. You should only be using the nurbs curves to move your object around. We've set up a rig for the ball. You can download it <a href="../ma/redballrig.ma">here</a>. It seems like a little overkill for a just a simple ball, but when your geometry and your rigs get complicated, this setup keeps everything organized.</p>
+<p><img src="../images/basic-animation/index_0clip_image002.png" width="368" height="164"></p>
+<p>Below is Maya&rsquo;s timeline. You will be able to see the keys you set here, scrub through the animation, and change the time range of your animation. The max range describes the total number of frames of your animation (outer two numbers, in this case 1 and 48). The current range describes the range you&rsquo;re seeing in the timeline right now, in this case 1-24. </p>
+<p><img src="../images/basic-animation/index_0clip_image004.png" width="469" height="143"></p>
+<p>The key in the right hand corner is the toggle for auto-key, which we will talk about later. For now, let&rsquo;s click the options box and configure our settings. </p>
+<p>Under settings, make sure the time is playing at Film (24fps). &nbsp;<br>
+  <img width="469" height="368" src="../images/basic-animation/index_0clip_image006.png" alt="Fluffy:Users:sisishan:Desktop:settings2.jpg"><br>
+  Also look under Settings &gt; Time Slider and check that Playback speed is at Real-time (24fps). </p>
+<p><img width="469" height="369" src="../images/basic-animation/index_0clip_image008.png" alt="Fluffy:Users:sisishan:Desktop:Animation Settings.jpg"></p>
+<p>For the bouncing ball exercise later in the tutorial, go into the Settings&gt;Animation and make sure the tangent settings are checked for weighted tangents, default in tangent is set at Plateau, and that default out tangent is set at Auto.&nbsp;&nbsp; <br>
+  <img width="470" height="368" src="../images/basic-animation/index_0clip_image010.png" alt="Fluffy:Users:sisishan:Desktop:Animation Settings 2.jpg"></p>
+<p><strong>Setting Key frames in the Viewport and Channel Box </strong></p>
+<p>Notice that each controller will have multiple attributes in the channel box. You can key them separately by a <strong>right click and select &ldquo;Key Selected&rdquo;</strong> and that lets you key the individual channel. The box will turn red and a key frame will show up in the time slider. </p>
+<p><img width="470" height="333" src="../images/basic-animation/index_0clip_image012.png" alt="Fluffy:Users:sisishan:Desktop:settingkeys1"></p>
+<p>You can also key all attributes at one time if you <strong>first select the controller and then hit &ldquo;S&rdquo;.</strong> Notice that all the attributes in the channel box now turned red. The downside to this is that it sets keys unnecessarily and can make the graph editor difficult to deal with. <br>
+  <img width="469" height="353" src="../images/basic-animation/index_0clip_image014.png" alt="Fluffy:Users:sisishan:Desktop:settingkeys2"></p>
+<p>In the previous two methods described, you need to remember to set a key after posing out your shot. You can also use the auto key function. When turned on, it will set a key every time you make a change either in the viewport. Be careful that you actually make changes you intend, otherwise just undo the appropriate amount of steps back. Note that auto key only automatically sets keys on attributes that have already had one key set on it. </p>
+<p>If you need to change the timing, you can move the keys all at once by highlighting them in the graph editor. You can do this by <strong>shift + left clicking</strong> over the area of keys that you wish to move. Then move those keys by clicking and dragging the little red arrows that show up. <br>
+  <img width="477" height="282" src="../images/basic-animation/index_0clip_image016.png" alt="Fluffy:Users:sisishan:Desktop:Screen Shot 2013-03-05 at 3.17.14 PM.png"></p>
+<h3><strong>Graph Editor</strong></h3>
+<p>We use the graph editor to get more control over our animation. Each attribute of each controller will correspond to a curve in the graph editor. Each key is represented by a dot in the graph editor, and the curves can be shaped more appropriately by manipulating the tangents of each dot. </p>
+<p>&nbsp;</p>
+<p>Here is the interface of the graph editor. <br>
+  <img width="469" height="226" src="../images/basic-animation/index_0clip_image018.png" alt="Fluffy:Users:sisishan:Desktop:tangents1.jpg"></p>
+<p>Just take note of where all the buttons are located. We will go over why we use these later. </p>
+<p>Also go into View&gt;Tangents and have &ldquo;On Active Keys&rdquo; selected. This way you will always see your tangents and you don&rsquo;t have to select th key first to see the tangent. </p>
+<p>&nbsp;</p>
+<p>Bouncing Ball – Layering Approach </p>
+<p>Layering means we work with an individual attribute at one time and build up the animation by adding other attributes as we go on. You use this method when animating more complicated things like bodies. For example, you can first animate the root (hips) and then animating the legs, and then the arms, etc. Essentially it just means layering in isolated sections so you don&rsquo;t get confused with many things going on. </p>
+<p>Let&rsquo;s start with the bouncing ball!</p>
+<p>Here is a 2D drawing of what a ball bounce looks like. Notice the way the ball stretches before hitting the ground, squashing, and then rebounding up to its original shape at the top. These are all important notes that we will try to recreate during our ball bounce. </p>
+<p>&nbsp;</p>
+<p><img width="480" height="153" src="../images/basic-animation/index_0clip_image020.png" alt="aya Image"> <br>
+  Image from <a href="http://www.evl.uic.edu/ralph/508S99/squash.html">http://www.evl.uic.edu/ralph/508S99/squash.html</a></p>
+<p>For the bouncing ball, we will first deal with the Ty (translate Y) of the master controller, or whichever controller is controlling the movement of the ball. Place keys only in this channel until it looks good as ball bounce in place. </p>
+<ul>
+  <li>Does it have good arcs? </li>
+  <li>Does the timing feel good?</li>
+  <li>Is the behavior &ldquo;ball-like&rdquo;? </li>
+</ul>
+<p>After nominally setting some keys for a bouncy behavior, but when I played it back, the ball wasn&rsquo;t jumping up very quickly. To fix this, let&rsquo;s go into the graph editor and manipulate the tangents. </p>
+<p>The curve for the Ty movement of the ball probably looks like this right now.</p>
+<p> <img border="0" width="469" height="238" src="../images/basic-animation/index_0clip_image022.png" alt="Fluffy:Users:sisishan:Desktop:Screen Shot 2013-03-05 at 10.54.37 AM.png"></p>
+<p>&nbsp;</p>
+<p>Remember the 2D graphic? The ball bounces up in a sharp turn at the bottom. To recreate that curve in Maya, we will select all the keys and their tangents and hit &ldquo;free tangent weight&rdquo;. Notice that solid spheres that were the tangent handles are now clear boxes. We can manipulate them around in the graph editor now. Have your move tool (hit W for hot key), highlight the tangent handle, and you can freely drag it around using your middle mouse button. If you want to only drag the handle in one isolated direction, press shift while you middle mouse button. <br>
+  <img border="0" width="469" height="270" src="../images/basic-animation/index_0clip_image024.png" alt="Fluffy:Users:sisishan:Desktop:Screen Shot 2013-03-05 at 10.54.48 AM.png"></p>
+<p>After some manipulation, my curve now looks like this, which is closer to the original 2D graphic. <br>
+  <img border="0" width="469" height="272" src="../images/basic-animation/index_0clip_image026.png" alt="Fluffy:Users:sisishan:Desktop:Screen Shot 2013-03-05 at 10.55.35 AM.png"></p>
+<p>You can also manipulate the keys themselves in the graph editor. Have your move tool selected (hit W) and you can select the keys and move them around in the graph editor by <strong>dragging the middle mouse button</strong>. Shifting keys is also really easy. Just select the keys, hold down shift, and drag them left or right. </p>
+<p>&nbsp;</p>
+<p>Now let&rsquo;s move to horizontal translation, which is in this case, Tx. The curve for this will look very different from the Ty curve. Experiment by setting keys and figure out what it should look like. When we&rsquo;re happy with the Ty of the ball, let&rsquo;s deal with the Tx (horizontal translation).</p>
+<ul>
+  <li>Is the ball &ldquo;easing into&rdquo; a stop?</li>
+</ul>
+<p>Onto squash and stretch! Note the direction that the ball will squash and stretch during the ball bounce. Refer to the 2D picture for reference.</p>
+<p>After layering all these parts together, we may have to go back and adjust a little based on the new additions, but in the end we hopefully have a convincing bouncing ball! </p>
+<h2 id="animation_in_maya">&nbsp;</h2>
+<p>&nbsp;</p>
+</section>
 
       <footer>
 	<a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/88x31.png" /></a>
