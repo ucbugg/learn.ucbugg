@@ -82,7 +82,7 @@
 <p>&nbsp;</p>
 <h2>Getting Familiar with Animating in Maya</h2>
 <h3><strong>Animation Interface in Maya</strong></h3>
-<p>We should only be using controllers to animate, so let&rsquo;s turn off all selectables except nurbs curves and locators. Make sure the squiggly line (nurbs curves) and locators (question mark) are selected. The rigger should have set up the controllers so that nobody needs to touch the geometry or rig in order to animate. You should only be using the nurbs curves to move your object around. We've set up a rig for the ball. You can download it <a href="../ma/redballrig.ma">here</a>. It seems like a little overkill for a just a simple ball, but when your geometry and your rigs get complicated, this setup keeps everything organized.</p>
+<p>We should only be using controllers to animate, so let&rsquo;s turn off all selectables except nurbs curves and locators. Make sure the squiggly line (nurbs curves) and locators (question mark) are selected. </p>
 <p><img src="../images/basic-animation/index_0clip_image002.png" width="368" height="164"></p>
 <p>Below is Maya&rsquo;s timeline. You will be able to see the keys you set here, scrub through the animation, and change the time range of your animation. The max range describes the total number of frames of your animation (outer two numbers, in this case 1 and 48). The current range describes the range you&rsquo;re seeing in the timeline right now, in this case 1-24. </p>
 <p><img src="../images/basic-animation/index_0clip_image004.png" width="469" height="143"></p>
@@ -109,13 +109,17 @@
 <p>Just take note of where all the buttons are located. We will go over why we use these later. </p>
 <p>Also go into View&gt;Tangents and have &ldquo;On Active Keys&rdquo; selected. This way you will always see your tangents and you don&rsquo;t have to select th key first to see the tangent. </p>
 <p>&nbsp;</p>
-<h2>Bouncing Ball – Layering Approach </h2>
+<h2>Bouncing Ball – Layering Approach</h2>
 <p>Layering means we work with an individual attribute at one time and build up the animation by adding other attributes as we go on. You use this method when animating more complicated things like bodies. For example, you can first animate the root (hips) and then animating the legs, and then the arms, etc. Essentially it just means layering in isolated sections so you don&rsquo;t get confused with many things going on. </p>
 <p>Let&rsquo;s start with the bouncing ball!</p>
 <p>Here is a 2D drawing of what a ball bounce looks like. Notice the way the ball stretches before hitting the ground, squashing, and then rebounding up to its original shape at the top. These are all important notes that we will try to recreate during our ball bounce. </p>
 <p>&nbsp;</p>
 <p><img width="480" height="153" src="../images/basic-animation/index_0clip_image020.png" alt="aya Image"> <br>
   Image from <a href="http://www.evl.uic.edu/ralph/508S99/squash.html">http://www.evl.uic.edu/ralph/508S99/squash.html</a></p>
+<p>&nbsp;</p>
+<p><a href="../ma/redballrig.ma"><strong>Please download this ball rig</strong></a><strong>.</strong></p>
+<p><img src="../images/basic-animation/image021.png" width="816" height="619"></p>
+<p>For animating the horizontal and vertical translation of the entire ball, use the squiggly controller, called <strong>mainControl</strong>. For animating squash and stretch later, use the top circle controller, called <strong>upper control.</strong></p>
 <p>For the bouncing ball, we will first deal with the Ty (translate Y) of the master controller, or whichever controller is controlling the movement of the ball. Place keys only in this channel until it looks good as ball bounce in place. </p>
 <ul>
   <li>Does it have good arcs? </li>
@@ -136,7 +140,7 @@
 <ul>
   <li>Is the ball &ldquo;easing into&rdquo; a stop?</li>
 </ul>
-<p>Onto squash and stretch! Note the direction that the ball will squash and stretch during the ball bounce. Refer to the 2D picture for reference.</p>
+<p>Onto squash and stretch! Note the direction that the ball will squash and stretch during the ball bounce. Note the direction that the ball will squash and stretch during the ball bounce. Refer to the 2D picture for reference and think about how you would move the upper control of the ball rig so that the ball is stretching and squashing appropriately. </p>
 <p>After layering all these parts together, we may have to go back and adjust a little based on the new additions, but in the end we hopefully have a convincing bouncing ball! </p>
 <h2 id="animation_in_maya">&nbsp;</h2>
 <p>&nbsp;</p>
