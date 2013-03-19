@@ -195,6 +195,7 @@ shaders.  We will be revisiting this with our advanced shading lab.</p>
 <p><img alt="Maya Image" src="../images/shading/shader_018.png" /></p>
 <p>I'm going to also add a new Lambert shader to the wire that the lamp is hanging from.  If you need to remember how to do that, scroll up to the picture frame section of the lab.</p>
 <h3 id="shading_the_orange">Shading the Orange</h3>
+<h4>Bump Mapping</h4>
 <p>We've been ignoring that "bump mapping" node in all of our shaders so far and we are now going to finally use it on the orange!  <strong>Bump mapping</strong> gives the illusion of surface detail without actually altering the surface itself.</p>
 <p>Let's apply a waxy surface to our orange. Knowing everything we've learned so far, try creating a <strong>waxy surface on your own</strong> (without bump mapping).  If you can't figure it out, look at my settings below.</p>
 <p><img alt="Maya Image" src="../images/shading/shader_009.png" /></p>
@@ -232,6 +233,101 @@ shaders.  We will be revisiting this with our advanced shading lab.</p>
 <p>Final render:</p>
 <p><img alt="Maya Image" src="../images/shading/shader_020.png" /></p>
 <p>Hit render, and now you should see a nice looking orange.</p>
+<h4>Displacement Mapping using Hypershade</h4>
+<p>Bump mapping isn't the only shading technique that can some kind of
+procedural texture. In contrast to bump mapping, displacement mapping
+uses a texture or height map to actually modify the geometric position
+of an object. If you remember looking at the silhouette of the bump
+mapped orange, the edges were smooth not bumpy. This is because bump
+mapping only affects the lighting calculation of the surface while a
+displacement map will change the mesh. In a few
+moments, you will use the displacement mapping technique to give a
+simple polygon plane the look of rocky terrain.</p>
+<p> To begin, let's first save our progress for our dining table and
+bowl of fruit. Then let's <a href="../images/shading/terrain_tut.zip">download</a> these two files and open up
+<strong>terrain.ma</strong>. Once you've opened a new file, You should
+see a gray polygon plane when you open up terrain.ma. We're going to
+be applying a displacement map to this plane to create terrain! </p>
+<p>Select the plane in object mode and right click and select
+<strong>Assign New Material…</strong> , now select
+<strong>Lambert</strong>. The attribute editor should've popped up on
+the right side. Rename this shader to terrain_shader.</p>
+<p><img alt="Maya Image" src="../images/shading/shadingpic1.png"
+/><img alt="Maya Image" src="../images/shading/shadingpic2.png"
+/></p>
+<p>Now open <strong>Hypershade</strong>. Go to Window > Rendering Editors >
+Hypershade. Hypershade is a node-based shading tool where you can
+create, edit, connect rendering nodes, such as textures, materials,
+lights, special effects, and etc. Right now, we're going to use it to
+apply a displacement map to our terrain_shader. To navigate through
+the <strong>work area</strong>, use the maya conventional means to
+move around (zoom and pan). To move the nodes around just click and
+drag. To connect nodes, you will middle click, hold & drag, and drop
+the nodes on top of others. </p>
+<p><img alt="Maya Image" src="../images/shading/shadingpic4.png"
+/> </p>
+
+<p>At this point, there is nothing in your work area in
+Hypershade. At the top section of Hypershade, you should see all your
+materials. Middle click, hold & drag your terrain_shader from your
+shelf into the work area. </p>
+
+<p> On the left section of the Hypershade window, you should see a
+<strong>create</strong> section, select <strong>2D textures</strong>
+and select <strong>file</strong> because we want to use an image
+texture to apply our displacement map with. Now, two connect nodes
+should appear in your work area.</p>
+<p><img alt="Maya Image" src="../images/shading/shadingpic5.png"
+/> </p>
+
+<p>Select the file1 node and go back to the main maya window. The
+attribute editor should have changed to display the attributes for
+file1. Under File Attributes, find Image Name and select the folder
+icon beside it. Find where you saved the texture file
+(rock_texture.jpg) from step 1 and select to open it. File1 should now
+be the rock_texture.jpg. </p>
+
+<p><img alt="Maya Image" src="../images/shading/shadingpic6.png"
+/> </p>
+
+<p>Pull up Hypershade again and notice that file1 now displays the
+rock_texture image. Select the file1 node and middle click, hold &
+drag, and drop this node on top of the terrain_shader node. Right
+after you do this, a menu should pop up and you should select
+displacement map. A displacement shader node is now connected to your
+file node. Now render to see your plane. If the bumps are too intense
+you can tweak attributes to make them softer. </p>
+<p><img alt="Maya Image" src="../images/shading/shadingpic7.png"
+/> </p>
+
+<p>In Hypershade, select the file1 node and return to the main maya window. In the attribute editor, select the file1 tab and go to Color Balance. Tweak the <strong>Alpha Gain and Alpha Offset</strong> to create softer or more exaggerated bumps. The Alpha Gain and Alpha Offset are the max and min values that dictate the highest and lowest points of your displacement map. For example, if you wanted rocky ground with very jagged peaks, your Alpha Gain would be something like 0.5 and your Alpha Offset would be something like -0.3. </p>
+<p><img alt="Maya Image" src="../images/shading/shadingpic9.png"
+/> </p>
+
+<h4>Optional</h4>
+<p> Apply a color texture for your rocky terrain. Use the
+color_texture.jpg as the color texture and open Hypershade and move your terrain_shader on
+to the work area. </p>
+
+<p>Create a new node by selecting 2D Texture > File. The 2D Texture
+node should appear in the work area connected to the File node. Click the new
+file node in the work area like we did before and select the folder
+icon in the attribute editor to load the color texture file. Find and open the color texture
+file. </p>
+<p><img alt="Maya Image" src="../images/shading/shadingpic12.png"
+/> </p>
+
+<p>Now that we have the file node pointing to the color texture file,
+we need to connect the 2D texture node to the terrain_shader
+node. Middle click, hold & drag, and drop the file node on top of the
+terrain_shader node. Select <strong>color</strong> in the pop up
+menu. Click the render button and there you have it!</p>
+<p><img alt="Maya Image" src="../images/shading/shadingpic13.png"
+/> </p>
+
+<p> Check out the <strong>Advanced Shading Tutorial</strong> for more practice with
+Hypershade and other advanced shading techniques!</p>
+
 <h3 id="shading_onward">Shading Onward!</h3>
 <p>Now that I've given you the basic tools, go and shade the rest of the scene however you like.  Try using the wood 3D texture as a bump map for your table, and try placing a checkerboard texture on the chessboard (hint: instead of using a Color, click on the checkerboard button next to <strong>Color</strong> and add a 2D Texture from a <strong>File</strong>).  Also remember to color the apple.</p>
 <p>Here is my final render:</p>
