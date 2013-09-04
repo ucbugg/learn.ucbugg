@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>UCBUGG Open Course Ware</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css?dte=016" />
+    <!--[if lt IE 9]>
+	<script>
+	  var e = ("abbr,article,aside,audio,canvas,datalist,details," +
+	  "figure,footer,header,hgroup,mark,menu,meter,nav,output," +
+	  "progress,section,time,video").split(',');
+	  for (var i = 0; i < e.length; i++) { document.createElement(e[i]);}
+	</script>
+    <![endif]-->
+  </head>
+  <body>
+    <div id="wrapper">
+
+      <header>
+	<img src="../images/logo.png?dte=016" alt="UCBUGG" />
+      </header>
+
+      <section id="chapter">
+      
+
+<p>
+  You are here: <a href="../">Home</a> &rarr; <a href="../dropbox-collaboration">Dropbox Collaboration</a>
+</p>
+
+<h1 id="collaborating_using_dropbox">Collaborating Using Dropbox</h1>
+<p>Before you can setup Dropox on the lab machines you'll need a Dropbox account. <a href="https://www.dropbox.com/register">Registration is easy and shouldn't take more than a minute</a>.</p>
+<p>Download the <a href="https://www.dropbox.com/downloading?os=mac">Dropbox client</a> and open the downloaded DMG. <em>DO NOT</em> drag the Dropbox application into the main Applications folder, as it will not work. Open Terminal and type the following in</p>
+<pre><code>mkdir ~/Applications
+</code></pre>
+<p>Now drag the Dropbox application into the "Applications" folder <strong>inside</strong> your home directory</p>
+<p>Go back to your terminal. Type</p>
+<pre><code>ssh star.cs.berkeley.edu '/home/tmp/mkhometmpdir'
+ln -s /home/tmp/$USER ~/tmp
+</code></pre>
+<p>Now run the Dropbox application you copied into your Applications folders. Log in with your Dropbox account. One of the screens will give you the option to pick the placement of your Dropbox folder. Select the tmp folder inside your Home directory as press ok. </p>
+<p>After the installer finishes, you are good to go.</p>
+
+
+      </section>
+
+      <footer>
+	<a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/88x31.png" /></a>
+      </footer>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,346 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>UCBUGG Open Course Ware</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css?dte=016" />
+    <!--[if lt IE 9]>
+	<script>
+	  var e = ("abbr,article,aside,audio,canvas,datalist,details," +
+	  "figure,footer,header,hgroup,mark,menu,meter,nav,output," +
+	  "progress,section,time,video").split(',');
+	  for (var i = 0; i < e.length; i++) { document.createElement(e[i]);}
+	</script>
+    <![endif]-->
+  </head>
+  <body>
+    <div id="wrapper">
+
+      <header>
+	<img src="../images/logo.png?dte=016" alt="UCBUGG" />
+      </header>
+
+      <section id="chapter">
+      
+
+<p>
+  You are here: <a href="/">Home</a> &rarr; <a href="/shading">Shading</a>
+</p>
+
+<h1 id="shading">Shading</h1>
+<p>In this lab you will learn the basic shading techniques to get color on your objects, apply basic textures, as well as a get basic overview of what the different types of materials are and what they do. Let's begin! :D</p>
+<p>First, download the <a href="../images/shading/table_with_fruit.ma">initial boring, grey scene</a></p>
+<h2 id="shaders">Shaders</h2>
+<p>Surfaces materials are mathematical models that represent the interaction between an object's surface and the incident light to calculate an the way the geometry looks when rendered.  Each shader is mathematically different, but for the purposes of this class you don't need to know about those differences. However, if you are interested, you can always look it up on google.</p>
+<h3 id="lambert">Lambert</h3>
+<p>Lamberts are the most basic material type and they are used by default for each object in Maya (you may have already noticed the default lambert shader in your attribute editor).  They are used to simulate flat, dull materials like skin, unfinished wood, rubber, or anything that is not shiny.  The most important attributes to play with in Lambert are the color and the diffuse, which represents how well light spreads across the surface.  The first image below shows a Lambert shader with 0.8 diffuse level.  The second image shoes a Lambert shader with a 0.5 diffuse level.</p>
+<p><img alt="Lambert Shader w/ Diffuse 0.8" src="../images/shading/shader_002.png" /> 
+<img alt="Lambert Shader w/ Diffuse 0.5" src="../images/shading/shader_003.png" /></p>
+<h3 id="blinn_phongs_and_phong_es">Blinn, Phongs, and Phong Es</h3>
+<p>These materials make up the "shiny" materials. Anything with any sort of highlight will likely fall under one of these types. Metal objects, glass, smooth plastics, or pretty much anything with any sort of a glossy surface all look good as either a Blinn or a Phong. The exact difference between these is how the model works internally, choosing between them for any given object is really just a matter of taste. The sliders in the specular shading section of the attribute editor are the most important for fine tuning the look of these types of materials. Note that Blinns and Phongs still have the same common attributes like color, diffuse, and transparency that Lamberts do.</p>
+<p><img alt="Maya Image" src="../images/shading/shader_004.png" />
+<img alt="Maya Image" src="../images/shading/shader_005.png" /></p>
+<h3 id="anisotropic">Anisotropic</h3>
+<p>Anisotropics are weird materials where the specular (highlight) is asymmetric. That is, you can force the shader to be shinier in the U direction than in the V. This is useful for objects that are made of brushed metals and such. Again the specular shading section contains the sliders of interest.</p>
+<p><img alt="Maya Image" src="../images/shading/shader_006.png" /></p>
+<h3 id="surface_shader">Surface Shader</h3>
+<p>A surface shader is the rawest form of material available. It does no internal calculations about light and only 
+renders as the color for that location. This is useful for building shader networks for wierd effects like toon 
+shaders.  We will be revisiting this with our advanced shading lab.</p>
+<h2 id="textures">Textures</h2>
+<p>(Source: <a href="http://download.autodesk.com/us/maya/2009help/index.html?url=Asts_2D_and_3D_textures.htm,topicNumber=d0e500712">Maya Help Guide</a>)</p>
+<p>Texture nodes are a type of render node that, when mapped to the material of an object, let you define how the objec's surface appears when rendered.  There are two types of textures we care about for now: 2D and 3D.</p>
+<p>2D textures wrap around an object, like gift wrapping, or stick to a flat surface, like wallpaper.</p>
+<p>3D textures project through objects, like veins in marble or wood.  With a 3D texture, objects appear to be carved out of a substance, such as rock or wood. You can scale, rotate and move 3D textures interactively in a scene view to achieve the desired results.</p>
+<h2 id="setting_up_rendering">Setting up Rendering</h2>
+<p>Before we do any shading, we should first set up our renderer.  We will go into more detail about rendering in a later lab, but for now just use the settings we describe below.</p>
+<p>You can edit the <strong>render settings</strong> by clicking the film gate with radio buttons in the tool bar in the top of the screen or by selecting Windows &gt; Rendering Editors &gt; Render Globals.</p>
+<p><img alt="Maya Image" src="../images/shading/shader_012.png" /></p>
+<p>Select <strong>mental ray</strong> from the <strong>Render Using</strong> dropdown.  There are a lot of settings, and again don't worry about it yet.  For now, go to the <strong>Common</strong> tab and scroll down to <strong>Image Size</strong>.  Since we have these awesomely powerful computers, lets render at half HD at <strong>960x540</strong>.  Change the width and the height box to 960 for the width and 540 for the height.  The last thing to do is go to the <strong>Quality</strong> tab and change the <strong>Quality Presets</strong> to <strong>Production</strong>.</p>
+<p><img alt="Maya Image" src="../images/shading/shader_013.png" />
+<img alt="Maya Image" src="../images/shading/shader_014.png" /></p>
+<p>Now our renderer is set up so we can preview what will be the final product.  We want to set this up since many things we do with the shader can't be seen without rendering (such as bump mapping).</p>
+<p>Now whenever I ask you to render to check your progress, just hit the <strong>render current frame</strong> button at the top next to the render settings button.</p>
+<h2 id="playing_with_shaders">Playing with Shaders</h2>
+<p>If you haven't already, download the <a href="../images/shading/table_with_fruit.ma">initial boring, grey scene</a></p>
+<h3 id="shading_the_picture_frame">Shading the Picture Frame</h3>
+<p>Select the picture frame and right-click.  While holding down right-click, select <strong>"Assign new material"</strong> and select <strong>Lambert</strong>.<br />
+</p>
+<p>Your Attribute Editor should now be open with two tabs: lambertSG and lambert. Don't worry about the "lambertSG" tab for now: we will be doing all our work in lambert.  It is a <strong>good habit to name your shaders</strong> so that when you have complex scenes, it's easy to know which shader you are looking at.  I am renaming my shader "picFrame".</p>
+<div class="note">If you ever need to go back later to edit a shader, just click on the object and find the tab for the shader in your attrobute editor.  If you don't see it, click the black upside-down triangle to open a dropdown of additional hidden tabs.</div>
+
+<p>As you can see, right now the picture frame is a boring gray color.  To change the color, double click on the color swatch in <strong>"Color"</strong>.  A color wheel should pop up and you can select the color for your picture frame. I'm going to pick a nice burnt orange color, but you can select whatever you'd like.  Now you should see the picture frame turn burnt orange in your scene :D</p>
+<p><img alt="Maya Image" src="../images/shading/shader_016.png" /></p>
+<p>Yay! That already looks a lot better.  I'm also going to shade the base of the picture frame brown.  To reuse a material on another object, select the object, hold right-click, then <strong>"Assign Existing Material"</strong> which in this case is "picFrame".  I'm going to leave the frame as it is, but you should play around with the other settings as well.  Here is an overview of what each setting does:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Color</td>
+<td>Color changes the base color of the object</td>
+</tr>
+<tr>
+<td align="left">Transparency</td>
+<td>Use this to adjust how opaque your object is.  The further right the slider is, the more see-through it is</td>
+</tr>
+<tr>
+<td align="left">Ambient Color</td>
+<td>Ambient color is a hack in 3D graphics. In real life when an object is hidden behind something else, say your legs under the desk, it doesn't completely disappear - you still can still see your legs.  This is due to all the light rays in the room bouncing around and some light rays manage to bounce under the table.  In 3D graphics, however, without the ambient term anything that doesn't have light hitting it directly would be completely black. Therefore, this ambient color is simply added onto your shader, regardless of lights, shadows, and other objects.</td>
+</tr>
+<tr>
+<td align="left">Incandescence</td>
+<td>This term accounts for any emission of light an object may have. It is generally used to show a hot object.</td>
+</tr>
+<tr>
+<td align="left">Bump mapping</td>
+<td>We will go over this in another example later in the lab</td>
+</tr>
+<tr>
+<td align="left">Diffuse</td>
+<td>As explained previously, the diffuse term represents how well light spreads across the surface</td>
+</tr>
+<tr>
+<td align="left">Translucence</td>
+<td>Translucence allows only light to pass through diffusely.  A good example of this is a shower door</td>
+</tr>
+</tbody>
+</table>
+<p>Here are my final settings for the picture frame:</p>
+<p><img alt="Maya Image" src="../images/shading/shader_011.png" /> </p>
+<p>Final Render:</p>
+<p><img alt="Maya Image" src="../images/shading/shader_017.png" /></p>
+<p>Whenever you are ready, we will start shading the bowl.</p>
+<h3 id="shading_the_bowl">Shading the Bowl</h3>
+<p>Bowls are usually shiny and made of some kind of porcelain, plastic, or glass.  Just to make it interesting, I will be making a glass bowl (but either way, we would use either a phong or blinn shader).  Right-click on the bowl, select <strong>Assign New Material</strong> and select <strong>Phong</strong>. </p>
+<p>Rename your shader to something like "bowlShader".</p>
+<p>You probably noticed a lot of the material attributes for the phong shader are the same as for the lambert shader.  Here is a brief overview of the new options available to you specific to phong shading (if I don't include it, you don't need to worry about it):</p>
+<table>
+<thead>
+<tr>
+<th align="left">Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><strong>Cosine Power</strong></td>
+<td>Controls the size of shiny highlights on the surface. The valid range is 2 to infinity. The slider range is 2 (broad highlight, not very shiny surface) to 100 (small highlight, very shiny surface), though you can type in a higher value. The default value is 20.</td>
+</tr>
+<tr>
+<td align="left"><strong>Specular Color</strong></td>
+<td>The color of shiny highlights on the surface. A black Specular Color produces no surface highlights. The default color value is 0.5.</td>
+</tr>
+<tr>
+<td align="left"><strong>Reflectivity</strong></td>
+<td>Gives the surface the ability to reflect its surroundings or the Reflected Color (similar to Specular Roll Off). The valid range is 0 to infinity. The slider range is 0 (no reflections) to 1 (clear reflections). The default value is 0.5.  Reflectivity values for common surface materials are car paint (0.4), glass (0.7), mirror (1), chrome (1).</td>
+</tr>
+<tr>
+<td align="left"><strong>Reflected Color</strong></td>
+<td>Represents the color of light reflected from the material</td>
+</tr>
+</tbody>
+</table>
+<p>I am creating a glass bowl so I am using these settings:</p>
+<p><img alt="Maya Image" src="../images/shading/shader_008.png" /></p>
+<p>Final render:</p>
+<p><img alt="Maya Image" src="../images/shading/shader_019.png" /></p>
+<h3 id="shading_the_lamp">Shading the Lamp</h3>
+<p>So in general when I think of lamps, I think of a <strong>brushed aluminum metal</strong> for the shade.  Do you remember what kind of shader is good for brushed aluminum? <strong>Anisotropic!</strong><br />
+</p>
+<p>Let's assign a new shader for the lamp.  Select the shade of the lamp, right-click, <strong>Assign New Material</strong>, then select "Anisotropic".  Rename the shader to "lamp", and select a color like we did for the picture frame above.  Keep in mind as you select your colors and settings what brushed aluminum looks like in real life.  With shading, it's often easy to tell when something looks wrong.</p>
+<p>Here is a brief overview of the new options available to you specific to anisotropic shading (if I don't include it, you don't need to worry about it)</p>
+<table>
+<thead>
+<tr>
+<th align="left">Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Angle</td>
+<td>Determines the angle of the grooves in the object</td>
+</tr>
+<tr>
+<td align="left">Spread X/Y</td>
+<td>Determines how much the grooves spread out in the X and Y directions</td>
+</tr>
+<tr>
+<td align="left">Roughness</td>
+<td>Determines the overall roughness of the surface. The range is 0.01 to 1.0. Smaller values correspond to smoother surfaces and the specular highlights are more concentrated.</td>
+</tr>
+<tr>
+<td align="left">Specular Color</td>
+<td>The color of shiny highlights on the surface. A black Specular Color produces no surface highlights.  If you would like a more metallic looking object, the specular color should be similar to the base color.  If you want a more plastic looking object, you would use white for the object.</td>
+</tr>
+<tr>
+<td align="left">Reflectivity</td>
+<td>Gives the surface the ability to reflect its surroundings or the Reflected Color (similar to Specular Roll Off). the valid range is 0 to infinity. The slider range is 0 (no reflections) to 1 (clear reflections).</td>
+</tr>
+<tr>
+<td align="left">Reflected Color</td>
+<td>Represents the color of light reflected from the material</td>
+</tr>
+</tbody>
+</table>
+<p>For now I am using the following settings: </p>
+<p><img alt="Maya Image" src="../images/shading/shader_007.png" /></p>
+<p>Final Render:</p>
+<p><img alt="Maya Image" src="../images/shading/shader_018.png" /></p>
+<p>I'm going to also add a new Lambert shader to the wire that the lamp is hanging from.  If you need to remember how to do that, scroll up to the picture frame section of the lab.</p>
+<h3 id="shading_the_orange">Shading the Orange</h3>
+<h4>Bump Mapping</h4>
+<p>We've been ignoring that "bump mapping" node in all of our shaders so far and we are now going to finally use it on the orange!  <strong>Bump mapping</strong> gives the illusion of surface detail without actually altering the surface itself.</p>
+<p>Let's apply a waxy surface to our orange. Knowing everything we've learned so far, try creating a <strong>waxy surface on your own</strong> (without bump mapping).  If you can't figure it out, look at my settings below.</p>
+<p><img alt="Maya Image" src="../images/shading/shader_009.png" /></p>
+<p>Now we're going to add the bump map to the orange.  We will do this by adding a 3D Texture to the surface of the orange.  To do this, select the checker board button on the right side of "Bump Mapping".  Scroll down to the <strong>3D Textures</strong> portion and select <strong>Solid Fractal</strong>.</p>
+<p><img alt="Maya Image" src="../images/shading/shader_022.png" /></p>
+<p>You will have new things now in your attribute editor.  Change the names of the bump map to something useful.  For now don't change the settings and render your orange.</p>
+<p>Woah! That looks really funky and wrong.  As you can see, however, that the appearance of the orange has completely changed and has the appearance of having a lot of ridges when they actually don't exist.</p>
+<p>Now let's change a few more settings to make it look much more like a yummy orange.</p>
+<p>Here are the important nodes:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Ratio</td>
+<td>Controls the frequency of the fractal noise. The range is 0 (low frequency) to 1 (high frequency). The default is 0.707.</td>
+</tr>
+<tr>
+<td align="left">Frequency ratio</td>
+<td>Determines the relative spacial scale of noise frequencies. If not a whole number, the fractal does not repeat at the UV boundaries. For instance, a cylinder with default placement would display a seam.</td>
+</tr>
+<tr>
+<td align="left">Depth</td>
+<td>The minimum and maximum number of iterations used to calculate the texture pattern. This parameter controls how fine grained the texture is. The range is 0 to 20</td>
+</tr>
+</tbody>
+</table>
+<p>If you would like to read more about the other settings, read the <a href="http://download.autodesk.com/us/maya/2009help/index.html?url=Asts_2D_and_3D_textures.htm,topicNumber=d0e500712">Maya Help Guide</a>.</p>
+<p>I used the following settings to get my orange looking more.. orangey.</p>
+<p><img alt="Maya Image" src="../images/shading/shader_010.png" /></p>
+<p>Final render:</p>
+<p><img alt="Maya Image" src="../images/shading/shader_020.png" /></p>
+<p>Hit render, and now you should see a nice looking orange.</p>
+
+<h4 id="shading_onward">Shading Onward!</h4>
+<p>Now that I've given you the basic tools, go and shade the rest of the scene however you like.  Try using the wood 3D texture as a bump map for your table, and try placing a checkerboard texture on the chessboard (hint: instead of using a Color, click on the checkerboard button next to <strong>Color</strong> and add a 2D Texture from a <strong>File</strong>).  Also remember to color the apple.</p>
+<p>Here is my final render:</p>
+<p><img alt="Maya Image" src="../images/shading/shader_021.png" /></p>
+
+<h3>Displacement Mapping using Hypershade</h3>
+<p>Bump mapping isn't the only shading technique that can some kind of
+procedural texture. In contrast to bump mapping, displacement mapping
+uses a texture or height map to actually modify the geometric position
+of an object. If you remember looking at the silhouette of the bump
+mapped orange, the edges were smooth not bumpy. This is because bump
+mapping only affects the lighting calculation of the surface while a
+displacement map will change the mesh. In a few
+moments, you will use the displacement mapping technique to give a
+simple polygon plane the look of rocky terrain.</p>
+<p> To begin, let's first save our progress for our dining table and
+bowl of fruit. Then let's <a href="../images/shading/terrain_tut.zip">download</a> these two files and open up
+<strong>terrain.ma</strong>. Once you've opened a new file, You should
+see a gray polygon plane when you open up terrain.ma. We're going to
+be applying a displacement map to this plane to create terrain! </p>
+<p>Select the plane in object mode and right click and select
+<strong>Assign New Material…</strong> , now select
+<strong>Lambert</strong>. The attribute editor should've popped up on
+the right side. Rename this shader to terrain_shader.</p>
+<p><img alt="Maya Image" src="../images/shading/shadingpic1.png"
+/><img alt="Maya Image" src="../images/shading/shadingpic2.png"
+/></p>
+<p>Now open <strong>Hypershade</strong>. Go to Window > Rendering Editors >
+Hypershade. Hypershade is a node-based shading tool where you can
+create, edit, connect rendering nodes, such as textures, materials,
+lights, special effects, and etc. Right now, we're going to use it to
+apply a displacement map to our terrain_shader. To navigate through
+the <strong>work area</strong>, use the maya conventional means to
+move around (zoom and pan). To move the nodes around just click and
+drag. To connect nodes, you will middle click, hold & drag, and drop
+the nodes on top of others. </p>
+<p><img alt="Maya Image" src="../images/shading/shadingpic4.png"
+/> </p>
+
+<p>At this point, there is nothing in your work area in
+Hypershade. At the top section of Hypershade, you should see all your
+materials. Middle click, hold & drag your terrain_shader from your
+shelf into the work area. </p>
+
+<p> On the left section of the Hypershade window, you should see a
+<strong>create</strong> section, select <strong>2D textures</strong>
+and select <strong>file</strong> because we want to use an image
+texture to apply our displacement map with. Now, two connect nodes
+should appear in your work area.</p>
+<p><img alt="Maya Image" src="../images/shading/shadingpic5.png"
+/> </p>
+
+<p>Select the file1 node and go back to the main maya window. The
+attribute editor should have changed to display the attributes for
+file1. Under File Attributes, find Image Name and select the folder
+icon beside it. Find where you saved the texture file
+(rock_texture.jpg) from step 1 and select to open it. File1 should now
+be the rock_texture.jpg. </p>
+
+<p><img alt="Maya Image" src="../images/shading/shadingpic6.png"
+/> </p>
+
+<p>Pull up Hypershade again and notice that file1 now displays the
+rock_texture image. Select the file1 node and middle click, hold &
+drag, and drop this node on top of the terrain_shader node. Right
+after you do this, a menu should pop up and you should select
+displacement map. A displacement shader node is now connected to your
+file node. Now render to see your plane. If the bumps are too intense
+you can tweak attributes to make them softer. </p>
+<p><img alt="Maya Image" src="../images/shading/shadingpic7.png"
+/> </p>
+
+<p>In Hypershade, select the file1 node and return to the main maya window. In the attribute editor, select the file1 tab and go to Color Balance. Tweak the <strong>Alpha Gain and Alpha Offset</strong> to create softer or more exaggerated bumps. The Alpha Gain and Alpha Offset are the max and min values that dictate the highest and lowest points of your displacement map. For example, if you wanted rocky ground with very jagged peaks, your Alpha Gain would be something like 0.5 and your Alpha Offset would be something like -0.3. </p>
+<p><img alt="Maya Image" src="../images/shading/shadingpic9.png"
+/> </p>
+
+<h4>Give it Some Color!</h4>
+<p> Apply a color texture for your rocky terrain. Use the
+color_texture.jpg as the color texture and open Hypershade and move your terrain_shader on
+to the work area. </p>
+
+<p>Create a new node by selecting 2D Texture > File. The 2D Texture
+node should appear in the work area connected to the File node. Click the new
+file node in the work area like we did before and select the folder
+icon in the attribute editor to load the color texture file. Find and open the color texture
+file. </p>
+<p><img alt="Maya Image" src="../images/shading/shadingpic12.png"
+/> </p>
+
+<p>Now that we have the file node pointing to the color texture file,
+we need to connect the 2D texture node to the terrain_shader
+node. Middle click, hold & drag, and drop the file node on top of the
+terrain_shader node. Select <strong>color</strong> in the pop up
+menu. Click the render button and there you have it!</p>
+<p><img alt="Maya Image" src="../images/shading/shadingpic13.png"
+/> </p>
+
+<p> Check out the <strong>Advanced Shading Tutorial</strong> for more practice with
+Hypershade and other advanced shading techniques!</p>
+
+
+      </section>
+
+      <footer>
+	<a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/88x31.png" /></a>
+      </footer>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>UCBUGG Open Course Ware</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css?dte=016" />
+    <!--[if lt IE 9]>
+	<script>
+	  var e = ("abbr,article,aside,audio,canvas,datalist,details," +
+	  "figure,footer,header,hgroup,mark,menu,meter,nav,output," +
+	  "progress,section,time,video").split(',');
+	  for (var i = 0; i < e.length; i++) { document.createElement(e[i]);}
+	</script>
+    <![endif]-->
+  </head>
+  <body>
+    <div id="wrapper">
+
+      <header>
+	<img src="../images/logo.png?dte=016" alt="UCBUGG" />
+      </header>
+
+      <section id="chapter">
+      
+
+<p>
+  You are here: <a href="../">Home</a> &rarr; <a href="../rendering">Rendering</a>
+</p>
+
+<h1 id="rendering">Rendering</h1>
+<p>Now that you have finished lighting, shading, animation, rigging and modeling (whew) it's time to start the final stretch: turn those Maya files into beautiful movies. The first step is actually creating images from maya. You have already rendered some images in the Lighting and Shading portions, so there may be some review.</p>
+<h2 id="mayas_rendering_engines">Maya's Rendering Engines</h2>
+<p>Maya comes with three different engines for rendering images. Other's exist, such as RenderMan from Pixar, but aren't included in the default Maya installation.</p>
+<h3 id="maya_software">Maya Software</h3>
+<p>Maya's software renderer, as described by Maya's online manual, is an advanced, multi-threaded renderer. It is based on a rendering technology that is built directly into Maya's dependency graph architecture. Technical things aside, it is the default renderer that comes with Maya, but since Mental Ray was developed it's not been used too much.</p>
+<h3 id="maya_hardware">Maya Hardware</h3>
+<p>Maya's hardware renderer presents a seamlessly integrated rendering solution that takes advantage of graphics cards to render frames. It is very similar to Maya Software so again, we won't be using it as our main renderer of choice.</p>
+<h3 id="mental_ray">Mental Ray</h3>
+<p>Mental Ray is the most feature-rich renderer that comes with Maya and is specialized in ray tracing, though it does support other rendering algorithms. This is the renderer we will be using in this class! If you are unable to render using Mental Ray because it does not appear as an option, you must load Mayatomr through the <strong>Plug-in Manager</strong>. You can access the <strong>Plug-in Manager</strong> by going to Window &rarr; Settings/Preferences &rarr; Plug-in Manager.</p>
+<p><img alt="Maya Image" src="../images/rendering/rendering_001.png" /> </p>
+<p>In the Plug-in Manager, load Mayatomr.bundle for Macs or Mayatomr.mll for Windows.</p>
+<p><img alt="Maya Image" src="../images/rendering/rendering_002.png" /></p>
+<p>You should now be able to use Mental Ray!</p>
+<div class="note tip">
+## Tips
+
+If your renders are not what you expect, perhaps an object you thought would appear in the render is being cut off, changing **Camera Settings** to **Resoluion Gate** might be helpful.
+
+<p><img alt="Maya Image" src="../images/rendering/rendering_012.png" /></p>
+<p>Now it is easy to see what object will appear when you render.</p>
+<p><img alt="Maya Image" src="../images/rendering/rendering_013.png" />
+</div></p>
+<h2 id="render_settings">Render Settings</h2>
+<p>Under <strong>Render Settings</strong> is where you specify the size, quality, image format, and from which camera to render from for your images. To open the <strong>Render Settings</strong> window, go to Window &rarr; Rendering Editors &rarr; Render Settings.</p>
+<p><img alt="Maya Image" src="../images/rendering/rendering_003.png" /></p>
+<p>Select the format of your rendered images. Use TIFF(tif).</p>
+<p><img alt="Maya Image" src="../images/rendering/rendering_004.png" /></p>
+<p>You want to be able to <strong>Batch Render</strong> which will render each frame in a range that you input, so set <strong>Frame/Animation ext</strong> to something that is not a single frame.</p>
+<p><img alt="Maya Image" src="../images/rendering/rendering_005.png" /></p>
+<p>In general, set <strong>Frame padding</strong> value so that when you open image sequences the order of the images is clear.<br />
+</p>
+<p><img alt="Maya Image" src="../images/rendering/rendering_006.png" /></p>
+<p>Set the frame range and the camera.</p>
+<p><img alt="Maya Image" src="../images/rendering/rendering_007.png" /></p>
+<p>The final short that you submit must be 720HD. To make sure that you render with this setting, under Image Size, set Presets to 720HD and you should see that the Width adjusts to 1280 and the Height adjusts to 720.</p>
+<p><img alt="Maya Image" src="../images/rendering/rendering_008.png" /></p>
+<p>Also for your final short, make sure to set the quality of your renders to <strong>Production</strong>. However you may leave it at <strong>Draft</strong> for test renders since rendering with production quality might take longer. </p>
+<p><img alt="Maya Image" src="../images/rendering/rendering_009.png" /></p>
+<h2 id="batch_rendering">Batch Rendering</h2>
+<p>After you have double checked your <strong>Render Settings</strong> you are ready to start your <strong>Batch Render</strong>. To batch render, go to the <strong>Rendering</strong> menu.</p>
+<p><img alt="Maya Image" src="../images/rendering/rendering_010.png" /></p>
+<p>Render &rarr; Batch Render</p>
+<p><img alt="Maya Image" src="../images/rendering/rendering_011.png" /></p>
+<p>Now, sit back, relax and watch this great video tutorial on batch rendering.</p>
+<p><object width="780" height="454"><param name="movie" value="http://www.youtube-nocookie.com/v/9fRz63ph0h4?fs=1&amp;hl=en_US&amp;hd=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube-nocookie.com/v/9fRz63ph0h4?fs=1&amp;hl=en_US&amp;hd=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="780" height="454"></embed></object></p>
+<h2 id="extra_for_experts">Extra for Experts</h2>
+<p>In this section, you will learn how to set up an ambient occlusion layer.</p>
+<p>In the channel box under the <strong>Render</strong> tab, click on Layers &rarr; Create Empty Layer. Rename this layer to something like AO for ambient occlusion since we will be creating an ambient occlusion render layer.</p>
+<p><img alt="Maya Image" src="../images/rendering/rendering_014.png" /></p>
+<p>Select the objects in your scene that you like to render in ambient occlusion. Then right click on the AO render layer and click on <strong>Add Selected Objects</strong>.</p>
+<p><img alt="Maya Image" src="../images/rendering/rendering_015.png" /></p>
+<p>Now you need to set the attributes of this render layer in order for it to render ambient occlusion. Right click on the AO render layer and click <strong>Attributes</strong>.</p>
+<p><img alt="Maya Image" src="../images/rendering/rendering_016.png" /></p>
+<p>The <strong>Attribute Editor</strong> should appear. Click on Presets &rarr; then choose Occlusion.</p>
+<p><img alt="Maya Image" src="../images/rendering/rendering_017.png" /></p>
+<p>Congratulations you have just created a render layer! :)</p>
+
+
+      </section>
+
+      <footer>
+	<a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/88x31.png" /></a>
+      </footer>
+
+    </div>
+  </body>
+</html>

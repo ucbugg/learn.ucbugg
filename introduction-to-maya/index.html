@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>UCBUGG Open Course Ware</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <!--[if lt IE 9]>
+	<script>
+	  var e = ("abbr,article,aside,audio,canvas,datalist,details," +
+	  "figure,footer,header,hgroup,mark,menu,meter,nav,output," +
+	  "progress,section,time,video").split(',');
+	  for (var i = 0; i < e.length; i++) { document.createElement(e[i]);}
+	</script>
+    <![endif]-->
+  </head>
+  <body>
+    <div id="wrapper">
+
+      <header>
+	<img src="../images/logo.png" alt="UCBUGG" />
+      </header>
+
+      <section id="chapter">
+      
+
+<p>
+  You are here: <a href="../">Home</a> &rarr; <a href="../introduction-to-maya">Introduction to Maya</a>
+</p>
+
+<h1 id="introduction_to_maya">Introduction to Maya</h1>
+<p>Welcome to the first UCBUGG lab exercise. We will be covering the basics of Maya in the following pages.</p>
+<h2 id="configure_os_x__launch_maya">Configure OS X / Launch Maya</h2>
+<p>If you are not using a Mac Pro in the CITRUS lab, feel free to skip this section. </p>
+<h3 id="setup_the_mouse">Setup the Mouse</h3>
+<p>The contextual menu in Maya, opened via right-click, is a very important tool for the seasoned Maya user. However, the Mac Pros don't have right-click or the middle mouse button enabled by default. Open up System Preferences. Select Mouse and Keyboard. Select Mouse in the top menu. Set the right-click button to Secondary. Also change the middle mouse button from "Off" to "Button 3". You may need to change this setting twice for it to stick.</p>
+<p><img alt="Mouse Settings" src="../images/introduction-to-maya/mouse.jpg" /></p>
+<h3 id="launch_maya">Launch Maya</h3>
+<p>The simplest way to launch Maya is to click the Spotlight icon in the upper right, type "Maya", and click on the Maya menu item.</p>
+<p><img alt="Open Maya" src="../images/introduction-to-maya/intro_to_maya_openmaya.png" /></p>
+<p>If spotlight isn't working, open up Finder, select Applications in the left bar, and Navigate to <strong>Autodesk &rarr; maya2011 &rarr; Maya</strong>. </p>
+<h2 id="enable_infinite_undo">Enable Infinite Undo</h2>
+<p>When learning Maya, you're going to make mistakes (no matter how good you are). Pressing <strong>Z</strong> will undo your last move in Maya. By default, Maya only lets you undo a certain number of moves. To enable infinite undo, Select <strong>Windows &rarr; Settings/Preferences &rarr; Preferences</strong>. Select the <strong>Undo</strong> menu from the side bar and change the Queue to Infinite. </p>
+<p><img alt="Open Maya" src="../images/introduction-to-maya/undo.jpg" /></p>
+<h2 id="creating_a_maya_project">Creating a Maya Project</h2>
+<p>Even the smallest 3d animations can involve dozens of files.  Without some way of organizing them, things can quickly get messy and unmanageable.  That's why it's important to create a <strong>project</strong>.<br />
+</p>
+<p>To create a new project, navigate to <strong>File &rarr; Project &rarr; New...</strong> which will open the "New Project" dialog window.  Name your project (YourFirstName)-UCBUGG-Lab.  Before saving, fill in the "Scenes", "Images", and "Source Images" project locations with "scenes", "images", and "sourceimages" respectively. Once you've done that, <strong>save the project somewhere in your home directory</strong>. You will be using different lab machines, so make sure to save it in your home directory. If you aren't sure where your home directory is, ask a facilitator. </p>
+<p><img alt="project" src="../images/introduction-to-maya/img_002_project.png" /></p>
+<h2 id="interface">Interface</h2>
+<p>Now that you've created a project, it's time to introduce you to Maya's interface. It may look really complicated at first, but don't worry! This tutorial should give you a good overview of what everything is. </p>
+<h3 id="drop-down_menu">Drop-down menu</h3>
+<p><img alt="dropdown" src="../images/introduction-to-maya/img_001_dropdown.png" /></p>
+<p>Depending on what you're trying to do at the moment, the drop-down menu gives you access to different options based on your selections.  Try a few different options, and notice how the top bar changes based on each selection.<br />
+</p>
+<p><img alt="topbar" src="../images/introduction-to-maya/img_003_topbar.png" /></p>
+<p>Basically, everything you can do in Maya can be found in the menus in the top bar.  These menus are determined by your drop-down menu choice. </p>
+<p>Going through the top bar menus, you may notice that there are little boxes next to some of the text. <strong>These option boxes are very important</strong>. These option boxes allow you to tweak the settings on your selection.<br />
+</p>
+<p><img alt="option boxes" src="../images/introduction-to-maya/img_004_optionboxes.png" /></p>
+<h3 id="the_shelf">The Shelf</h3>
+<p><img alt="shelf" src="../images/introduction-to-maya/img_005_shelf.png" /></p>
+<p>Having to go through several menus to get to an action you often use isn't very efficient.  The shelf contains <strong>shelf icons</strong> that allow quick access to often used actions.  The only drawback to using the shelf, compared to the menu selection method, is that you do not have access to the option box.  However, for actions where the option box isn't required, using the shelf will save you valuable time.</p>
+<p>If you can't see the shelf tabs (as shown in the picture), click the small black triangle to the left of the shelf and select the <strong>Shelf Tabs</strong> option. </p>
+<h3 id="the_toolbox">The Toolbox</h3>
+<p><img alt="toolbox" src="../images/introduction-to-maya/img_006_toolbox.png" /></p>
+<p>To the left, you have your basic Tool Box for Maya. These tools are a few of the most frequently used actions in Maya.  Hovering over each icon gives you a description of what they do.  The last icon in the column will always be your <strong>last used tool</strong>.</p>
+<h2 id="creating_and_manipulating_objects">Creating and Manipulating Objects</h2>
+<h3 id="creating_an_object">Creating an Object</h3>
+<p>Now that you're familiar with the shelf and toolbox, lets actually make something.  Go to the <strong>Polygons</strong> tab in the shelf and click on the <strong>Polygon Cube</strong> icon (the second one from the left). A cube will pop up in the center of the screen. (If a cube doesn't pop up, and instead you are prompted to "Drag on the grid", then click and drag to form the base of the cube, and drag upwards for the height.)</p>
+<p><img alt="cube" src="../images/introduction-to-maya/img_007_cube.png" /></p>
+<h3 id="manipulating_an_object">Manipulating an Object</h3>
+<p>Maya would be a pretty boring program if you couldn't do anything with the objects that you create.  There are several transformations that you can apply to any object.  These transformations include <strong>move</strong>, <strong>rotate</strong>, and <strong>scale</strong>.  However, in order to transform an object, it must first be <strong>selected</strong>. </p>
+<h4 id="select_-_q">Select - Q</h4>
+<p>You can select an object by clicking it, and deselect it by clicking somewhere else.  It's useful to note that even though there is a dedicated <strong>selection tool</strong>, you don't have to be using it to select an object. Try deselecting your cube, and note that the wireframe turns from green to dark blue.  This tells you that the cube is no longer selected. The <strong>keyboard shortcut</strong> for the Select tool is <strong>Q</strong>.</p>
+<p><img alt="select tool" src="../images/introduction-to-maya/img_008_select.png" /></p>
+<h5 id="move_-_w">Move - W</h5>
+<p>In order to move an object, we need to use the <strong>move tool</strong>. You can select the move tool by either clicking the move tool icon in the toolbox, or by pressing the <strong>w</strong> key.  Once the move tool is selected, you will see that a blue, red, and green arrow gizmo has appeared on the selected object.  By clicking on the arrows, you can move the cube along the x, y, or z axes (you can see which axis is which by looking at the little diagram in the bottom-left corner of the viewport).  The yellow square in the center allows you to move the cube in any direction, but gives you less control over which axis it moves along, and usually results in unintended movement.</p>
+<p><img alt="move tool" src="../images/introduction-to-maya/img_009_move.png" /></p>
+<h4 id="rotate_-_e">Rotate - E</h4>
+<p>You can select the rotate tool from the toolbox, or by pressing the <strong>e</strong> key. Notice that the gizmo is now an outline of a sphere with green, red, blue, and yellow lines. You can rotate the cube along the x,y, or z axes by using the red, green, and blue arrows. Try rotating your cube a bit to see how the tool works.  Again, the yellow portion of the gizmo will rotate the cube around an <em>arbitrary</em> axis, and is often not what you want.</p>
+<p><img alt="rotate tool" src="../images/introduction-to-maya/img_010_rotate.png" /></p>
+<h4 id="scale_-_r">Scale - R</h4>
+<p>You can select the scale tool from the toolbox, or by pressing the <strong>r</strong> key. Notice that the gizmo turns into 4 different colored cubes.  To scale the cube in only one direction, click and drag a colored cube in that direction.  To scale in all directions, click and drag the yellow cube in the center.  Try increasing the size of your cube in 1 direction, to turn it into a rectangle. </p>
+<p><img alt="scale tool" src="../images/introduction-to-maya/img_011_scale.png" /></p>
+<h3 id="the_channel_box">The Channel Box</h3>
+<p><img alt="channelbox" src="../images/introduction-to-maya/img_012_chanelbox.png" /></p>
+<p>If you look to the right of the main viewport (the window with your cube in it), you'll see the <strong>Channel Box</strong>. If not, click the top right button to open it up.</p>
+<p>The channel box contains information about the object that you currently have selected. Select your cube, and look at what the Channel Box says about it.  Now move the cube along the x-axis using the move tool (w), and observe that the <em>Translate X</em> value in the Channel Box changes.  The Channel Box can be used to input specific translate, rotate, and scale values, as well as other information relevant to your selected object.</p>
+<h2 id="navigation_and_views">Navigation and Views</h2>
+<p>Maya would be really annoying to use if there wasn't a way to look at an object from multiple perspectives.  Luckily, you can control the camera in your viewport to change your view of the scene.</p>
+<h3 id="zoom_view">Zoom View</h3>
+<p>To manually zoom in and out on an object, just scroll up or down using the mouse wheel.  If your mouse doesn't have a scroll wheel, <strong>alt+rightclick+drag</strong> (PC), or <strong>command+rightlick+drag</strong> (OS X) will also work.</p>
+<h3 id="rotate_view">Rotate View</h3>
+<p>To rotate your view of the object (note: this is not the same as rotating the object!), hold the <strong>alt</strong> key (PC) or <strong>command</strong> key (OS X), and then <strong>click+drag</strong>. You should notice that you are now rotating around the cube.<br />
+</p>
+<h3 id="move_view">Move View</h3>
+<p>To move the view, hold <strong>alt + MMB (Middle Mouse Button) + drag</strong> in any direction. You should notice that the view moves int he direction of the drag.</p>
+<h3 id="perspective_vs_orthogonal_views">Perspective vs Orthogonal Views</h3>
+<p>Take a look at the bottom of the viewport, and you'll notice that it says "persp." Up until now, you've been doing all of your work in <strong>Perspective View</strong>. Now go to the toolbox and click the <strong>Four View</strong> view arrangement option. Your viewport should now contain four different windows, one of which is the persp window that you were using previously.  The other 3 views -- top, front, and side -- are called <strong>Orthogonal Views</strong>.  Unlike Perspective View,  an object's size does not decrease as it gets further away from the camera in Orthogonal View. Orthogonal views are very useful for reasons that will become clear later.  You can switch between your current view arrangement, and the last one that you used by pressing <strong>the space bar</strong>. </p>
+<p><img alt="four view" src="../images/introduction-to-maya/img_013_fourview.png" /></p>
+<h4 id="switching_between_the_two">Switching Between The Two</h4>
+<p>Switching between different views can be tiresome and time consuming. Maya provides a very helpful shortcut for navigating panels quickly and easily: <strong>the space bar</strong>. Open up the <strong>Four View</strong> (discussed above). With your mouse over the "Perspective" panel, tap the space bar. Maya will maximize the panel your mouse is hovering over to give you a better look at that panel. To go back to the previous layout, simply tap the space bar again.</p>
+<h2 id="display_options">Display Options</h2>
+<p>You may have noticed that your cube is just a bunch of lines.  While a <em>wireframe</em> is often useful when doing modeling, it is often not the best way to see what your model really looks like.  In order to get a better view of your cube, navigate to the <strong>Shading</strong> menu within the viewport, and select <strong>Smooth Shade All</strong>.  Notice that your wireframe cube is now a solid gray cube.  There are several other shading options in the shading menu, try a few of them to see what they do.</p>
+<p><img alt="shading menu" src="../images/introduction-to-maya/img_014_smoothshade.png" /></p>
+<h2 id="extra_for_experts">Extra for Experts</h2>
+<p>In this section, we introduce several features of maya that you won't be using for a while, so feel free to skip it if you just want to learn the basics right now.  But make sure to continue reading as there is an assignment at the end of the lab!</p>
+<h3 id="timeline">Timeline</h3>
+<p>You may have noticed the numbers going from 1-24 near the bottom of the screen.  This is called the <strong>Timeline</strong>, and is used for animating objects.  The numbers correspond to <em>frames</em>, with one frame being 1/24th of a second.</p>
+<p><img alt="timeline" src="../images/introduction-to-maya/img_015_timeline.png" /></p>
+<h3 id="script_editor">Script Editor</h3>
+<p>There is a button on the bottom-right of the Maya window that looks like a window with two rectangles in it.  This button will open the <strong>Script Editor</strong>.  The Script Editor allows you to write code in either Python or Maya Embedded Language (MEL).  If you're technically inclined, you can do some really cool things using scripts. For the purposes of this class, knowing MEL or Python definitely isn't necessary, but the option is there if you're interested.</p>
+<p><img alt="script editor" src="../images/introduction-to-maya/img_016_scripteditor.png" /></p>
+<h3 id="settings">Settings</h3>
+<p>You can open the settings window by navigating to <strong>Window &rarr; Settings/Preferences &rarr; Preferences</strong>. Here, you can change various settings related to Maya's interface and display.  There are far too many to list here, so ask a facilitator if you have any questions.</p>
+<p><img alt="settings" src="../images/introduction-to-maya/img_017_settings.png" /></p>
+<h2 id="domo_arigato_mr_roboto_-_your_first_piece_of_art">Domo Arigato, Mr. Roboto - Your first Piece of Art</h2>
+<h3 id="creating_a_simple_robot">Creating a Simple Robot</h3>
+<p>In this assignment, you're going to have to create a robot using primitive polygons. You may use any modification tool you like. I'll show you how to make a quick robot with the tools explained in this tutorial.</p>
+<p>First, I go to my <strong>Polygons</strong> shelf and click the <strong>Cube</strong> icon to create my head. After focusing my view and setting my shading options, I'm going to use the move tool (W) and position my head in the <em>front</em> view. To be precise, you could type in a numerical value in the Translate Y field in the channel box to achieve the same effect.</p>
+<p>Next, I'm going to create another cube, scale it, and move it underneath my head (all this is done by switching between the FRONT and SIDE view). To see where the objects are relative to each other, use the persp view and rotate around your selection. </p>
+<p><img alt="robot" src="../images/introduction-to-maya/img_018_robot1.png" /></p>
+<h3 id="quick_aside_the_outliner">Quick Aside: The Outliner</h3>
+<p>Navigate to <strong>Window &rarr; Outliner</strong>. This will open up a window called the <strong>Outliner</strong>.  You'll notice that there are several items in the list such as persp, top front, side, pCube1, and pCube2. If you click on pCube1, you'll notice that this is the cube you're using for the head of your robot.  Advanced models can have hundreds or even thousands of polygons, and if they were all named like this, modeling would be very confusing.  Double-click each of your cubes and rename them to head and torso.  As you build the rest of your robot, make an effort to rename each object to something more descriptive than pCube or pSphere.</p>
+<h3 id="and_now_back_to_our_robot">And Now Back to our Robot</h3>
+<p>Next, I create a cylinder, rotate it about 90 degrees (using the channel box, move it up, and duplicate it (using <strong>&#x2318; - D</strong>) and move the duplicate to the other side.</p>
+<p><img alt="robot" src="../images/introduction-to-maya/img_019_robot2.png" /></p>
+<p>Next, I create a <strong>Sphere</strong>, scale it, and move it to the end of the right (your right, not the robot's) cylinder. I then duplicate it and move the duplicate to the other side. </p>
+<p>I then create a <strong>Polygon Pipe</strong>, scale it, and move it between the head and the torso.  To zoom in on an area, you can hold alt + ctrl + drag a box around the area and the window should zoom in accordingly.</p>
+<p><img alt="robot" src="../images/introduction-to-maya/img_020_robot3.png" /></p>
+<p>Next, I create another cylinder, scale it, move it under the torso and rotate it a bit. I then duplicate it and move the duplicate to the other side.</p>
+<p><img alt="robot" src="../images/introduction-to-maya/img_021_robot4.png" /></p>
+<p>And there you have it, a simple robot! Of course, this is the barest of bare a robot can get. Add your own creativity and style to your robot. It doesn't necessarily have to be a biped. It could be a quadruped or whatever you desire. As long as you use only primitive objects, and the move, rotate, and scale tool, the sky's the limit.</p>
+<h3 id="mini_project_part_1">Mini Project Part 1</h3>
+<p>Your robot ties into <a href="../
+mini-project-1">Part 1 of the Mini-Project</a>. Check out the assignment the due date and submission instructions.</p>
+
+
+      </section>
+
+      <footer>
+	<a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/88x31.png" /></a>
+      </footer>
+
+    </div>
+  </body>
+</html>
