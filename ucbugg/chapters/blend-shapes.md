@@ -1,5 +1,5 @@
 # Blend Shapes in Maya
-
+# LARGE OBVIOUS CHANGE 
 Today we are going to be rigging a face. Before getring started, download the [face model](/ma/faces.ma) to the `scenes` directory in your current Maya project.
 
 ## What the Heck are Blend Shapes?
