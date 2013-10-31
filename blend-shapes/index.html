@@ -1,37 +1,32 @@
-
 <!DOCTYPE html>
-<!-- test -->
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <title>UCBUGG Open Course Ware</title>
     <link rel="stylesheet" type="text/css" href="../css/style.css?dte=016" />
     <!--[if lt IE 9]>
-	<script>
-	  var e = ("abbr,article,aside,audio,canvas,datalist,details," +
-	  "figure,footer,header,hgroup,mark,menu,meter,nav,output," +
-	  "progress,section,time,video").split(',');
-	  for (var i = 0; i < e.length; i++) { document.createElement(e[i]);}
-	</script>
+        <script>
+          var e = ("abbr,article,aside,audio,canvas,datalist,details," +
+          "figure,footer,header,hgroup,mark,menu,meter,nav,output," +
+          "progress,section,time,video").split(',');
+          for (var i = 0; i < e.length; i++) { document.createElement(e[i]);}
+        </script>
     <![endif]-->
   </head>
   <body>
     <div id="wrapper">
 
       <header>
-	<img src="../images/logo.png?dte=016" alt="UCBUGG" />
+        <img src="../images/logo.png?dte=016" alt="UCBUGG" />
       </header>
 
       <section id="chapter">
       
 
 <p>
-  you are here: <a href="../">Home</a> &rarr; <a href="../blend-shapes">Blend Shapes</a>
+  You are here: <a href="../">Home</a> &rarr; <a href="../blend-shapes">Blend Shapes</a>
 </p>
 
-<h1>LARGE OBVIOUS CHANGE</h1>
-<h2>Monica was here.</h2>
-<h2>Ben was also here :O</h2>
 <h1 id="blend_shapes_in_maya">Blend Shapes in Maya</h1>
 <p>Today we are going to be rigging a face. Before getring started, download the <a href="../ma/faces.ma">face model</a> to the <code>scenes</code> directory in your current Maya project.</p>
 <h2 id="what_the_heck_are_blend_shapes">What the Heck are Blend Shapes?</h2>
@@ -43,9 +38,9 @@
 <p>The right side of the face smiling</p>
 <p><img alt="Sample Expression" src="../images/blend-shapes/sample_expression.jpg" /></p>
 <p>To creat your blend shape, first select all the expression models (except the centeral, neutral expression). Make sure to <strong>select the neutral expression last</strong>. If this model isn't selected last, the blend shape won't work correctly. </p>
-<p>With the models selected select <strong>Window &rarr; Animation Editors &rarr; Blend Shape</strong>. The following window should pop up on your display.</p>
+<p>With the models selected, make sure you are under animation tab. Select <strong>Create Deformers&rarr; Blend Shape &rarr; Option box</strong>. The following window should pop up on your display. In advance tab, check <strong> front of chain</strong> as deformation order. Then click create.</p>
 <p><img alt="Blend Shape Window" src="../images/blend-shapes/blend_shape_window.jpg" /></p>
-<p>Select <strong>Edit &rarr; Create BlendShape</strong>. The window will populate with a number of sliders.</p>
+    <p>Select <strong>Window &rarr; Animation Editors &rarr; Blend Shape</strong>. This window is the controller of the blend shape that you just created.</p>
 <p><img alt="So Many Sliders" src="../images/blend-shapes/blend_shape_sliders.jpg" /></p>
 <p>Center the screen on the middle face model (Select the model and press F). Play around with the newly-created sliders, sliding them up and down and back again. The face model should respond accordingly, closing its eyes, lowering its brow, and changing its mouth. Each slider controls the amount of blending between the base model and the targeted model. These sliders can be animated, a topic which will be covered later in the course.</p>
 <p>Try to get your face model to match mine</p>
@@ -56,9 +51,10 @@
       </section>
 
       <footer>
-	<a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/88x31.png" /></a>
+        <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/88x31.png" /></a>
       </footer>
 
     </div>
   </body>
 </html>
+
