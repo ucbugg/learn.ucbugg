@@ -92,7 +92,7 @@ If you want to undo an extrude, you must press undo twice.
 <p>Okay, now select and <strong>extrude the faces on the back part of the toilet back further</strong>.<br />
 </p>
 <p><img alt="Maya Image" src="../images/basic-modeling/toilet_018.png" /> </p>
-<p><strong>Flatten out the back</strong> using the scale tool to scale down along z (a nifty trick for flattening things).<br />
+<p><strong>Flatten out the back</strong> using the scale tool to scale down along z (a nifty trick for flattening things).  <strong>Hold downj</strong> before scaling and it will help flatten the surface quickly. <br />
 </p>
 <p><img alt="Maya Image" src="../images/basic-modeling/toilet_019.png" /> </p>
 <p><strong>Extrude back once more and then tweak the shape</strong> to be however you want the back of your toilet to look.<br />
@@ -105,11 +105,16 @@ If you want to undo an extrude, you must press undo twice.
 <p>Now <strong>tweak the shape of the tank</strong>. Remember, putting edge loops close together will create a sharper corner on the smoothed mesh.<br />
 </p>
 <p><img alt="Maya Image" src="../images/basic-modeling/toilet_022.png" /> </p>
-<p>The tank needs a lid. So, instead of creating a new cube and trying to get it to look like the current tank shape, we should just start with a duplicate of the current tank.   Unfortunately, maya doesn't seem to allow duplicating faces, so we'll have to <strong>duplicate the entire tank object</strong>: Select the tank and go to <strong>Edit &rarr; Duplicate</strong><br />
+<p>The tank needs a lid. So, instead of creating a new cube and trying to get it to look like the current tank shape, we can just duplicate the top face of the tank.</p>
+
+<p>Select only the top face of tank and go to <strong>Edit Mesh &rarr; Duplicate Face</strong>. Move the new face upwards and away from the original tank.</p> 
+
+<!-- OLDER VERSION REMOVING... should just start with a duplicate of the current tank.   Unfortunately, maya doesn't seem to allow duplicating faces, so we'll have to <strong>duplicate the entire tank object</strong>: Select the tank and go to <strong>Edit &rarr; Duplicate</strong><br />
 </p>
 <p><img alt="Maya Image" src="../images/basic-modeling/toilet_023.png" /></p>
 <p>Then go into face mode on the duplicate and <strong>delete all the faces except the faces on the top</strong>.<br />
-</p>
+</p> -->
+
 <p><img alt="Maya Image" src="../images/basic-modeling/toilet_024.png" /> </p>
 <p>Select those faces and <strong>extrude the faces downwards</strong> to make the tank's lid shape.<br />
 </p>
