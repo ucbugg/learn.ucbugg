@@ -2,6 +2,8 @@
 
 <div class="note tip">Make sure to set the menu context to 'Polygons' ...or you might get very confused.</div>
 
+BAH
+
 ## The Bowl
 First, let's make sure that **interactive creation** is turned off. From the menu at the top, go to **Create &rarr; Polygon Primitives**. Click the **Interactive Creation** entry on the menu to uncheck the box (if it is not already unchecked somehow). Now go ahead and create a cylinder: **Create &rarr; Polygon Primitives &rarr; Cylinder.** 
 
