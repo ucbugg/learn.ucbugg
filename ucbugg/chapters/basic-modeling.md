@@ -5,8 +5,6 @@
 ## The Bowl
 First, let's make sure that **interactive creation** is turned off. From the menu at the top, go to **Create &rarr; Polygon Primitives**. Click the **Interactive Creation** entry on the menu to uncheck the box (if it is not already unchecked somehow). Now go ahead and create a cylinder: **Create &rarr; Polygon Primitives &rarr; Cylinder.** 
 
-SIDD DO YOU SEE THIS???
-
 ![Maya Image](/images/basic-modeling/toilet_001.png)
 
 Before we go any further. Let's get in the good habit of naming our objects. If you go open your outliner under **Window->Outliner**, you will see pCylinder1. If you double click the text pCylinder1, you can rename it. Let's name it bowl.
