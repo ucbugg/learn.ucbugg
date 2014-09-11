@@ -105,17 +105,17 @@ The best way to check if you have already extruded a piece of geometry is to sel
 <p><img alt="Maya Image" src="../images/basic-modeling/toilet_018.png"> </p>
 <p><strong>Flatten out the back</strong> using the scale tool to scale down along z (a nifty trick for flattening things).  <strong>Hold down j</strong> before scaling and it will help flatten the surface quickly. <br>
 </p>
-<p><img alt="Maya Image" src="../images/toilet_019.png"> </p>
+<p><img alt="Maya Image" src="../images/basic-modeling/toilet_019.png"> </p>
 <p><strong>Extrude back once more and then tweak the shape</strong> to be however you want the back of your toilet to look.<br>
 </p>
-<p><img alt="Maya Image" src="../images/toilet_020.png"> </p>
+<p><img alt="Maya Image" src="../images/basic-modeling/toilet_020.png"> </p>
 <h2 id="the_tank">The Tank</h2>
 <p>Our next step is to make the tank on the back. We'll start with a cube:   <strong>Create another cube and put it into position</strong>. Then in the channel box again under <strong>polyCube#</strong>, <strong>change the subdivisions all to 3</strong>.   This gives us enough subdivisions to have sharper corners (if we smooth now, it will be too round).<br>
 </p>
-<p><img alt="Maya Image" src="../images/toilet_021.png"> </p>
+<p><img alt="Maya Image" src="../images/basic-modeling/toilet_021.png"> </p>
 <p>Now <strong>tweak the shape of the tank</strong>. Remember, putting edge loops close together will create a sharper corner on the smoothed mesh.<br>
 </p>
-<p><img alt="Maya Image" src="../images/toilet_022.png"> </p>
+<p><img alt="Maya Image" src="../images/basic-modeling/toilet_022.png"> </p>
 <p>The tank needs a lid. So, instead of creating a new cube and trying to get it to look like the current tank shape, we can just duplicate the top face of the tank.</p>
 
 <p>Select only the top face of tank and go to <strong>Edit Mesh &rarr; Duplicate Face</strong>. The new object is now highlighted in green. Like Extrude, Duplicate Face uses a weird manipulator, so switch to the Move tool again and left click on the new object to select it. Move it up a bit, then switch back into Face mode and scale it to make it sit nicely on top of the original tank.</p> 
@@ -126,63 +126,63 @@ The best way to check if you have already extruded a piece of geometry is to sel
 <p>Then go into face mode on the duplicate and <strong>delete all the faces except the faces on the top</strong>.<br />
 </p> -->
 
-<p><img alt="Maya Image" src="../images/toilet_024.png"> </p>
+<p><img alt="Maya Image" src="../images/basic-modeling/toilet_024.png"> </p>
 <p>Select those faces and <strong>extrude the faces downwards</strong> to make the tank's lid shape.<br>
 </p>
-<p><img alt="Maya Image" src="../images/toilet_025.png"> </p>
+<p><img alt="Maya Image" src="../images/basic-modeling/toilet_025.png"> </p>
 <p>To make it fit over the tank, <strong>scale the lid up a little.</strong> Also, <strong>sharpen the top and bottom of the lid a little</strong> by adding some more loops.<br>
 </p>
-<p><img alt="Maya Image" src="../images/toilet_026.png"> </p>
+<p><img alt="Maya Image" src="../images/basic-modeling/toilet_026.png"> </p>
 <h2 id="seat_and_lid">Seat and Lid</h2>
 <p>Onto the toilet seat and lid! We'll use the same duplicate faces trick to <strong>duplicate the top faces of the bowl's shape</strong>.  Once those faces are seperated, we can then duplicate the new object by going into object mode, then going up to Edit --> Duplicate or simply by hitting Cmd-D. Go ahead and name the lower object <strong>seat</strong> and the top object <strong>lid</strong> on the outliner.</p>
-<p><img alt="Maya Image" src="../images/toilet_027.gif"> </p>
+<p><img alt="Maya Image" src="../images/basic-modeling/toilet_027.gif"> </p>
 <div class="note tip">
 I hid the second duplicate temporarily to work on the seat (that's up to you).   You can hide something by selecting it and going to <strong>Display &rarr; Hide &rarr; Hide Selection</strong> or <strong>Ctrl+h</strong>. To reveal it later, find it in the outliner (hidden items are usually a bluish color). Left click on it and go to <strong>Display &rarr; Show &rarr; Show Selection</strong> or hit <strong>Shift+h</strong>
 </div>
 
 <p>To finish up the seat, <strong>scale the inner loop more inwards and then extrude the whole shape downwards. Add a loop near the bottom for a sharper edge.</strong>   Then <strong>Add some loops on the top and move them up to get a rounder shaped top</strong> (more comfy for your butt). Then <strong>tweak to your liking</strong> (maybe scale it up so it slightly overhangs the bowl or something).<br>
 </p>
-<p><img alt="Maya Image" src="../images/toilet_028.png"> </p>
+<p><img alt="Maya Image" src="../images/basic-modeling/toilet_028.png"> </p>
 <p>Now, select the lid (unhide it if its hidden) and enter edge mode. Then <strong>select the inner edge-loop and shrink it inward</strong> a bit. A toilet lid usually doesn't have a big hole in the middle, so we need to fill that hole. <strong>Fill the hole</strong> by selecting one of those inner edges and going to <strong>Mesh &rarr; Fill Hole</strong><br>
 </p>
-<p><img alt="Maya Image" src="../images/toilet_029.png"> <br>
+<p><img alt="Maya Image" src="../images/basic-modeling/toilet_029.png"> <br>
 </p>
 <p>Your <strong>lid</strong> object should now look something like this:
 </p>
-<p><img alt="Maya Image" src="../images/toilet_043.png"> <br>
+<p><img alt="Maya Image" src="../images/basic-modeling/toilet_043.png"> <br>
 <p>You'll notice that it has filled the hole with a 10-sided face. Usually we avoid faces with this many sides because smoothing a face like this behaves unpredictably. So, let's <strong>turn that face into 4 quads</strong>.(Quads meaning quadrilaterals.) We'll use the Interactive Split tool for this <strong>Edit Mesh &rarr; Interactive Split Tool</strong>:<br>
 </p>
-<p><img alt="Maya Image" src="../images/toilet_030.png"></p>
+<p><img alt="Maya Image" src="../images/basic-modeling/toilet_030.png"></p>
 <p>This tool is a little weird; here's how it works: First, left click on a vertex to start a new edge, then mouse over to the opposing vertex and left click again. You can then right-click to complete that edge. You can then left click on the next vertex, and do the same thing. Once you have create 3 new edges, hit enter on your keyboard to complete the action and exit the tool.<br>
 </p>
-<p><img alt="Maya Image" src="../images/interactive_split_tool.gif"></p>
+<p><img alt="Maya Image" src="../images/basic-modeling/interactive_split_tool.gif"></p>
 <p>Do the same things we did to make the seat and <strong>tweak it until it looks right</strong>.<br>
 </p>
-<p><img alt="Maya Image" src="../images/toilet_034.png"> </p>
+<p><img alt="Maya Image" src="../images/basic-modeling/toilet_034.png"> </p>
 <p>Now we have a very basic toilet-looking object (without a flusher or hinges or bowl internals or a base). It is still in separate pieces. Once you are done and plan on using the toilet as an asset (no pun intended), it is recommended to combine them into one mesh or to group all the pieces.   You can combine mesh pieces by selecting them and going to <strong>Mesh &rarr; Combine</strong>.   You can group the pieces by selecting them and going to <strong>Edit &rarr; Group</strong>.<br>
 </p>
-<p><img alt="Maya Image" src="../images/toilet_035.png"> </p>
+<p><img alt="Maya Image" src="../images/basic-modeling/toilet_035.png"> </p>
 <h2 id="extra_for_experts">Extra for Experts</h2>
 <p>Now you have a grey model. It is bland and boring and needs a spice of color. Here is a quick tutorial for coloring your models.</p>
 <p>Select your completed toilet. Hold <strong>right click</strong> and select <strong>Assign New Material</strong>.</p>
-<p><img alt="Maya Image" src="../images/toilet_036.png"> </p>
+<p><img alt="Maya Image" src="../images/basic-modeling/toilet_036.png"> </p>
 <p>A window listing different materials should pop up. As you can see from this list, there are many different materials that can be assigned to your objects. We will go over two basic ones for now <strong>Lambert</strong> and <strong>Phong</strong>. More details will be provided in the Shading lab.</p>
-<p><img alt="Maya Image" src="../images/toilet_037.png"> </p>
+<p><img alt="Maya Image" src="../images/basic-modeling/toilet_037.png"> </p>
 <h3 id="lambert">Lambert</h3>
 <p>The lambert material type is used to simulate flat, dull materials like plastic or clay.</p>
 <h3 id="phong">Phong</h3>
 <p>The phong material type is used to simulate any sort of glossy surface because it is "shiny." Examples are metallic objects, or shinier plastics.</p>
 <p>Now that you know a little about lamberts and phongs. In the <strong>Assign New Material</strong> window click on either lambert or phong. The <strong>Attribute Editor</strong> should then appear. It is good practice to name your shaders and that can be done in the attribute editor. </p>
-<p><img alt="Maya Image" src="../images/toilet_038.png"> </p>
+<p><img alt="Maya Image" src="../images/basic-modeling/toilet_038.png"> </p>
 <p>To change the color of this shader, click on <strong>Color</strong> in the <strong>Attribute Editor</strong>. A color palette will appear, from there select the color that you want.</p>
-<p><img alt="Maya Image" src="../images/toilet_039.png"> </p>
+<p><img alt="Maya Image" src="../images/basic-modeling/toilet_039.png"> </p>
 <p>Your toilet should now be in color! The toilet below is assigned to a red lambert. </p>
-<p><img alt="Maya Image" src="../images/toilet_040.png"> </p>
+<p><img alt="Maya Image" src="../images/basic-modeling/toilet_040.png"> </p>
 <p>If you chose lambert and decided phong would be a better shader for your toilet or vice versa, you can change the material type by clicking <strong>Type</strong> in the <strong>Attribute Editor</strong>. A drop down list should appear.</p>
-<p><img alt="Maya Image" src="../images/toilet_041.png"> </p>
+<p><img alt="Maya Image" src="../images/basic-modeling/toilet_041.png"> </p>
 <p>And if you chose to color your toilet red instead of blue, we forgive you. Remember you can change the color by selecting <strong>Color</strong> in the <strong>Attribute Editor</strong>.</p>
 <p>The toilet is now assigned to a blue phong material. Much better!</p>
-<p><img alt="Maya Image" src="../images/toilet_042.png"> </p>
+<p><img alt="Maya Image" src="../images/basic-modeling/toilet_042.png"> </p>
 <p>Go ahead and have fun putting color into your world!</p>
 <h2 id="once_youre_done_proceed_to_mini_project_2httplearnucbuggcommini-project-2_which_is_due_next_week">Once you're done, proceed to <a href="../mini-project-2">Mini Project 2</a> which is due next week.</h2>
 
