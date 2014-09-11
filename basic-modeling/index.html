@@ -60,7 +60,7 @@ By selecting the edges on both sides of the bowl and using the scale tool, we we
 If you want to undo an extrude, you must press undo twice.
 </div>
 
-<p><img alt="Maya Image" src="../images/toilet_006.png"><br>
+<p><img alt="Maya Image" src="../images/basic-modeling/toilet_006.png"><br>
 </p>
 <p>This will give you a weird manipulator. This manipulator doesn't always behave in an intuitive way so many people switch immediately to another tool (in this case, use the move tool <strong><em>*w*</em></strong>). Then move the automatically selected edges down. </p>
 <div class="note tip">
@@ -71,38 +71,38 @@ Always make sure to move whatever you are extruding; if you extrude edges or fac
 The best way to check if you have already extruded a piece of geometry is to select the relevant faces or edges, and use the move tool to shift them aside temporarily in order to "peek" behind them. If you move a face/edge and there's an identical one right where the one you moved was, you already extruded that region. The best solution is usually to press undo, but that only really works if you extruded recently. Otherwise, you'll have to go through the model and delete the extra faces yourself -- if this happens to you during the lab, be sure to ask a facilitator for help!</p>
 </div>
 
-<p><img alt="Maya Image" src="../images/toilet_007.gif"> </p>
+<p><img alt="Maya Image" src="../images/basic-modeling/toilet_007.gif"> </p>
 <p>Go into vertex-mode and <strong>tweak the bottom points to get a more rectangular base</strong> that many toilets tend to have.<br>
 </p>
-<p><img alt="Maya Image" src="../images/toilet_008.png"> </p>
+<p><img alt="Maya Image" src="../images/basic-modeling/toilet_008.png"> </p>
 <p>In edge mode, do the double-click-select-edge-ring thing again, <strong>extrude the bottom edge down, and then tweak the verts on that ring.</strong><br>
 </p>
-<p><img alt="Maya Image" src="../images/toilet_009.png"> </p>
+<p><img alt="Maya Image" src="../images/basic-modeling/toilet_009.png"> </p>
 <p>Next we want to give it some bowl shape. This means we must <strong>add another edge-loop in the middle of the tapering portion</strong>. So with our mesh in edge mode, go to  <strong>Edit Mesh &rarr; Insert Edge Loop Tool</strong><br>
 </p>
-<p><img alt="Maya Image" src="../images/toilet_010.png"> </p>
+<p><img alt="Maya Image" src="../images/basic-modeling/toilet_010.png"> </p>
 <p>Pick one of the vertical edges on the bowl and left mouse drag. When you let go, the loop should get added. Since that loop is already selected, you can just scale those edges out to get a more bowl-ish shape.<br>
 </p>
-<p><img alt="Maya Image" src="../images/toilet_011.png"> </p>
+<p><img alt="Maya Image" src="../images/basic-modeling/toilet_011.png"> </p>
 <p>Then we'll want to <strong>add another loop to be the bottom of the bowl</strong> (where the bowl meets the rectangular part of the toilet).   <strong>Adjust the new loop to be more-or-less flat with the base.</strong><br>
 </p>
 <p>As the last touch on refining the shape of the toilet, go into Face mode and grab the bottom portion and pull it back a bit.
-<p><img alt="Maya Image" src="../images/toilet_012.png"> </p>
+<p><img alt="Maya Image" src="../images/basic-modeling/toilet_012.png"> </p>
 <p>At the top now, let's <strong>give the lip some thickness</strong>.   Select the lip and extrude, switch to scale tool and scale in. Then extrude again, switch to move tool, and move down.<br>
 </p>
-<p><img alt="Maya Image" src="../images/toilet_013.png"> </p>
+<p><img alt="Maya Image" src="../images/basic-modeling/toilet_013.png"> </p>
 <p>So far, we've had a very sharp/polygonized, cg-looking toilet. Usually they are smooth. Maya has a smooth-preview feature that will show you a catmull-clark subdivided version of the mesh. This means it'll be much smoother.   Hit <strong><em>*3</em></strong><em> to switch into smooth-preview mode. Hit <strong><em>*2</em></strong></em> to switch into smooth-preview with non-smooth cage. Hit <strong><em>*1</em></strong>* to switch back out of smooth-preview.<br>
 </p>
-<p><img alt="Maya Image" src="../images/toilet_014.png"> </p>
+<p><img alt="Maya Image" src="../images/basic-modeling/toilet_014.png"> </p>
 <p>You'll notice that our smooth-preview removes some of the desired sharper corners. The technique to fixing this involves inserting edge loops close to where you want sharp edges. Whenever two loops are close together, they make a sharper corner.   Let's <strong>add edge loops to sharpen corners</strong> near the top of the bowl, near the top inside the bowl, and near the bottom of the bowl.   This should give us a fairly smooth bowl with sharper corners when smoothed.<br>
 </p>
-<p><img alt="Maya Image" src="../images/toilet_015.png"> </p>
+<p><img alt="Maya Image" src="../images/basic-modeling/toilet_015.png"> </p>
 <p>Now we are going to add the rear portion of the toilet. This requires extruding faces, rather than edges as we did before. Go to Edit Mesh -> Extrude, and once again make sure that <Strong>Keep Faces Together</Strong> is checked.</p></p><br>
 </p>
-<p><img alt="Maya Image" src="../images/toilet_017.png"> </p>
+<p><img alt="Maya Image" src="../images/basic-modeling/toilet_017.png"> </p>
 <p>Okay, now select and <strong>extrude the faces on the back part of the toilet back further</strong>.<br>
 </p>
-<p><img alt="Maya Image" src="../images/toilet_018.png"> </p>
+<p><img alt="Maya Image" src="../images/basic-modeling/toilet_018.png"> </p>
 <p><strong>Flatten out the back</strong> using the scale tool to scale down along z (a nifty trick for flattening things).  <strong>Hold down j</strong> before scaling and it will help flatten the surface quickly. <br>
 </p>
 <p><img alt="Maya Image" src="../images/toilet_019.png"> </p>
